@@ -553,7 +553,7 @@ body[data-layout-mode=dark] .choices__list::-webkit-scrollbar-track {
 .dropdown-toggle::after {
     border: 0;
     left: auto;
-    content: "󰅀";
+    content: "";
     font-family: "Material Design Icons";
     top: 0px;
     vertical-align: 0px;

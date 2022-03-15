@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Artlink - NFT Marketplace Template</title>
+    <title>NFT Marketplace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" ">
     <meta name="keywords" content="">
@@ -12,8 +12,9 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
 
+
     <!-- Material Icon Css -->
-    <link rel="stylesheet" href="static/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
 
     <!-- Unicon Css -->
     <link rel="stylesheet" href="static/css/line.css">
@@ -28,20 +29,11 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
-
-    <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-end">
-        <i class="uil uil-brightness mode-dark mx-auto"></i>
-        <i class="uil uil-moon bx-spin mode-light"></i>
-    </a>
-
-
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
         <div class="container-fluid custom-container">
-            <a class="navbar-brand logo f-30 text-dark fw-bold" href="index.html">
+            <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
                 <img src="static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
-                <img src="static/picture/logo-light.png" class="logo-light" alt="" height="40">
             </a>
             <div>
                 <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
@@ -60,116 +52,61 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="collection.html" class="nav-link">收藏品</a>
+                        <a href="collection.html" class="nav-link">藏品</a>
                     </li>
+
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="pagedropdown" role="button"
                             data-bs-toggle="dropdown">
-                            Pages
+                            分类
                         </a>
-
                         <div class="dropdown-menu dropmenu-width dropdown-menu-center">
                             <div class="row">
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="activity.html"><i
-                                                class="mdi mdi-chart-line f-20 me-2 align-middle"></i>Activity</a></li>
 
                                     <li><a class="dropdown-item" href="item-details.html"><i
-                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>Item
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="post-detail.html"><i
-                                                class="mdi mdi-image-filter-center-focus-weak f-20 me-2 align-middle"></i>Post
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="newsletter.html"><i
-                                                class="mdi mdi-email-open-outline f-20 me-2 align-middle"></i>Newsletter</a>
+                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>商品详情</a>
                                     </li>
+
                                     <li><a class="dropdown-item" href="creatore.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Creatore</a>
+                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>创作者</a>
                                     </li>
                                     <li><a class="dropdown-item" href="login.html"><i
-                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>Login</a>
+                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>登录</a>
                                     </li>
-
-                                    <li><a class="dropdown-item" href="register.html"><i
-                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Register</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="privacy.html"><i
-                                                class="mdi mdi-lock-open-outline f-20 me-2 align-middle"></i>Privacy</a>
-                                    </li>
-
                                 </ul>
 
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href=""><i
-                                                class="mdi mdi-wallet-travel f-20 me-2 align-middle"></i>Connect
-                                            Wallet</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="faq.html"><i
-                                                class="mdi mdi-comment-question-outline f-20 me-2 align-middle"></i>Faq</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="submit-request.html"><i
-                                                class="mdi mdi-check-circle-outline f-20 me-2 align-middle"></i>submit
-                                            Reqeust</a></li>
-
-                                    <li><a class="dropdown-item" href="chat.html"><i
-                                                class="mdi mdi-message-text-outline f-20 me-2 align-middle"></i>Chat</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="artical.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Artical</a>
-                                    </li>
-
                                     <li><a class="dropdown-item" href="ranking.html"><i
-                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>Ranking</a>
+                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>排名</a>
                                     </li>
 
+                                    <li><a class="dropdown-item" href="register.html"><i
+                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>注册</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="404.html"><i
                                                 class="mdi mdi-alert-outline f-20 me-2 align-middle"></i>404</a></li>
 
                                 </ul>
                             </div>
                         </div>
-
-                    </li>
-                    <!--end dropdown-->
-
-
-                    <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link dropdown-toggle" href="index.html" id="homedrop" role="button"
-                            data-bs-toggle="dropdown">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="homedrop">
-                            <li><a class="dropdown-item" href="profile.html"><i
-                                        class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Profile</a></li>
-                            <li><a class="dropdown-item" href="edit-profile.html"><i
-                                        class="mdi mdi-account-edit f-20 me-2 align-middle"></i>Edit profile</a></li>
-                        </ul>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a href="blog.html" class="nav-link">Blog</a>
                     </li>
                     <!--end dropdown-->
 
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="swap.html" class="nav-link">交换</a>
                     </li>
                     <!--end dropdown-->
                 </ul>
                 <!--end navbar-nav-->
-                <a href="" class="btn btn-primary">Connect to Wallet</a>
-
+                <a href="wallet.html" class="btn btn-primary">连接钱包</a>
             </div>
 
         </div>
         <!--end container-->
     </nav>
     <!-- Navbar End -->
+
 
 
     <!-- start section -->
@@ -181,9 +118,9 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb default mb-0">
                             <li class="breadcrumb-item">
-                                <a href="index.html" class="text-muted">Home</a>
+                                <a href="index.html" class="text-muted">主页</a>
                             </li>
-                            <li class="breadcrumb-item active text-primary" aria-current="page">Wallet</li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">钱包</li>
                         </ol>
                     </nav>
                 </div>
@@ -194,9 +131,7 @@
                 <div class="col-lg-8">
                     <div class="inner-heading text-center">
                         <div class="mt-4">
-                            <h1 class="fw-bold">Connect your wallet</h1>
-                            <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Necessitatibus aut odio dolores.</p>
+                            <h1 class="fw-bold">连接你的钱包</h1>
                         </div>
                     </div>
 
@@ -214,9 +149,8 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/12.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Metamask</h6>
-                        <p class="mb-0 text-muted ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.</p>
+                        <h6 class="fw-bold mt-3">以太坊钱包</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -224,9 +158,8 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/22.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Coibase</h6>
-                        <p class="mb-0 text-muted ">Dolore officia sint incididunt non excepteur ea mollit commodo ut
-                            enim reprehenderit.</p>
+                        <h6 class="fw-bold mt-3">格式</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -234,9 +167,8 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/32.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Fortmatic</h6>
-                        <p class="mb-0 text-muted ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.</p>
+                        <h6 class="fw-bold mt-3">格式</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-3">
@@ -244,9 +176,8 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/42.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Fortmatic</h6>
-                        <p class="mb-0 text-muted ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.</p>
+                        <h6 class="fw-bold mt-3">格式</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-3">
@@ -254,9 +185,8 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/51.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Fortmatic</h6>
-                        <p class="mb-0 text-muted ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.</p>
+                        <h6 class="fw-bold mt-3">格式</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 mt-4">
@@ -264,23 +194,22 @@
                         <a href="" class=" wallet-icon">
                             <img src="static/picture/61.png" alt="" class="img-fluid">
                         </a>
-                        <h6 class="fw-bold mt-3">Fortmatic</h6>
-                        <p class="mb-0 text-muted ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                            accusantium doloremque.</p>
+                        <h6 class="fw-bold mt-3">格式</h6>
+                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
                     </div>
                 </div>
 
             </div>
 
             <div class="text-center mt-4">
-                <button class="btn btn-white d-inline text-dark shadow">Read More</button>
+                <button class="btn btn-white d-inline text-dark shadow">阅读更多</button>
             </div>
         </div>
         <!-- end container -->
     </section>
 
 
- 
+
     <!-- start footer -->
     <section class="footer">
         <div class="container">

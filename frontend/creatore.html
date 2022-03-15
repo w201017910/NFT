@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Artlink - NFT Marketplace Template</title>
+    <title>NFT Marketplace</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" ">
     <meta name="keywords" content="">
@@ -12,8 +12,9 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
 
+
     <!-- Material Icon Css -->
-    <link rel="stylesheet" href="static/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
 
     <!-- Unicon Css -->
     <link rel="stylesheet" href="static/css/line.css">
@@ -28,12 +29,6 @@
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
-
-    <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-end">
-        <i class="uil uil-brightness mode-dark mx-auto"></i>
-        <i class="uil uil-moon bx-spin mode-light"></i>
-    </a>
 
 
     <!--Navbar Start-->
@@ -54,122 +49,64 @@
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="index.html" id="homedrop" role="button"
                             data-bs-toggle="dropdown">
-                            Home
+                            主页
                         </a>
 
 
                     </li>
 
                     <li class="nav-item">
-                        <a href="index-2.html" class="nav-link">Marketplace</a>
+                        <a href="index-2.html" class="nav-link">市场</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="collection.html" class="nav-link">Collection</a>
+                        <a href="collection.html" class="nav-link">藏品</a>
                     </li>
                     <!--end dropdown-->
 
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="pagedropdown" role="button"
                             data-bs-toggle="dropdown">
-                            Pages
+                            页面
                         </a>
-
                         <div class="dropdown-menu dropmenu-width dropdown-menu-center">
                             <div class="row">
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="activity.html"><i
-                                                class="mdi mdi-chart-line f-20 me-2 align-middle"></i>Activity</a></li>
 
                                     <li><a class="dropdown-item" href="item-details.html"><i
-                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>Item
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="post-detail.html"><i
-                                                class="mdi mdi-image-filter-center-focus-weak f-20 me-2 align-middle"></i>Post
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="newsletter.html"><i
-                                                class="mdi mdi-email-open-outline f-20 me-2 align-middle"></i>Newsletter</a>
+                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>商品详情</a>
                                     </li>
-                                    <li><a class="dropdown-item" href=""><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Creatore</a>
+
+                                    <li><a class="dropdown-item" href="creatore.html"><i
+                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>创作者</a>
                                     </li>
                                     <li><a class="dropdown-item" href="login.html"><i
-                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>Login</a>
+                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>登录</a>
                                     </li>
-
-                                    <li><a class="dropdown-item" href="register.html"><i
-                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Register</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="privacy.html"><i
-                                                class="mdi mdi-lock-open-outline f-20 me-2 align-middle"></i>Privacy</a>
-                                    </li>
-
                                 </ul>
 
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="wallet.html"><i
-                                                class="mdi mdi-wallet-travel f-20 me-2 align-middle"></i>Connect
-                                            Wallet</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="faq.html"><i
-                                                class="mdi mdi-comment-question-outline f-20 me-2 align-middle"></i>Faq</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="submit-request.html"><i
-                                                class="mdi mdi-check-circle-outline f-20 me-2 align-middle"></i>submit
-                                            Reqeust</a></li>
-
-                                    <li><a class="dropdown-item" href="chat.html"><i
-                                                class="mdi mdi-message-text-outline f-20 me-2 align-middle"></i>Chat</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="artical.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Artical</a>
-                                    </li>
-
                                     <li><a class="dropdown-item" href="ranking.html"><i
-                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>Ranking</a>
+                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>排名</a>
                                     </li>
 
+                                    <li><a class="dropdown-item" href="register.html"><i
+                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>注册</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="404.html"><i
                                                 class="mdi mdi-alert-outline f-20 me-2 align-middle"></i>404</a></li>
 
                                 </ul>
                             </div>
                         </div>
-
                     </li>
                     <!--end dropdown-->
-
-
-                    <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link dropdown-toggle" href="index.html" id="homedrop" role="button"
-                            data-bs-toggle="dropdown">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="homedrop">
-                            <li><a class="dropdown-item" href="profile.html"><i
-                                        class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Profile</a></li>
-                            <li><a class="dropdown-item" href="edit-profile.html"><i
-                                        class="mdi mdi-account-edit f-20 me-2 align-middle"></i>Edit profile</a></li>
-                        </ul>
-                    </li>
-
-
-
                     <li class="nav-item">
-                        <a href="blog.html" class="nav-link">Blog</a>
+                        <a href="swap.html" class="nav-link">交换</a>
                     </li>
-                    <!--end dropdown-->
-
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
-                    <!--end dropdown-->
                 </ul>
                 <!--end navbar-nav-->
-                <a href="wallet.html" class="btn btn-primary">Connect to Wallet</a>
+                <a href="wallet.html" class="btn btn-primary">连接钱包</a>
 
             </div>
 
@@ -189,9 +126,9 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb default mb-0">
                             <li class="breadcrumb-item">
-                                <a href="index.html" class="text-muted">Home</a>
+                                <a href="index.html" class="text-muted">主页</a>
                             </li>
-                            <li class="breadcrumb-item active text-primary" aria-current="page">Creators</li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">创作者</li>
                         </ol>
                     </nav>
                 </div>
@@ -202,9 +139,8 @@
                 <div class="col-lg-8">
                     <div class="inner-heading text-center">
                         <div class="mt-4">
-                            <h1 class="fw-bold">Popular Creators</h1>
-                            <p class="text-muted">New exploration about NFT Marketplace Web Design, this time I'm
-                                inspired by <br> one of my favorite NFT website called Rarible.</p>
+                            <h1 class="fw-bold">知名 创作者</h1>
+                            <p class="text-muted">关于NFT市场网页设计的新探索，这一次我受到了启发<br> 我最喜欢的非功能性测试网站之一，叫做Rarible.</p>
                         </div>
                     </div>
 
@@ -228,7 +164,7 @@
                                 <img src="static/picture/img-16.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@xander_hall...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">3 Sales on 1.47 ETH</p>
                             </div>
                         </div>
@@ -242,7 +178,7 @@
                                 <img src="static/picture/img-24.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@teagan_poole...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">3 Sales on 1.25 ETH</p>
                             </div>
                         </div>
@@ -257,7 +193,7 @@
                             </div>
                             <div class="creator-content text-center mt-3">
                                 <h6 class="fw-bold">
-                                    @eli_tyler...</h6>
+                                    @威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">2 Sales on 0.96 ETH</p>
                             </div>
                         </div>
@@ -271,7 +207,7 @@
                                 <img src="static/picture/img-44.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@hamza_pitts...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">2 Sales on 0.95 ETH</p>
                             </div>
                         </div>
@@ -289,7 +225,7 @@
                                 <img src="static/picture/img-54.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@xander_hall...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">3 Sales on 1.47 ETH</p>
                             </div>
                         </div>
@@ -303,7 +239,7 @@
                                 <img src="static/picture/img-63.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@teagan_poole...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">3 Sales on 1.25 ETH</p>
                             </div>
                         </div>
@@ -318,7 +254,7 @@
                             </div>
                             <div class="creator-content text-center mt-3">
                                 <h6 class="fw-bold">
-                                    @eli_tyler...</h6>
+                                    @威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">2 Sales on 0.96 ETH</p>
                             </div>
                         </div>
@@ -332,7 +268,7 @@
                                 <img src="static/picture/img-82.png" alt="" class="img-fluid avatar-lg rounded-circle">
                             </div>
                             <div class="creator-content text-center mt-3">
-                                <h6 class="fw-bold">@hamza_pitts...</h6>
+                                <h6 class="fw-bold">@威廉 詹姆斯...</h6>
                                 <p class="mb-0 text-muted fw-semibold">2 Sales on 0.95 ETH</p>
                             </div>
                         </div>
@@ -343,11 +279,11 @@
             <div class="discover-creator">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <h3 class="fw-bold">Discover all Creators</h3>
+                        <h3 class="fw-bold">探索 所有的 创作者</h3>
                     </div>
                     <div class="col-lg-6">
                         <div class="text-center text-lg-end">
-                            <button class="btn btn-primary">Read More</button>
+                            <button class="btn btn-primary">阅读更多</button>
                         </div>
                     </div>
                 </div>
@@ -369,19 +305,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -406,19 +342,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -444,19 +380,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -484,19 +420,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -521,19 +457,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -558,19 +494,19 @@
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">150 ETH</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Sold</p>
+                                                    <p class="mb-0 fw-semibold text-muted">出售</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">322</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Collection</p>
+                                                    <p class="mb-0 fw-semibold text-muted">藏品</p>
                                                 </div>
                                             </div>
                                             <div class="col-lg-4">
                                                 <div class="pt-3 pt-lg-0">
                                                     <h6 class="fw-bold mb-0">16, 009</h6>
-                                                    <p class="mb-0 fw-semibold text-muted">Views</p>
+                                                    <p class="mb-0 fw-semibold text-muted">观察</p>
                                                 </div>
                                             </div>
                                         </div>

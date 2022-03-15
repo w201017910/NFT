@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Artlink NFT Marketplace Template</title>
+    <title>NFT Marketplac</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" ">
     <meta name="keywords" content="">
@@ -12,8 +12,9 @@
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
 
+
     <!-- Material Icon Css -->
-    <link rel="stylesheet" href="static/css/materialdesignicons.min.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
 
     <!-- Unicon Css -->
     <link rel="stylesheet" href="static/css/line.css">
@@ -28,18 +29,11 @@
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
 
-    <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-end">
-        <i class="uil uil-brightness mode-dark mx-auto"></i>
-        <i class="uil uil-moon bx-spin mode-light"></i>
-    </a>
-
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
         <div class="container-fluid custom-container">
-            <a class="navbar-brand logo f-30 text-dark fw-bold" href="index.html">
+            <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
                 <img src="static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
-                <img src="static/picture/logo-light.png" class="logo-light" alt="" height="40">
             </a>
             <div>
                 <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
@@ -54,77 +48,42 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">Marketplace</a>
+                        <a href="index-2.html" class="nav-link">市场</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="collection.html" class="nav-link">Collection</a>
+                        <a href="collection.html" class="nav-link">藏品</a>
                     </li>
-                    <!--end dropdown-->
 
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="pagedropdown" role="button"
                             data-bs-toggle="dropdown">
-                            Pages
+                            分类
                         </a>
-
                         <div class="dropdown-menu dropmenu-width dropdown-menu-center">
                             <div class="row">
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="activity.html"><i
-                                                class="mdi mdi-chart-line f-20 me-2 align-middle"></i>Activity</a></li>
 
                                     <li><a class="dropdown-item" href="item-details.html"><i
-                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>Item
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="post-detail.html"><i
-                                                class="mdi mdi-image-filter-center-focus-weak f-20 me-2 align-middle"></i>Post
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="newsletter.html"><i
-                                                class="mdi mdi-email-open-outline f-20 me-2 align-middle"></i>Newsletter</a>
+                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>商品详情</a>
                                     </li>
+
                                     <li><a class="dropdown-item" href="creatore.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Creatore</a>
+                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>创作者</a>
                                     </li>
                                     <li><a class="dropdown-item" href="login.html"><i
-                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>Login</a>
+                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>登录</a>
                                     </li>
-
-                                    <li><a class="dropdown-item" href="register.html"><i
-                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Register</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="privacy.html"><i
-                                                class="mdi mdi-lock-open-outline f-20 me-2 align-middle"></i>Privacy</a>
-                                    </li>
-
                                 </ul>
 
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="wallet.html"><i
-                                                class="mdi mdi-wallet-travel f-20 me-2 align-middle"></i>Connect
-                                            Wallet</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="faq.html"><i
-                                                class="mdi mdi-comment-question-outline f-20 me-2 align-middle"></i>Faq</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="submit-request.html"><i
-                                                class="mdi mdi-check-circle-outline f-20 me-2 align-middle"></i>submit
-                                            Reqeust</a></li>
-
-                                    <li><a class="dropdown-item" href="chat.html"><i
-                                                class="mdi mdi-message-text-outline f-20 me-2 align-middle"></i>Chat</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="artical.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Artical</a>
-                                    </li>
-
                                     <li><a class="dropdown-item" href="ranking.html"><i
-                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>Ranking</a>
+                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>排名</a>
                                     </li>
 
+                                    <li><a class="dropdown-item" href="register.html"><i
+                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>注册</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="404.html"><i
                                                 class="mdi mdi-alert-outline f-20 me-2 align-middle"></i>404</a></li>
 
@@ -135,42 +94,19 @@
                     </li>
                     <!--end dropdown-->
 
-
-                    <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link dropdown-toggle" href="index.html" id="homedrop" role="button"
-                            data-bs-toggle="dropdown">
-                            Profile
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-center" aria-labelledby="homedrop">
-                            <li><a class="dropdown-item" href="profile.html"><i
-                                        class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Profile</a></li>
-                            <li><a class="dropdown-item" href="edit-profile.html"><i
-                                        class="mdi mdi-account-edit f-20 me-2 align-middle"></i>Edit profile</a></li>
-                        </ul>
-                    </li>
-
-
-
                     <li class="nav-item">
-                        <a href="blog.html" class="nav-link">Blog</a>
-                    </li>
-                    <!--end dropdown-->
-
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
+                        <a href="swap.html" class="nav-link">交换</a>
                     </li>
                     <!--end dropdown-->
                 </ul>
                 <!--end navbar-nav-->
-                <a href="wallet.html" class="btn btn-primary">Connect to Wallet</a>
-
+                <a href="wallet.html" class="btn btn-primary">连接钱包</a>
             </div>
 
         </div>
         <!--end container-->
     </nav>
     <!-- Navbar End -->
-
 
 
 
@@ -181,12 +117,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="home-content-2 home-heading text-start">
-                        <h1 class="fw-bold"> Enjoy Your <span class="text-primary"> Live </span> Auction With NFT</h1>
+                        <h1 class="fw-bold"> 华贵尊享<span class="text-primary">NFT</span></h1>
                         <form class="search-form">
                             <div class="mb-3 row">
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control position-relative" id="inputPassword"
-                                        placeholder="Search here...">
+                                        placeholder="在这里搜索 ...">
                                     <div class="search-icon">
                                         <i class="mdi mdi-magnify f-22"></i>
                                     </div>
@@ -198,7 +134,7 @@
                                 <div class="col-lg-4 col-6">
                                     <div class="counter-box">
                                         <div class="d-flex align-items-center justify-content-start">
-                                            <h6 class="me-1">Artwork </h6>
+                                            <h6 class="me-1">艺术品</h6>
                                             <h6>(<span class="counter_value fw-bold" data-bs-target="310">0</span>)</h6>
                                         </div>
                                     </div>
@@ -206,7 +142,7 @@
                                 <div class="col-lg-4 col-6">
                                     <div class="counter-box">
                                         <div class="d-flex align-items-center justify-content-start">
-                                            <h6 class="me-1">Collaction </h6>
+                                            <h6 class="me-1">藏品</h6>
                                             <h6>(<span class="counter_value fw-bold" data-bs-target="450">0</span>)</h6>
                                         </div>
                                     </div>
@@ -214,7 +150,7 @@
                                 <div class="col-lg-4 col-6">
                                     <div class="counter-box">
                                         <div class="d-flex align-items-center justify-content-start">
-                                            <h6 class="me-1">Digital Art </h6>
+                                            <h6 class="me-1">数字艺术</h6>
                                             <h6>(<span class="counter_value fw-bold" data-bs-target="244">0</span>)</h6>
                                         </div>
                                     </div>
@@ -236,20 +172,20 @@
                                             data-bs-toggle="dropdown"></i>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Artwork</div>
+                                        <div class="badge rounded-pill">艺术品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/11.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">121 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -258,7 +194,7 @@
                                                 alt="" class="img-fluid avatar-sm">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -274,20 +210,20 @@
                                             data-bs-toggle="dropdown"></i>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton01">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Painting</div>
+                                        <div class="badge rounded-pill">绘画作品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/21.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">120 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -295,7 +231,7 @@
                                             <img src="static/picture/img-2.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -311,20 +247,20 @@
                                             data-bs-toggle="dropdown"></i>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton02">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Abstract</div>
+                                        <div class="badge rounded-pill">抽象派艺术作品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/31.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">210 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -332,7 +268,7 @@
                                             <img src="static/picture/img-3.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -347,20 +283,20 @@
                                         <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton"
                                             data-bs-toggle="dropdown"></i>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Painting</div>
+                                        <div class="badge rounded-pill">绘画作品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/41.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">214 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -368,7 +304,7 @@
                                             <img src="static/picture/img-4.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -384,20 +320,20 @@
                                             data-bs-toggle="dropdown"></i>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Artwork</div>
+                                        <div class="badge rounded-pill">艺术品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/5.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">136 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -405,7 +341,7 @@
                                             <img src="static/picture/img-5.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -421,20 +357,20 @@
                                             data-bs-toggle="dropdown"></i>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton05">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a class="dropdown-item" href="#">动作</a></li>
+                                            <li><a class="dropdown-item" href="#">另一个动作</a></li>
+                                            <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
                                         </ul>
                                     </div>
                                     <div class="ms-auto">
-                                        <div class="badge rounded-pill">Abstract</div>
+                                        <div class="badge rounded-pill">抽象派艺术作品</div>
                                     </div>
                                 </div>
                                 <div class="card-image mt-3">
                                     <img src="static/picture/6.png" alt="" class="img-fluid">
                                 </div>
                                 <div class="card-body">
-                                    <h6 class="fw-bold mb-0">Evolved Reality</h6>
+                                    <h6 class="fw-bold mb-0">进化的现实</h6>
                                     <p class="f-14 text-orange">150 ETH</p>
 
                                     <div class="profile-content align-items-center d-flex justify-content-start">
@@ -442,7 +378,7 @@
                                             <img src="static/picture/img-6.jpg" alt="" class="img-fluid">
                                         </div>
                                         <div class="profile-name">
-                                            <h6 class="fw-bold mb-0 ms-2 f-14">Kristin Watson</h6>
+                                            <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -468,7 +404,7 @@
                 <div class="col-lg-12 p-0">
                     <nav class="mt-5">
                         <div class="heading float-start mt-3">
-                            <h2 class="fw-bold">Explore</h2>
+                            <h2 class="fw-bold">探索</h2>
                         </div>
 
                         <div class="nav nav-tabs align-items-center justify-content-center row" id="nav-tab"
@@ -476,31 +412,31 @@
                             <button class="nav-link active text-uppercase col-md-2" id="nav-all-tab"
                                 data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab"
                                 aria-controls="nav-all" aria-selected="true"><span class="icon"><i
-                                        class="mdi mdi-plus f-24 align-middle"></i> All
+                                        class="mdi mdi-plus f-24 align-middle"></i> 索引
                                 </span></button>
 
                             <button class="nav-link text-uppercase col-md-2" id="nav-games-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games"
                                 aria-selected="true"><span class="icon"> <i
-                                        class="mdi mdi-gamepad-variant f-24 align-middle"></i> Games
+                                        class="mdi mdi-gamepad-variant f-24 align-middle"></i> 游戏
                                 </span></button>
 
                             <button class="nav-link text-uppercase col-md-2" id="nav-art-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-art" type="button" role="tab" aria-controls="nav-art"
                                 aria-selected="true"><span class="icon"><i class="mdi mdi-brush f-24 align-middle"></i>
-                                    Art
+                                    艺术
                                 </span></button>
 
                             <button class="nav-link text-uppercase col-md-2" id="nav-memes-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-memes" type="button" role="tab" aria-controls="nav-memes"
                                 aria-selected="true"><span class="icon"><i class="mdi mdi-panda f-24 align-middle"></i>
-                                    Memes
+                                    模因
                                 </span></button>
 
                             <button class="nav-link text-uppercase col-md-2" id="nav-Collection-tab"
                                 data-bs-toggle="tab" data-bs-target="#nav-Collection" type="button" role="tab"
                                 aria-controls="nav-Collection" aria-selected="true"><span class="icon"><i
-                                        class="mdi mdi-collage f-24 align-middle"></i> Collection
+                                        class="mdi mdi-collage f-24 align-middle"></i> 藏品
                                 </span></button>
                         </div>
                     </nav>
@@ -515,176 +451,25 @@
                                             <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
                                                 alt="" class="img-fluid rounded-circle">
                                         </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@Deniva_Pannini</h6>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
                                     </div>
                                     <div class="card-image mt-3">
                                         <img src="static/picture/img-12.png" alt="" class="img-fluid">
                                     </div>
                                     <div class="body-content mt-3">
-                                        <h6 class="fw-bold">Robotic Body Art</h6>
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
                                         <div class="d-flex">
-                                            <p class="text-muted">6 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">1.53
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
                                                     ETH</span></p>
                                         </div>
                                         <hr>
                                         <div class="d-flex mt-3 align-items-center">
                                             <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
                                             </div>
                                             <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mt-4">
-                                <div class="tab-content p-4 border-0">
-                                    <div class="header d-flex align-items-center justify-content-start">
-                                        <div class="avatar-xs">
-                                            <img src="static/picture/img-2.jpg" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@Keven_Chrisi</h6>
-                                    </div>
-                                    <div class="card-image mt-3">
-                                        <img src="static/picture/img-23.png" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="body-content mt-3">
-                                        <h6 class="fw-bold">Liguid Wave</h6>
-                                        <div class="d-flex">
-                                            <p class="text-muted">8 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.15
-                                                    ETH</span></p>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex mt-3 align-items-center">
-                                            <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
-                                            </div>
-                                            <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mt-4">
-                                <div class="tab-content p-4 border-0">
-                                    <div class="header d-flex align-items-center justify-content-start">
-                                        <div class="avatar-xs">
-                                            <img src="static/picture/img-3.jpg" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@David_Alex</h6>
-                                    </div>
-                                    <div class="card-image mt-3">
-                                        <img src="https://themesdesign.in/artlink/layout/images/explore/img-3.png"
-                                            alt="" class="img-fluid">
-                                    </div>
-                                    <div class="body-content mt-3">
-                                        <h6 class="fw-bold">Maccky Alex</h6>
-                                        <div class="d-flex">
-                                            <p class="text-muted">3 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">1.20
-                                                    ETH</span></p>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex mt-3 align-items-center">
-                                            <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
-                                            </div>
-                                            <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mt-4">
-                                <div class="tab-content p-4 border-0">
-                                    <div class="header d-flex align-items-center justify-content-start">
-                                        <div class="avatar-xs">
-                                            <img src="static/picture/img-4.jpg" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@Steva_Robart</h6>
-                                    </div>
-                                    <div class="card-image mt-3">
-                                        <img src="static/picture/img-43.png" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="body-content mt-3">
-                                        <h6 class="fw-bold">The Chirstoper</h6>
-                                        <div class="d-flex">
-                                            <p class="text-muted">2 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.30
-                                                    ETH</span></p>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex mt-3 align-items-center">
-                                            <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
-                                            </div>
-                                            <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mt-4">
-                                <div class="tab-content p-4 border-0">
-                                    <div class="header d-flex align-items-center justify-content-start">
-                                        <div class="avatar-xs">
-                                            <img src="static/picture/img-5.jpg" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@jimmy_dom</h6>
-                                    </div>
-                                    <div class="card-image mt-3">
-                                        <img src="static/picture/img-52.png" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="body-content mt-3">
-                                        <h6 class="fw-bold">The Chirstoper</h6>
-                                        <div class="d-flex">
-                                            <p class="text-muted">2 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.30
-                                                    ETH</span></p>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex mt-3 align-items-center">
-                                            <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
-                                            </div>
-                                            <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 mt-4">
-                                <div class="tab-content p-4 border-0">
-                                    <div class="header d-flex align-items-center justify-content-start">
-                                        <div class="avatar-xs">
-                                            <img src="static/picture/img-6.jpg" alt="" class="img-fluid rounded-circle">
-                                        </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@mickel_fenn</h6>
-                                    </div>
-                                    <div class="card-image mt-3">
-                                        <img src="static/picture/img-62.png" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="body-content mt-3">
-                                        <h6 class="fw-bold">The Chirstoper</h6>
-                                        <div class="d-flex">
-                                            <p class="text-muted">2 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.30
-                                                    ETH</span></p>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex mt-3 align-items-center">
-                                            <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
-                                            </div>
-                                            <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
                                             </div>
                                         </div>
                                     </div>
@@ -697,26 +482,25 @@
                                             <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
                                                 alt="" class="img-fluid rounded-circle">
                                         </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">
-                                            @kristian_fel</h6>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
                                     </div>
                                     <div class="card-image mt-3">
-                                        <img src="static/picture/img-72.png" alt="" class="img-fluid">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
                                     </div>
                                     <div class="body-content mt-3">
-                                        <h6 class="fw-bold">The Chirstoper</h6>
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
                                         <div class="d-flex">
-                                            <p class="text-muted">2 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.30
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
                                                     ETH</span></p>
                                         </div>
                                         <hr>
                                         <div class="d-flex mt-3 align-items-center">
                                             <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
                                             </div>
                                             <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
                                             </div>
                                         </div>
                                     </div>
@@ -726,39 +510,193 @@
                                 <div class="tab-content p-4 border-0">
                                     <div class="header d-flex align-items-center justify-content-start">
                                         <div class="avatar-xs">
-                                            <img src="static/picture/img-8.jpg" alt="" class="img-fluid rounded-circle">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
                                         </div>
-                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@Deniv_Pannini</h6>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
                                     </div>
                                     <div class="card-image mt-3">
-                                        <img src="https://themesdesign.in/artlink/layout/images/explore/img-8.png"
-                                            alt="" class="img-fluid">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
                                     </div>
                                     <div class="body-content mt-3">
-                                        <h6 class="fw-bold">The Chirstoper</h6>
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
                                         <div class="d-flex">
-                                            <p class="text-muted">2 in stock</p>
-                                            <p class="ms-auto text-muted">Price : <span class="text-success">2.30
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
                                                     ETH</span></p>
                                         </div>
                                         <hr>
                                         <div class="d-flex mt-3 align-items-center">
                                             <div class="history">
-                                                <i class="mdi mdi-restart f-20 align-middle"></i>View History
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
                                             </div>
                                             <div class="bid-button ms-auto">
-                                                <button class="btn btn-sm btn-primary rounded-pill">Bid</button>
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
+                            <div class="col-lg-3 mt-4">
+                                <div class="tab-content p-4 border-0">
+                                    <div class="header d-flex align-items-center justify-content-start">
+                                        <div class="avatar-xs">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    </div>
+                                    <div class="card-image mt-3">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
+                                        <div class="d-flex">
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
+                                                    ETH</span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="history">
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+                                            </div>
+                                            <div class="bid-button ms-auto">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-4">
+                                <div class="tab-content p-4 border-0">
+                                    <div class="header d-flex align-items-center justify-content-start">
+                                        <div class="avatar-xs">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    </div>
+                                    <div class="card-image mt-3">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
+                                        <div class="d-flex">
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
+                                                    ETH</span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="history">
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+                                            </div>
+                                            <div class="bid-button ms-auto">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-4">
+                                <div class="tab-content p-4 border-0">
+                                    <div class="header d-flex align-items-center justify-content-start">
+                                        <div class="avatar-xs">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    </div>
+                                    <div class="card-image mt-3">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
+                                        <div class="d-flex">
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
+                                                    ETH</span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="history">
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+                                            </div>
+                                            <div class="bid-button ms-auto">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-4">
+                                <div class="tab-content p-4 border-0">
+                                    <div class="header d-flex align-items-center justify-content-start">
+                                        <div class="avatar-xs">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    </div>
+                                    <div class="card-image mt-3">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
+                                        <div class="d-flex">
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
+                                                    ETH</span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="history">
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+                                            </div>
+                                            <div class="bid-button ms-auto">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-4">
+                                <div class="tab-content p-4 border-0">
+                                    <div class="header d-flex align-items-center justify-content-start">
+                                        <div class="avatar-xs">
+                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                                alt="" class="img-fluid rounded-circle">
+                                        </div>
+                                        <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    </div>
+                                    <div class="card-image mt-3">
+                                        <img src="static/picture/img-12.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <h6 class="fw-bold">机器人的身体艺术</h6>
+                                        <div class="d-flex">
+                                            <p class="text-muted">6 现有</p>
+                                            <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
+                                                    ETH</span></p>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex mt-3 align-items-center">
+                                            <div class="history">
+                                                <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+                                            </div>
+                                            <div class="bid-button ms-auto">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="mt-5">
                                 <div class="col-lg-12">
                                     <div class="text-center">
                                         <button class="btn btn-white text-dark shadow"><i
-                                                class="mdi mdi-restart f-18 align-middle"></i> View All Item</button>
+                                                class="mdi mdi-restart f-18 align-middle"></i> 查看 所有 项目</button>
                                     </div>
                                 </div>
                             </div>
@@ -774,7 +712,7 @@
                                             <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
                                                 alt="" class="img-fluid rounded-circle">
                                         </div>
-                                        <h6 class="mb-0 ms-3 fw-bold text-muted">@Deniva_Pannini</h6>
+                                        <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
                                     </div>
                                     <div class="card-image mt-3">
                                         <img src="static/picture/img-12.png" alt="" class="img-fluid">
@@ -1205,11 +1143,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h2 class="fw-bold">Collection & Art Gallery</h2>
+                    <h2 class="fw-bold">藏品 & 艺术馆</h2>
                 </div>
                 <div class="col-lg-6">
                     <div class="text-start text-lg-end">
-                        <button class="btn btn-primary rounded-pill">View All</button>
+                        <button class="btn btn-primary rounded-pill">查看所有</button>
                     </div>
                 </div>
             </div>
@@ -1233,7 +1171,7 @@
                             <div class="collection-content mt-3">
                                 <div class="d-flex align-items-center">
                                     <div class="collection-title">
-                                        <a href="" class="fw-bold h5">Digital Art Gallery</a>
+                                        <a href="" class="fw-bold h5">数字 艺术馆</a>
                                     </div>
                                     <div class="collection-like-icon ms-auto">
                                         <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 2.05K
@@ -1241,11 +1179,11 @@
                                     </div>
                                 </div>
                                 <div class="blog-profile mt-3">
-                                    <h6 class="f-14 text-muted">4 items · Created by
+                                    <h6 class="f-14 text-muted">4 项目 · 创建 by
                                         <a href="" class="text-muted">
                                             <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
                                                 alt="" class="img-fluid rounded-circle avatar-xs mx-2">
-                                            <span>@Dezy_resato...</span>
+                                            <span>@德兹 瑞塞罗...</span>
                                         </a>
                                     </h6>
                                 </div>
@@ -1273,7 +1211,7 @@
                             <div class="collection-content mt-3">
                                 <div class="d-flex align-items-center">
                                     <div class="collection-title">
-                                        <a href="" class="fw-bold h5">Colorful Painting</a>
+                                        <a href="" class="fw-bold h5">彩绘</a>
                                     </div>
                                     <div class="collection-like-icon ms-auto">
                                         <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 1.27K
@@ -1281,11 +1219,11 @@
                                     </div>
                                 </div>
                                 <div class="blog-profile mt-3">
-                                    <h6 class="f-14 text-muted">6 items · Created by
+                                    <h6 class="f-14 text-muted">6 项目  · 创建 by
                                         <a href="" class="text-muted">
                                             <img src="static/picture/img-2.jpg" alt=""
                                                 class="img-fluid rounded-circle avatar-xs mx-2">
-                                            <span>@william_jamy... </span>
+                                            <span>@威廉 吉米... </span>
                                         </a>
                                     </h6>
                                 </div>
@@ -1313,7 +1251,7 @@
                             <div class="collection-content mt-3">
                                 <div class="d-flex align-items-center">
                                     <div class="collection-title">
-                                        <a href="" class="fw-bold h5">Bubble Art collection</a>
+                                        <a href="" class="fw-bold h5">泡沫 艺术 藏品</a>
                                     </div>
                                     <div class="collection-like-icon ms-auto">
                                         <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 1.27K
@@ -1321,11 +1259,11 @@
                                     </div>
                                 </div>
                                 <div class="blog-profile mt-3">
-                                    <h6 class="f-14 text-muted">3 items · Created by
+                                    <h6 class="f-14 text-muted">3 项目 · 创建 by
                                         <a href="" class="text-muted">
                                             <img src="static/picture/img-3.jpg" alt=""
                                                 class="img-fluid rounded-circle avatar-xs mx-2">
-                                            <span>@william_jamy... </span>
+                                            <span>@威廉 吉米... </span>
                                         </a>
                                     </h6>
                                 </div>
@@ -1339,246 +1277,6 @@
         <!-- end container -->
     </section>
     <!-- end blog -->
-
-
-    <!-- start slider-blog -->
-    <section class="section team bg-light" id="team">
-        <!-- start container-fluid -->
-        <div class="container-fluid">
-            <!-- start container -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h2 class="fw-bold">Our Team Artists</h2>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="text-start text-lg-end">
-                            <button class="btn btn-primary rounded-pill">View All</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- end container -->
-
-            <div class="row">
-                <div class="col-lg-12 g-0">
-                    <div class="team-slider mt-5 position-relative" id="team-slider">
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                                alt="" class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@mazanov_sky...</h6>
-                                        <p class="mb-0 text-success fw-bold">2.56 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-2.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@jimmy_dom...</h6>
-                                        <p class="mb-0 text-success fw-bold">1.32 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-3.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">
-                                            @Alvin_nov...</h6>
-                                        <p class="mb-0 text-success fw-bold">3.35 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-4.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">
-                                            @mucky_art...</h6>
-                                        <p class="mb-0 text-success fw-bold">0.85 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-5.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@william_jamy...</h6>
-                                        <p class="mb-0 text-success fw-bold">2.84 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-6.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@mazanov_sky...</h6>
-                                        <p class="mb-0 text-success fw-bold">4.20 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-7.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@Joshua_Bren...</h6>
-                                        <p class="mb-0 text-success fw-bold">2.52 ETH</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- slider item -->
-
-                        <div class="item">
-                            <div class="card">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar position-relative">
-                                            <img src="static/picture/img-8.jpg" alt=""
-                                                class="img-fluid rounded-circle ">
-
-                                            <div class="profile-icon align-items-center">
-                                                <i class="mdi mdi-check text-white f-14"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <h6 class="mb-1">@mazanov_sky...</h6>
-                                        <p class="mb-0 text-success fw-bold">2.56 ETH</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slider item -->
-                    </div>
-                    <!-- End slider -->
-                </div>
-            </div>
-        </div>
-        <!-- end container-fluid -->
-    </section>
-    <!-- end slider-blog -->
-
-
-
-    <!-- start cta -->
-    <section class="cta section ">
-        <!-- start container -->
-        <div class="container">
-            <div class="row align-items-center justify-content-start">
-                <div class="col-lg-6">
-                    <h1 class="text-white display-5 fw-bold">
-                        Discover, Create & Sell Digital Artworks.</h1>
-                    <p class="text-light f-16 mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                        incidunt repellendus quasi ut, pariatur voluptatem quaerat soluta!</p>
-                    <button class="btn btn-primary mt-3">Start Collection</button>
-                </div>
-                <div class="col-lg-4 offset-lg-2">
-                    <img src="static/picture/img5.png" alt="" class="img-fluid">
-                </div>
-            </div>
-        </div>
-        <!-- end container -->
-    </section>
-    <!-- end cta -->
-
 
 
     <!-- start footer -->

@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
 
     <!-- Material Icon Css -->
-    <link rel="stylesheet" href="static/css/materialdesignicons.min.css" type="text/css">
-
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
     <!-- Unicon Css -->
     <link rel="stylesheet" href="static/css/line.css">
 
@@ -24,21 +23,15 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="static/css/style.min.css" type="text/css">
 
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
-
-    <!-- light-dark mode button -->
-    <a href="javascript: void(0);" id="mode" class="mode-btn text-white rounded-end">
-        <i class="uil uil-brightness mode-dark mx-auto"></i>
-        <i class="uil uil-moon bx-spin mode-light"></i>
-    </a>
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
         <div class="container-fluid custom-container">
             <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
                 <img src="static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
-                <img src="static/picture/logo-light.png" class="logo-light" alt="" height="40">
             </a>
             <div>
                 <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
@@ -57,7 +50,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="collection.html" class="nav-link">收藏品</a>
+                        <a href="collection.html" class="nav-link">藏品</a>
                     </li>
 
                     <li class="nav-item dropdown dropdown-hover">
@@ -69,60 +62,27 @@
                         <div class="dropdown-menu dropmenu-width dropdown-menu-center">
                             <div class="row">
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="activity.html"><i
-                                                class="mdi mdi-chart-line f-20 me-2 align-middle"></i>Activity</a></li>
 
                                     <li><a class="dropdown-item" href="item-details.html"><i
-                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>Item
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="post-detail.html"><i
-                                                class="mdi mdi-image-filter-center-focus-weak f-20 me-2 align-middle"></i>Post
-                                            Details</a></li>
-                                    <li><a class="dropdown-item" href="newsletter.html"><i
-                                                class="mdi mdi-email-open-outline f-20 me-2 align-middle"></i>Newsletter</a>
+                                                class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>商品详情</a>
                                     </li>
+
                                     <li><a class="dropdown-item" href="creatore.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Creatore</a>
+                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>创作者</a>
                                     </li>
                                     <li><a class="dropdown-item" href="login.html"><i
-                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>Login</a>
+                                                class="mdi mdi-account-outline f-20 me-2 align-middle"></i>登录</a>
                                     </li>
-
-                                    <li><a class="dropdown-item" href="register.html"><i
-                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>Register</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="privacy.html"><i
-                                                class="mdi mdi-lock-open-outline f-20 me-2 align-middle"></i>Privacy</a>
-                                    </li>
-
                                 </ul>
 
                                 <ul class="col-lg-6 list-unstyled">
-                                    <li><a class="dropdown-item" href="wallet.html"><i
-                                                class="mdi mdi-wallet-travel f-20 me-2 align-middle"></i>Connect
-                                            Wallet</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="faq.html"><i
-                                                class="mdi mdi-comment-question-outline f-20 me-2 align-middle"></i>Faq</a>
-                                    </li>
-                                    <li><a class="dropdown-item" href="submit-request.html"><i
-                                                class="mdi mdi-check-circle-outline f-20 me-2 align-middle"></i>submit
-                                            Reqeust</a></li>
-
-                                    <li><a class="dropdown-item" href="chat.html"><i
-                                                class="mdi mdi-message-text-outline f-20 me-2 align-middle"></i>Chat</a>
-                                    </li>
-
-                                    <li><a class="dropdown-item" href="artical.html"><i
-                                                class="mdi mdi-comment-account-outline f-20 me-2 align-middle"></i>Artical</a>
-                                    </li>
-
                                     <li><a class="dropdown-item" href="ranking.html"><i
-                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>Ranking</a>
+                                                class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>排名</a>
                                     </li>
 
+                                    <li><a class="dropdown-item" href="register.html"><i
+                                                class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>注册</a>
+                                    </li>
                                     <li><a class="dropdown-item" href="404.html"><i
                                                 class="mdi mdi-alert-outline f-20 me-2 align-middle"></i>404</a></li>
 
@@ -133,27 +93,12 @@
                     </li>
                     <!--end dropdown-->
 
-
-
-
                     <li class="nav-item">
-                        <a href="profile.html" class="nav-link">概述</a>
-                    </li>
-
-
-
-                    <li class="nav-item">
-                        <a href="blog.html" class="nav-link">博客</a>
-                    </li>
-                    <!--end dropdown-->
-
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">联系</a>
+                        <a href="swap.html" class="nav-link">交换</a>
                     </li>
                     <!--end dropdown-->
                 </ul>
                 <!--end navbar-nav-->
-
                 <a href="wallet.html" class="btn btn-primary">连接钱包</a>
             </div>
 
@@ -171,12 +116,10 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="home-content home-heading">
-                        <h1 class="fw-bold display-5">Discover The Largest <span class="text-primary"> <br> NFT</span>
-                            Marketplace.</h1>
-                        <p class="text-muted my-4">A New Place To Collect And Connect NFT Across The World. It’s come
-                            with a creative design, home page options, different explore and digital asset pages and
-                            items.</p>
-                        <button class="btn btn-dark">Explore</button>
+                        <h1 class="fw-bold display-5">让你的资产<span class="text-primary"> <br>受到 </span>
+                            保护</h1>
+                        <p class="text-muted my-4">一个收集和连接全球非功能性测试的新地方。这是具有创造性的设计，主页选项，不同的探索和数字资产页面的项目.</p>
+                        <button class="btn btn-dark">探索</button>
                     </div>
 
                     <div class="row mt-5">
@@ -186,7 +129,7 @@
                                     <h2 class="counter_value fw-bold" data-bs-target="32">0</h2><span
                                         class="h2 fw-bold">K</span><span class="h2">+</span>
                                 </div>
-                                <p class="counter-caption">Smartwork</p>
+                                <p class="counter-caption">智能工作</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-6">
@@ -195,7 +138,7 @@
                                     <h2 class="counter_value fw-bold" data-bs-target="20">0</h2><span
                                         class="h2 fw-bold">K</span><span class="h2">+</span>
                                 </div>
-                                <p class="counter-caption">Action</p>
+                                <p class="counter-caption">行动</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-6">
@@ -204,7 +147,7 @@
                                     <h2 class="counter_value fw-bold" data-bs-target="10">0</h2><span
                                         class="h2 fw-bold">K</span><span class="h2">+</span>
                                 </div>
-                                <p class="counter-caption">Market</p>
+                                <p class="counter-caption">市场</p>
                             </div>
                         </div>
                     </div>
@@ -216,7 +159,7 @@
                             <div class="card position-relative overflow-hidden m-2 m-lg-0">
                                 <img src="static/picture/img-21.png" alt="logo-img" class="img-fluid">
                                 <div class="card-body slider-content position-relative">
-                                    <p class="mb-2">Burn & Melting</p>
+                                    <p class="mb-2">燃烧 & 融化</p>
                                     <h5 class="fw-bold">3.4 ETH</h5>
 
                                     <div class="d-flex">
@@ -233,13 +176,12 @@
                                                 <img src="static/picture/img-2.jpg" alt="" class="img-fluid">
 
                                                 <span class="content-image-check">
-                                                    <span class="visually-visible"><i
-                                                            class="mdi mdi-check f-12"></i></span>
+                                                    <span class="visually-visible"><i class="f-12"></i></span>
                                                 </span>
                                             </div>
                                         </div>
                                         <div class="slider-content-button">
-                                            <button class="btn btn-dark pe-5">Bid</button>
+                                            <button class="btn btn-dark pe-5">出价</button>
                                         </div>
                                     </div>
                                 </div>
@@ -251,7 +193,7 @@
                             <div class="card position-relative overflow-hidden m-2 m-lg-0">
                                 <img src="static/picture/img-31.png" alt="logo-img" class="img-fluid">
                                 <div class="card-body slider-content position-relative">
-                                    <p class="mb-2">Digital</p>
+                                    <p class="mb-2">数字</p>
                                     <h5 class="fw-bold ">3.4 ETH</h5>
 
                                     <div class="d-flex">
@@ -274,7 +216,7 @@
                                             </div>
                                         </div>
                                         <div class="slider-content-button">
-                                            <button class="btn btn-dark pe-5">Bid</button>
+                                            <button class="btn btn-dark pe-5">出价</button>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +228,7 @@
                             <div class="card position-relative overflow-hidden m-2 m-lg-0">
                                 <img src="static/picture/img-41.png" alt="logo-img" class="img-fluid">
                                 <div class="card-body slider-content position-relative">
-                                    <p class="mb-2">Biggest Collection</p>
+                                    <p class="mb-2">藏品</p>
                                     <h5 class="fw-bold">3.4 ETH</h5>
 
                                     <div class="d-flex">
@@ -309,7 +251,7 @@
                                             </div>
                                         </div>
                                         <div class="slider-content-button">
-                                            <button class="btn btn-dark pe-5">Bid</button>
+                                            <button class="btn btn-dark pe-5">出价</button>
                                         </div>
                                     </div>
                                 </div>
@@ -325,110 +267,6 @@
         <!-- end container -->
     </section>
     <!-- end home -->
-
-
-
-    <!-- login Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="row g-3 needs-validation">
-                        <div class="col-md-6">
-                            <label for="validationCustom01" class="form-label">First name <span
-                                    class="text-primary">*</span></label>
-                            <input type="text" class="form-control" id="validationCustom01" value="" required="">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom02" class="form-label">Email <span
-                                    class="text-primary">*</span></label>
-                            <input type="email" class="form-control" id="validationCustom02" value="" required="">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom03" class="form-label">Subject <span
-                                    class="text-primary">*</span></label>
-                            <input type="text" class="form-control" id="validationCustom03" required="">
-                            <div class="invalid-feedback">
-                                Please provide a valid city.
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="validationCustom05" class="form-label">Password <span
-                                    class="text-primary">*</span></label>
-                            <input type="password" class="form-control" id="validationCustom05" required="">
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <label for="validationTextarea" class="form-label">Textarea<span
-                                    class="text-primary">*</span></label>
-                            <textarea class="form-control" rows="4" id="validationTextarea" required=""></textarea>
-                            <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- end modal -->
-
-
-    <!-- Register Modal -->
-    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel1">Register</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form class="row g-3 needs-validation">
-                        <div class="col-md-12">
-                            <label for="validationCustom002" class="form-label">Email <span
-                                    class="text-primary">*</span></label>
-                            <input type="email" class="form-control" id="validationCustom002" value="" required="">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustom005" class="form-label">Password <span
-                                    class="text-primary">*</span></label>
-                            <input type="password" class="form-control" id="validationCustom005" required="">
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <!-- end Register modal -->
-
-
-
     <!-- start home -->
     <section class="features section pt-0" id="market">
         <!-- start container -->
@@ -436,12 +274,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center">
-                        <h6 class="text-gradiant fw-bold">NFT Marketplace</h6>
-                        <h1 class="fw-bold">A New Place To Collect And Connect NFT Across.</h1>
-                        <div class="d-flex align-items-center mt-4">
-                            <button class="btn btn-primary">Explore Now</button>
-                            <button class="btn btn-outline-dark ms-4">Create Account</button>
-                        </div>
+                        <h6 class="text-gradiant fw-bold">NFT 市场</h6>
+                        <h1 class="fw-bold">一个收集和连接非功能性语言的新地方.</h1>
                     </div>
                 </div>
             </div>
@@ -467,8 +301,8 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
-                                                <p class="mb-0 text-muted">Floshka</p>
-                                                <h6 class="fw-bold">Morvin MCkinny</h6>
+                                                <p class="mb-0 text-muted">弗洛什卡</p>
+                                                <h6 class="fw-bold">莫文·麦金尼</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -476,11 +310,11 @@
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0">
                                                 <div class="avatar price-box">
-                                                    <i class="mdi mdi-checkbox-blank-outline"></i>
+
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1 ms-3">
-                                                <p class="mb-0 text-muted f-14">Instant Price</p>
+                                                <p class="mb-0 text-muted f-14">即时价格</p>
                                                 <h6 class="fw-bold">3.5 ETH</h6>
                                             </div>
                                         </div>
@@ -488,33 +322,33 @@
                                 </div>
 
                                 <div class="title mt-5">
-                                    <h2 class="fw-bold">Gelexy On Earth</h2>
+                                    <h2 class="fw-bold"></h2>
                                     <p class="text-muted">10 Editional Minted</p>
                                 </div>
 
                                 <div class="bid-box text-center">
-                                    <h6>Starting Bid</h6>
+                                    <h6>开始出价</h6>
                                     <h2 class="fw-bold">1.02<span class="f-16"> ETH</span></h2>
                                     <hr>
                                     <!-- <h6 class="text-muted fw-bold">$4.542.18</h6> -->
                                     <div class="d-flex justify-content-around mt-3">
                                         <div class="time">
                                             <h3 class="mb-0 fw-bold">20</h3>
-                                            <p>Hrs</p>
+                                            <p>时</p>
                                         </div>
                                         <div class="time mx-4">
                                             <h3 class="mb-0 fw-bold">36</h3>
-                                            <p>Min</p>
+                                            <p>分</p>
                                         </div>
                                         <div class="time">
                                             <h3 class="mb-0 fw-bold">08</h3>
-                                            <p>Sec</p>
+                                            <p>秒</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <button class="btn btn-primary w-100">Place a Bid</button>
-                                    <button class="btn btn-outline-dark mt-2 w-100">Create Account</button>
+                                    <button class="btn btn-primary w-100">出价</button>
+                                    <button class="btn btn-outline-dark mt-2 w-100">创建账户</button>
                                 </div>
                             </div>
 
@@ -550,7 +384,7 @@
                                 </div>
 
                                 <div class="title mt-5">
-                                    <h2 class="fw-bold">Gelexy On Earth</h2>
+                                    <h2 class="fw-bold">地球上的星系</h2>
                                     <p class="text-muted">10 Editional Minted</p>
                                 </div>
 
@@ -646,8 +480,7 @@
                         </div>
                         <!-- next / prev arrows -->
                         <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <!-- !next / prev arrows -->
+                        <div class="swiper-button-prev"></div>4
                     </div>
 
 
@@ -660,324 +493,6 @@
     <!-- end home -->
 
 
-    <!-- start service -->
-    <section class="section service bg-light" id="collection">
-        <!-- start container -->
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-5">
-                    <h6 class="text-gradiant fw-bold">NFT Collection</h6>
-                    <h2 class="fw-bold">Collect And Connect NFT Marketplace.</h2>
-                    <p class="text-muted">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore dolorem
-                        saepe, nihil quo explicabo magni adipisci qui officia! Quas neque nobis libero id.</p>
-                    <div class="mt-4">
-                        <button class="btn btn-sm btn-outline-dark">Create Account <i
-                                class="mdi mdi-chevron-right f-18 align-middle"></i></button>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col mt-4">
-                            <div class="service-box">
-                                <div class="avatar-sm bg-soft-primary mb-4">
-                                    <i class="mdi mdi-wallet f-20 text-primary"></i>
-                                </div>
-                                <div class="content">
-                                    <h6 class="mb-2 fw-bold">Digital Wallet</h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                                </div>
-                            </div>
-                            <div class="service-box mt-5">
-                                <div class="avatar-sm bg-soft-success mb-4">
-                                    <i class="mdi mdi-checkerboard f-20 text-success"></i>
-                                </div>
-                                <div class="content">
-                                    <h6 class="mb-2 fw-bold">Digital Wallet</h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col mt-4">
-                            <div class="service-box">
-                                <div class="avatar-sm bg-soft-blue mb-4">
-                                    <i class="mdi mdi-collage f-20 text-blue"></i>
-                                </div>
-                                <div class="content">
-                                    <h6 class="mb-2 fw-bold">Digital Wallet</h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                                </div>
-                            </div>
-                            <div class="service-box mt-5">
-                                <div class="avatar-sm bg-soft-warning mb-4">
-                                    <i class="mdi mdi-security f-20 text-warning"></i>
-                                </div>
-                                <div class="content">
-                                    <h6 class="mb-2 fw-bold">Digital Wallet</h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <!-- end container -->
-    </section>
-    <!-- end service -->
-
-
-
-    <!-- start slider blog -->
-    <section class="slider-blog section">
-        <!-- start container -->
-        <div class="container position-relative">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h6 class="text-gradiant fw-bold">Tranding NFT</h6>
-                    <h2 class="fw-bold">Best Sellers</h2>
-                    <p class="text-muted">Best Sellers of the Month's NFT</p>
-                </div>
-            </div>
-
-            <div class="swiper-container pb-5 blog-slider">
-                <div class="swiper-wrapper ">
-                    <div class="swiper-slide mt-5 mx-5">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img1.png" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Aninta John</p>
-                                            <a href="" class="text-muted mb-0">@LadyAni</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#1</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4 py-4 py-lg-0">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img2.png" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <a href="" class="text-muted mb-0">@AL John</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs border plus-icon ms-auto">
-                                        <i class="mdi mdi-check f-20 text-dark"></i>
-                                        <p class="text-dark mt-2">#2</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img3.png" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <a href="" class="text-muted mb-0">@BangRang</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#3</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="row mt-4">
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img4.png" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Aninta John</p>
-                                            <a href="" class="text-muted mb-0">@Creator</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#4</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4 py-4 py-lg-0">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="https://themesdesign.in/artlink/layout/images/slider/blog/img5.png"
-                                                    alt="" class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <a href="" class="text-muted mb-0">@AL John</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#5</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img6.png" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <a href="" class="text-muted mb-0">@BangRang</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs border plus-icon ms-auto">
-                                        <i class="mdi mdi-check f-20 text-dark"></i>
-                                        <p class="text-dark mt-2">#6</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="swiper-slide mt-5">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img-2.jpg" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <p class="text-muted mb-0">@AL John</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs border plus-icon ms-auto">
-                                        <i class="mdi mdi-check f-20 text-dark"></i>
-                                        <p class="text-dark mt-2">#2</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                                    alt="" class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Albert Jonathan</p>
-                                            <p class="text-muted mb-0">@BangRang</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#3</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="blog-box d-flex">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-lg">
-                                                <img src="static/picture/img-3.jpg" alt=""
-                                                    class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h6 class="mb-0 fw-bold">2.6 <span class="">ETH</span> </h6>
-                                            <p class="mb-0">Aninta John</p>
-                                            <p class="text-muted mb-0">@LadyAni</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="avatar-xs bg-blue plus-icon ms-auto">
-                                        <i class="mdi mdi-plus f-20"></i>
-                                        <p class="text-dark mt-2">#1</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <!-- next / prev arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- !next / prev arrows -->
-        </div>
-        <!-- end container -->
-    </section>
-    <!-- end slider blog -->
-
-
-
-
-
     <!-- start blog -->
     <section class="blog section bg-light">
         <!-- start container -->
@@ -985,13 +500,13 @@
             <div class="row align-items-center">
                 <div class="col-md-6 col-12">
                     <div class="title-content text-center text-md-start">
-                        <h2 class="fw-bold">Descover Find Best NFT</h2>
-                        <p class="text-muted">Start an Extraodinary Era of Digital Art and Music</p>
+                        <h2 class="fw-bold">探索最好的 NFT</h2>
+                        <p class="text-muted">开启数字艺术和音乐的非凡时代  </p>
                     </div>
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="text-md-end text-center">
-                        <button class="btn btn-primary ">Discover All <i class="mdi mdi-chevron-right"></i></button>
+                        <button class="btn btn-primary ">探索所有</button>
                     </div>
                 </div>
             </div>
@@ -1005,7 +520,7 @@
                         </div>
                         <div class="card-body ">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">2.84 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1050,7 +565,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">1.32 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1087,7 +602,7 @@
                         </div>
                         <div class="card-body ">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">0.95 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1129,7 +644,7 @@
                         </div>
                         <div class="card-body ">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">2.84 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1165,7 +680,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">1.34 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1205,7 +720,7 @@
                         </div>
                         <div class="card-body ">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">0.47 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1242,7 +757,7 @@
                         </div>
                         <div class="card-body ">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">0.95 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1280,7 +795,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex">
-                                <h6 class="fw-bold mb-0">Community On Tour</h6>
+                                <h6 class="fw-bold mb-0">社区旅游</h6>
                                 <p class="text-success ms-auto fw-bold mb-0">1.50 ETH</p>
                             </div>
                             <p class="text-muted">@imogee</p>
@@ -1328,9 +843,9 @@
         <div class="container position-relative">
             <div class="row">
                 <div class="col-lg-6">
-                    <h6 class="text-gradiant fw-bold">Members</h6>
-                    <h2 class="fw-bold">Hot Collections</h2>
-                    <p class="text-muted">You Can Follow Many Creater</p>
+                    <h6 class="text-gradiant fw-bold">成员</h6>
+                    <h2 class="fw-bold">藏品</h2>
+                    <p class="text-muted">你可以跟随许多创造者</p>
                 </div>
             </div>
 
@@ -1345,11 +860,10 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <h5 class="fw-bold">Greg Thompson</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet adipisicing elit. Assumenda in repudiandae
-                                .</p>
-                            <button class="btn btn-sm btn-primary"><i class="mdi mdi-plus f-16 align-middle"></i>
-                                Follow</button>
+                            <h5 class="fw-bold">格雷格•汤普森</h5>
+                            <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
+                            <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
+                                关注</button>
                         </div>
                     </div>
                 </div>
@@ -1365,11 +879,10 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <h5 class="fw-bold">Freank Fabel</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet adipisicing elit. Assumenda in repudiandae
-                                .</p>
-                            <button class="btn btn-sm btn-primary"><i class="mdi mdi-plus f-16 align-middle"></i>
-                                Follow</button>
+                            <h5 class="fw-bold">格雷格•汤普森</h5>
+                            <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
+                            <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
+                                关注</button>
                         </div>
                     </div>
                 </div>
@@ -1384,11 +897,10 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <h5 class="fw-bold">Sally Fadel</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet adipisicing elit. Assumenda in repudiandae
-                                .</p>
-                            <button class="btn btn-sm btn-primary"><i class="mdi mdi-plus f-16 align-middle"></i>
-                                Follow</button>
+                            <h5 class="fw-bold">格雷格•汤普森</h5>
+                            <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
+                            <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
+                                关注</button>
                         </div>
                     </div>
                 </div>
@@ -1403,10 +915,9 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <h5 class="fw-bold">Suzzy Azzem</h5>
-                            <p class="text-muted">Lorem ipsum dolor sit amet adipisicing elit. Assumenda in repudiandae
-                                .</p>
-                            <button class="btn btn-sm btn-primary"><i class="mdi mdi-plus f-16 align-middle"></i>
+                            <h5 class="fw-bold">格雷格•汤普森</h5>
+                            <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
+                            <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
                                 Follow</button>
                         </div>
                     </div>
