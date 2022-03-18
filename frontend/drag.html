@@ -25,15 +25,21 @@
 
     <!-- Custom Css -->
     <link rel="stylesheet" href="static/css/style.min.css" type="text/css">
+    <!-- drag Css -->
+    <link rel="stylesheet" href="static/css/drag.css" type="text/css">
+
 
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
+
+
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
         <div class="container-fluid custom-container">
-            <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
+            <a class="navbar-brand logo f-30 text-dark fw-bold" href="index.html">
                 <img src="static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
+                <img src="static/picture/logo-light.png" class="logo-light" alt="" height="40">
             </a>
             <div>
                 <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
@@ -43,10 +49,10 @@
             </div>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mx-auto navbar-center">
+
                     <li class="nav-item">
                         <a href="index.html" class="nav-link">主页</a>
                     </li>
-
                     <li class="nav-item">
                         <a href="index-2.html" class="nav-link">市场</a>
                     </li>
@@ -54,11 +60,12 @@
                     <li class="nav-item">
                         <a href="collection.html" class="nav-link">藏品</a>
                     </li>
+                    <!--end dropdown-->
 
                     <li class="nav-item dropdown dropdown-hover">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="pagedropdown" role="button"
                             data-bs-toggle="dropdown">
-                            分类
+                            页面
                         </a>
                         <div class="dropdown-menu dropmenu-width dropdown-menu-center">
                             <div class="row">
@@ -92,17 +99,15 @@
                         </div>
                     </li>
                     <!--end dropdown-->
-
                     <li class="nav-item">
                         <a href="swap.html" class="nav-link">交换</a>
                     </li>
-                    <!--end dropdown-->
                     <li class="nav-item">
                         <a href="homepage.html" class="nav-link">个人主页</a>
                     </li>
+
                 </ul>
                 <!--end navbar-nav-->
-                <a href="wallet.html" class="btn btn-primary">连接钱包</a>
             </div>
 
         </div>
@@ -113,105 +118,50 @@
 
 
     <!-- start section -->
-    <section class="wallet section bg-light">
+    <section class="creator section bg-light">
         <!-- start container -->
         <div class="container">
-            <div class="row mt-4">
-                <div class="col-lg-12">
+            <div class="row">
+                <div class="col-9">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb default mb-0">
                             <li class="breadcrumb-item">
                                 <a href="index.html" class="text-muted">主页</a>
                             </li>
-                            <li class="breadcrumb-item active text-primary" aria-current="page">钱包</li>
+                            <li class="breadcrumb-item active text-primary" aria-current="page">铸造作品</li>
                         </ol>
                     </nav>
                 </div>
-            </div>
-
-
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-8">
-                    <div class="inner-heading text-center">
-                        <div class="mt-4">
-                            <h1 class="fw-bold">连接你的钱包</h1>
-                        </div>
-                    </div>
-
-                    <div class="heading-bottom-icon d-flex justify-content-center text-center">
-                        <i class="mdi mdi-image-filter-vintage"></i>
-                        <i class="mdi mdi-image-filter-vintage mx-2"></i>
-                        <i class="mdi mdi-image-filter-vintage"></i>
-                    </div>
+                <div></div>
+                <div class="col-4">
+                    </br>
+                    <span id="upload-span">
+                        <input type="file" name="file" id="file" />
+                        <img src="static/picture/bottom.png" width="200px" height="200px">
+                    </span>
+                    <p>上传作品</p>
                 </div>
-            </div>
-
-            <div class="row align-items-center mt-5">
-                <div class="col-lg-4">
-                    <div class="wallet-box text-center mt-4">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/12.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">以太坊钱包</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="wallet-box text-center mt-4">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/22.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">格式</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="wallet-box text-center mt-4">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/32.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">格式</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-3">
-                    <div class="wallet-box text-center">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/42.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">格式</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-3">
-                    <div class="wallet-box text-center">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/51.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">格式</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mt-4">
-                    <div class="wallet-box text-center">
-                        <a href="" class=" wallet-icon">
-                            <img src="static/picture/61.png" alt="" class="img-fluid">
-                        </a>
-                        <h6 class="fw-bold mt-3">格式</h6>
-                        <p class="mb-0 text-muted ">当我们发现所有人的本性都有错误的时候，我们就会受到极大的指责.</p>
-                    </div>
+                <div class="col-6">
+                    <ul>
+                        <li>作品名称 <input type="text" name="workName" style="color:#999" value="请输入作品名称"></li>
+                        </br>
+                        <li>作品简介 <input type="text" name="workIntro" style="color:#999" value="请输入作品简介"></li>
+                        </br>
+                        <li>作品描述 <input type="text" name="workDes" style="color:#999" value="请输入作品描述"></li>
+                        </br>
+                        <li>作者简介 <input type="text" name="artIntri" style="color:#999" value="请输入作者简介"></li>
+                        </br>
+                        <li>作品价格 <input type="text" name="artPrice" style="color:#999" value="请输入作品价格"></li>
+                    </ul>
                 </div>
 
-            </div>
-
-            <div class="text-center mt-4">
-                <button class="btn btn-white d-inline text-dark shadow">阅读更多</button>
+                <div class="btnExtra">
+                    <button type="button" class="btn btn-dark">提交</button>
+                </div>
             </div>
         </div>
         <!-- end container -->
     </section>
-
-
 
     <!-- start footer -->
     <section class="footer">
@@ -229,9 +179,6 @@
         </div>
     </section>
     <!-- end footer -->
-
-
-
 
     <!--Bootstrap Js-->
     <script src="static/js/bootstrap.bundle.min.js"></script>

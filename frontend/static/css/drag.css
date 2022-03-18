@@ -1,0 +1,26 @@
+#upload-span {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border: 1px dotted #363636;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    line-height: 60px;
+    font-size: 50px;
+    color: #363636;
+}
+
+#file {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+li {
+    list-style: none;
+}
