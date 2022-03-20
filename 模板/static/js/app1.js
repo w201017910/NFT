@@ -1,0 +1,1 @@
+function windowScroll(){const n=document.getElementById("navbar");document.body.scrollTop>=50||document.documentElement.scrollTop>=50?n.classList.add("nav-sticky"):n.classList.remove("nav-sticky")}window.addEventListener("scroll",n=>{n.preventDefault(),windowScroll()});
