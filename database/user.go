@@ -45,7 +45,7 @@ func SignIn(name string, password string) *Person {
 
 	if rows.Next() {
 		person := new(Person)
-		rows.Scan(&person.name, &person.password, &person.address, person.picture, person.email, person.keystore)
+		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore)
 		return person
 	}
 	return nil
@@ -59,17 +59,17 @@ func QueryUser(name string) *Person {
 
 	if rows.Next() {
 		person := new(Person)
-		rows.Scan(&person.name, &person.password, &person.address, &person.picture, &person.email, &person.keystore)
+		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore)
 		return person
 	}
 	return nil
 }
 
 type Person struct {
-	name     string
-	password string
-	address  string
-	picture  string
-	email    string
-	keystore string
+	Name     string
+	Password string
+	Address  string
+	Picture  string
+	Email    string
+	Keystore string
 }

@@ -6,16 +6,16 @@ import (
 )
 
 type IMG struct {
-	tokenId     int
-	owner       string
-	creator     string
-	cid         string
-	type_       string
-	description string
-	isSell      bool
-	balance     int
-	thumbsUp    int
-	browseCount int
+	TokenId     int
+	Owner       string
+	Creator     string
+	Cid         string
+	Type_       string
+	Description string
+	IsSell      bool
+	Balance     int
+	ThumbsUp    int
+	BrowseCount int
 }
 
 func CreateImg(tokenId int, owner string, creator string, cid string, _type string, description string) {
@@ -32,7 +32,7 @@ func QueryImg(tokenID int) *IMG {
 	}
 	if rows.Next() {
 		img := new(IMG)
-		rows.Scan(&img.tokenId, &img.owner, &img.creator, &img.cid, &img.type_, &img.description, &img.isSell, &img.balance, &img.thumbsUp, &img.browseCount)
+		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		return img
 	}
 	return nil
@@ -46,7 +46,7 @@ func QueryAllImg() []IMG {
 scan:
 	if rows.Next() {
 		img := new(IMG)
-		rows.Scan(&img.tokenId, &img.owner, &img.creator, &img.cid, &img.type_, &img.description, &img.isSell, &img.balance, &img.thumbsUp, &img.browseCount)
+		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		images = append(images, *img)
 		goto scan
 	}
