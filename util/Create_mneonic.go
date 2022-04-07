@@ -10,6 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/google/uuid"
 	"github.com/tyler-smith/go-bip39"
@@ -26,7 +27,7 @@ func Create_mneonic() string { //生成助记词
 	fmt.Println(nm)
 	return nm
 }
-func DeriveAddressFromMnemonic(nm string) { //输入助记词生成账户和私钥
+func DeriveAddressFromMnemonic(nm string) (string, string) { //输入助记词生成账户和私钥
 	path, err := accounts.ParseDerivationPath("m/44'/60'/0'/0/1")
 	if err != nil {
 		panic(err)
@@ -35,12 +36,13 @@ func DeriveAddressFromMnemonic(nm string) { //输入助记词生成账户和私�
 	masterKey, err := hdkeychain.NewMaster(seed, &chaincfg.MainNetParams)
 	if err != nil {
 		fmt.Println(err)
-		return
+		return "", ""
 	}
 	privateKey, err := DerivePrivateKey(path, masterKey)
 	publicKey, err := DerivePublicKey(privateKey)
 	address := crypto.PubkeyToAddress(*publicKey)
-	fmt.Println(address.Hex())
+
+	return hexutil.Encode(crypto.FromECDSA(privateKey)), address.Hex()
 }
 func DerivePrivateKey(path accounts.DerivationPath, masterKey *hdkeychain.ExtendedKey) (*ecdsa.PrivateKey, error) {
 	var err error

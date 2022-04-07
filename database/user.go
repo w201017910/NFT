@@ -17,8 +17,8 @@ func Init() {
 	}
 
 }
-func InsertUser(name string, password string, email string) bool {
-	_, err := db.Exec("insert user (uname,password,email) values (?,?,?)", name, password, email)
+func InsertUser(name string, password string, address string, email string, picture string, keyStore string, mneonic string) bool {
+	_, err := db.Exec("insert user values (?,?,?,?,?,?,?)", name, password, address, picture, email, keyStore, mneonic)
 	if err != nil {
 		fmt.Println(err)
 		return false
@@ -31,8 +31,8 @@ func ChangeImg(name string, img string) {
 		fmt.Println(err)
 	}
 }
-func ChangeAddress(name string, address string, keystore string) {
-	_, err := db.Exec("UPDATE `user` SET `address`=?,keystore = ? WHERE `uname` = ?", address, keystore, name)
+func ChangeAddress(name string, address string, keystore string, mneonic string) {
+	_, err := db.Exec("UPDATE `user` SET `address`=?,keystore = ?,mneonic=? WHERE `uname` = ?", address, keystore, mneonic, name)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -45,7 +45,7 @@ func SignIn(name string, password string) *Person {
 
 	if rows.Next() {
 		person := new(Person)
-		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore)
+		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore, &person.Mneonic)
 		return person
 	}
 	return nil
@@ -59,7 +59,7 @@ func QueryUser(name string) *Person {
 
 	if rows.Next() {
 		person := new(Person)
-		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore)
+		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore, &person.Mneonic)
 		return person
 	}
 	return nil
@@ -72,4 +72,5 @@ type Person struct {
 	Picture  string
 	Email    string
 	Keystore string
+	Mneonic  string
 }
