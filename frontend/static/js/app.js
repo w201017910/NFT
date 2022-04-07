@@ -21,21 +21,6 @@ window.addEventListener("scroll", (ev) => {
   windowScroll();
 });
 
-//
-/********************* light-dark js ************************/
-//
-
-const btn = document.getElementById("mode");
-btn.addEventListener("click", (e) => {
-  let theme = localStorage.getItem("theme");
-  if (theme == "light" || theme == "") {
-    document.body.setAttribute("data-layout-mode", "dark");
-    localStorage.setItem("theme", "dark");
-  } else {
-    document.body.removeAttribute("data-layout-mode");
-    localStorage.setItem("theme", "light");
-  }
-});
 
 //
 /********************* Swicher js ************************/
@@ -54,4 +39,3 @@ function setColor(theme) {
   document.getElementById("color-opt").href = "./css/colors/" + theme + ".css";
   toggleSwitcher(false);
 }
-
