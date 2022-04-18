@@ -65,13 +65,17 @@
                 </ul>
                 <!--end navbar-nav-->
                 {{ if .isLogin }}
-                <div class="header d-flex align-items-center justify-content-start">
-                    <div class="avatar-xs">
-                        <img src={{.img}}
-                             alt="" class="img-fluid rounded-circle">
-                    </div>
-                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{ .username }}</h6>
-                </div>
+                <ul class="nav nav-tabs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src={{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
+                    </a>
+                    <li class="nav-item dropdown">
+                        <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{ .username}}</p>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 {{ else }}
                 <a href="login.html" class="btn btn-primary">登录</a>
                 {{ end }}
