@@ -28,6 +28,7 @@ func Start(addr string) (err error) {
 	r.GET("/", rounter.Index1)
 	r.POST("/register", rounter.Register)
 	r.POST("/login", rounter.Login)
+	r.POST("/logout", rounter.LoginOut)
 	err = r.Run(addr)
 	return err
 }

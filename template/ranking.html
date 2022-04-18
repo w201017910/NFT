@@ -79,7 +79,7 @@
                     <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{
                         .username}}</p>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">退出登录</a></li>
+                        <li><a class="dropdown-item logout" href="javascript:void(0)">退出登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -786,7 +786,27 @@
 
 <!-- App Js -->
 <script src="frontend/static/js/app.js"></script>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('.logout').click(function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '/logout',
+                type:'post',
+                data:{
 
+                },
+                success: function(data){
+
+                    alert('退出成功');
+                    window.location.href="/";
+
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 

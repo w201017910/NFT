@@ -63,3 +63,9 @@ func Login(c *gin.Context) {
 	}
 
 }
+func LoginOut(c *gin.Context) {
+
+	c.SetCookie("name", "", -1, "/", "localhost", false, true)
+	c.JSON(http.StatusOK, gin.H{})
+
+}
