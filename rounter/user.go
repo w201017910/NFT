@@ -37,13 +37,29 @@ func Register(ctx *gin.Context) {
 		//新的文件名
 		fileName := fileNameStr + extstring
 		//保存上传文件
-		newName = "./frontend/static/updata" + fileName
+		newName = "./frontend/static/updata/" + fileName
 		ctx.SaveUploadedFile(file, newName)
 	}
 	mneonic := util.Create_mneonic()
 	keys, address := util.DeriveAddressFromMnemonic(mneonic)
 	database.InsertUser(name, password, address, email, newName, keys, mneonic)
-	ctx.SetCookie("name", name, 10000, "/", "localhost", false, true)
+	ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
 	ctx.Redirect(http.StatusMovedPermanently, "/")
+
+}
+func Login(c *gin.Context) {
+	name := c.PostForm("1")
+	password := c.PostForm("2")
+	person := database.SignIn(name, password)
+	if person != nil {
+		c.SetCookie("name", name, 1000, "/", "localhost", false, true)
+		c.JSON(http.StatusOK, gin.H{
+			"judge": true,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"judge": false,
+		})
+	}
 
 }

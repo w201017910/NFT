@@ -13,115 +13,302 @@
     <link rel="stylesheet" href="frontend/static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
     <!-- Material Icon Css -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+    <!--图标样式-->
+    <link href="https://cdn.bootcss.com/font-awesome/5.7.2/css/all.min.css" rel="stylesheet">
     <!-- Unicon Css -->
     <link rel="stylesheet" href="frontend/static/css/line.css">
 
     <!-- Custom Css -->
     <link rel="stylesheet" href="frontend/static/css/style.min.css" type="text/css">
 
+    <!--主要样式-->
+    <link href="frontend/static/css/slidercaptcha.css" rel="stylesheet" />
+    <style>
+        .slidercaptcha {
+            margin: 0 auto;
+            width: 314px;
+            height: 286px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+            margin-top: 40px;
+        }
+
+        .slidercaptcha .card-body {
+            padding: 1rem;
+        }
+
+        .slidercaptcha canvas:first-child {
+            border-radius: 4px;
+            border: 1px solid #e6e8eb;
+        }
+
+        .slidercaptcha.card .card-header {
+            background-image: none;
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        .refreshIcon {
+            top: -54px;
+        }
+    </style>
+    <style>
+        .popOutBg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .6);
+            display: none;
+        }
+
+        .popOut {
+            position: fixed;
+            width: 600px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            margin-top: -150px;
+            margin-left: -300px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .popOut>span {
+            position: absolute;
+            right: 10px;
+            top: 0;
+            height: 42px;
+            line-height: 42px;
+            color: #000;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .popOut table {
+            display: block;
+            margin: 42px auto 0;
+            width: 520px;
+        }
+
+        .popOut caption {
+            width: 520px;
+            text-align: center;
+            color: #f40;
+            font-size: 18px;
+            line-height: 42px;
+        }
+
+        .popOut table tr td {
+            color: #666;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .popOut table tr td:first-child {
+            text-align: right;
+        }
+
+        .inp {
+            width: 280px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #999;
+            padding: 5px 10px;
+            color: #000;
+            font-size: 14px;
+            border-radius: 6px;
+        }
+
+        .inp:focus {
+            border-color: #f40;
+        }
+
+        @keyframes ani {
+            from {
+                transform: translateX(-100%) rotate(-60deg) scale(.5);
+            }
+
+            50% {
+                transform: translateX(0) rotate(0) scale(1);
+            }
+
+            90% {
+                transform: translateX(20px) rotate(0) scale(.8);
+            }
+
+            to {
+                transform: translateX(0) rotate(0) scale(1);
+            }
+        }
+
+        .ani {
+            animation: ani .5s ease-in-out;
+        }
+    </style>
+
 </head>
 
 <body>
 
 
-    <!-- start section -->
-    <section class="login section position-relative overflow-hidden"
-        style="background-image: url(https://themesdesign.in/artlink/layout/images/inner-image/login.png); background-repeat: no-repeat;">
-        <!-- start container -->
-        <!-- <div class="bg-overlay"></div> -->
-        <div class="container position-relative">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <form class="mt-2 inner-heading">
-                        <h1 class="fw-bold">欢迎 🖐 来到NFT市场</h1>
+<!-- start section -->
+<section class="login section position-relative overflow-hidden"
+         style="background-image: url(https://themesdesign.in/artlink/layout/images/inner-image/login.png); background-repeat: no-repeat;">
+    <!-- start container -->
+    <!-- <div class="bg-overlay"></div> -->
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form class="mt-2 inner-heading">
+                    <h1 class="fw-bold">欢迎 🖐 来到NFT市场</h1>
 
-                        <p class="text-muted">还没有账户?? <a href="register.html" class="text-blue">注册</a> </p>
+                    <p class="text-muted">还没有账户?? <a href="register.html" class="text-blue">注册</a> </p>
 
-                        <div class="info-box">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="email  mt-4">
-                                        <label for="validationDefault03" class="form-label fw-semibold"> 邮箱地址
-                                            :</label>
-                                        <input type="email" class="form-control" id="validationDefault03"
-                                            placeholder="请输入你的邮箱" required="">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12">
-                                    <div class="password  mt-4">
-                                        <label for="validationDefault01" class="form-label fw-semibold">密码
-                                            :</label>
-                                        <input type="password" class="form-control" id="validationDefault01"
-                                            placeholder="请输入你的密码" value="" required="">
-                                    </div>
-                                </div>
-
-
-                                <div class="col-12 ">
-                                    <div class="d-flex align-items-center mt-4">
-                                        <div class="verify">
-                                            <button type="button" class="btn border btn-light text-dark shadow-sm"
-                                                id="liveToastBtn"> 点击验证 </button>
-                                        </div>
-                                        <div class="other ms-auto">
-                                            <div class="mb-0 text-muted fw-semibold">登录于: <a href=""
-                                                    class="text-dark ms-2">谷歌</a> <a href=""
-                                                    class="text-dark ms-4">脸书</a></div>
-                                        </div>
-                                    </div>
+                    <div class="info-box">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="email  mt-4">
+                                    <label for="validationDefault03" class="form-label fw-semibold"> 账户地址
+                                        :</label>
+                                    <input type="text" class="form-control" id="validationDefault03"
+                                           placeholder="请输入你的账户" required="">
                                 </div>
                             </div>
 
-                            <div class="submit-button mt-4">
-                                <button class="btn btn-primary w-100" type="submit">提交</button>
+                            <div class="col-lg-12">
+                                <div class="password  mt-4">
+                                    <label for="validationDefault01" class="form-label fw-semibold">密码
+                                        :</label>
+                                    <input type="password" class="form-control" id="validationDefault01"
+                                           placeholder="请输入你的密码" value="" required="">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="position-fixed start-0 bottom-50 p-3" style="z-index: 999">
-                            <div id="liveToast" class="toast position-relative" role="alert" aria-live="assertive"
-                                aria-atomic="true">
-                                <div class="toast-header">
 
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0">
-                                            <i class="mdi mdi-check-circle text-success f-30"></i>
-                                        </div>
-                                        <div class="flex-grow-1 ms-2">
-                                            <strong> 您的帐户已验证 </strong>
-
+                            <div class="col-12 row">
+                                <div class="col align-items-center mt-4">
+                                    <div class="verify">
+                                        <button type="button" class="btn border btn-light text-dark shadow-sm"> 点击验证
+                                        </button>
+                                        <div class="popOutBg"></div>
+                                        <div class="popOut">
+                                            <div class="container-fluid">
+                                                <div class="form-row">
+                                                    <div class="col-12">
+                                                        <div class="slidercaptcha card">
+                                                            <div class="card-header">
+                                                                <span>请完成安全验证</span>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div id="captcha"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="toast-body">
-                                    登录到您的帐户!
-                                </div>
-                                <div class="progress" style="height: 5px;">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                        role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
-                                        style="width: 95%;"></div>
+                                <div class="col submit-button mt-4">
+                                    <button id="login" class="btn btn-primary w-100 btnSub">提交</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
-
-
         </div>
-        <!-- end container -->
-    </section>
 
 
-    <!--Bootstrap Js-->
-    <script src="frontend/static/js/bootstrap.bundle.min.js"></script>
+    </div>
+    <!-- end container -->
+</section>
 
-    <script src="frontend/static/js/bootstrap-toasts.init.js"></script>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="frontend/static/js/longbow.slidercaptcha.js"></script>
+<!--Bootstrap Js-->
+<script src="frontend/static/js/bootstrap.bundle.min.js"></script>
 
-    <!-- App Js -->
-    <script src="frontend/static/js/app.js"></script>
+<script src="frontend/static/js/bootstrap-toasts.init.js"></script>
 
+<!-- App Js -->
+<script src="frontend/static/js/app.js"></script>
+<script>
+    var judge=false
+    $('#captcha').sliderCaptcha({
+        repeatIcon: 'fa fa-redo',
+        setSrc: function () {
+            //随机返回一张图片
+            return 'https://picsum.photos/200/300';
+        },
+        onSuccess: function () {
+            judge=true
+            alert('验证通过!');
+            yy(".btnSub").style.display = "block";
+            yy(".popOut").style.display = "none";
+            yy(".popOutBg").style.display = "none";
+        }
+    });
+</script>
+<script type="text/javascript">
+    function yy(param) {
+        if (arguments[1] == true) {
+            return document.querySelectorAll(param);
+        } else {
+            return document.querySelector(param);
+        }
+    }
 
+    function ani() {
+        yy(".popOut").className = "popOut ani";
+    }
+    yy("button").onclick = function () {
+        yy(".btnSub").style.display = "none";
+        yy(".popOut").style.display = "block";
+        ani();
+        yy(".popOutBg").style.display = "block";
+    };
+    $(".popOut > span").onclick = function () {
+        yy(".popOut").style.display = "none";
+        yy(".popOutBg").style.display = "none";
+    };
+    yy(".popOutBg").onclick = function () {
+        yy(".popOut").style.display = "none";
+        yy(".popOutBg").style.display = "none";
+    };
+</script>
+<script>
+    $(function(){
+
+        $('#login').click(function(event){
+            event.preventDefault();
+            if (judge!=true){
+                alert("请先验证")
+                return
+            }
+            $.ajax({
+                url: '/login',
+                type: 'POST',
+                data:{
+                    "1": $("#validationDefault03").val(),
+                    "2": $("#validationDefault01").val()
+                },
+                success: function(data){
+                    if (data) {
+                        alert("登录成功")
+                        window.location.href = "/";
+                    } else {
+                        alert("登录失败")
+                    }
+                }
+            });
+        });
+    });
+
+</script>
 </body>
 
 </html>

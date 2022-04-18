@@ -34,25 +34,100 @@ func Drag(c *gin.Context) {
 	c.HTML(http.StatusOK, "drag.html", gin.H{})
 }
 func Homepage(c *gin.Context) {
-	c.HTML(http.StatusOK, "homepage.html", gin.H{})
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	if e == nil {
+		isLogin = true
+	}
+	if isLogin {
+		c.HTML(http.StatusOK, "homepage.html", gin.H{
+			"isLogin":  isLogin,
+			"username": cookie.Value,
+			"img":      database.QueryUser(cookie.Value).Picture,
+		})
+	} else {
+		c.HTML(http.StatusOK, "homepage.html", gin.H{
+			"isLogin": isLogin,
+		})
+	}
 }
 func Index1(c *gin.Context) {
-	c.HTML(http.StatusOK, "index.html", gin.H{})
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	if e == nil {
+		isLogin = true
+	}
+	if isLogin {
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"isLogin":  isLogin,
+			"username": cookie.Value,
+			"img":      database.QueryUser(cookie.Value).Picture,
+		})
+	} else {
+		c.HTML(http.StatusOK, "index.html", gin.H{
+			"isLogin": isLogin,
+		})
+	}
 }
 func ItemDetails(c *gin.Context) {
 	c.HTML(http.StatusOK, "item-details.html", gin.H{})
 }
-func Login(c *gin.Context) {
+func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
 }
 func Ranking(c *gin.Context) {
-	c.HTML(http.StatusOK, "ranking.html", gin.H{})
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	if e == nil {
+		isLogin = true
+	}
+	if isLogin {
+		c.HTML(http.StatusOK, "ranking.html", gin.H{
+			"isLogin":  isLogin,
+			"username": cookie.Value,
+			"img":      database.QueryUser(cookie.Value).Picture,
+		})
+	} else {
+		c.HTML(http.StatusOK, "ranking.html", gin.H{
+			"isLogin": isLogin,
+		})
+	}
 }
 func RegisterPage(c *gin.Context) {
-	c.HTML(http.StatusOK, "register.html", gin.H{})
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	if e == nil {
+		isLogin = true
+	}
+	if isLogin {
+		c.HTML(http.StatusOK, "register.html", gin.H{
+			"isLogin":  isLogin,
+			"username": cookie.Value,
+			"img":      database.QueryUser(cookie.Value).Picture,
+		})
+	} else {
+		c.HTML(http.StatusOK, "register.html", gin.H{
+			"isLogin": isLogin,
+		})
+	}
 }
 func Swap(c *gin.Context) {
-	c.HTML(http.StatusOK, "swap.html", gin.H{})
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	if e == nil {
+		isLogin = true
+	}
+	if isLogin {
+		c.HTML(http.StatusOK, "swap.html", gin.H{
+			"isLogin":  isLogin,
+			"username": cookie.Value,
+			"img":      database.QueryUser(cookie.Value).Picture,
+		})
+	} else {
+		c.HTML(http.StatusOK, "swap.html", gin.H{
+			"isLogin": isLogin,
+		})
+	}
 }
 func Wallet(c *gin.Context) {
 	c.HTML(http.StatusOK, "wallet.html", gin.H{})

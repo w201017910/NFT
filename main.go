@@ -20,13 +20,14 @@ func Start(addr string) (err error) {
 	r.GET("/drag.html", rounter.Drag)
 	r.GET("/homepage.html", rounter.Homepage)
 	r.GET("/item-details.html", rounter.ItemDetails)
-	r.GET("/login.html", rounter.Login)
+	r.GET("/login.html", rounter.LoginPage)
 	r.GET("/ranking.html", rounter.Ranking)
 	r.GET("/register.html", rounter.RegisterPage)
 	r.GET("/swap.html", rounter.Swap)
 	r.GET("/wallet.html", rounter.Wallet)
 	r.GET("/", rounter.Index1)
 	r.POST("/register", rounter.Register)
+	r.POST("/login", rounter.Login)
 	err = r.Run(addr)
 	return err
 }
