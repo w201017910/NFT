@@ -9,5 +9,6 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/google/uuid v1.1.5
+	github.com/ipfs/go-ipfs-api v0.3.0
 	github.com/tyler-smith/go-bip39 v1.0.1-0.20181017060643-dbb3b84ba2ef
 )

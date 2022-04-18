@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
 	"nft/database"
 	"nft/rounter"
@@ -8,12 +9,16 @@ import (
 
 func main() {
 	database.Init()
+	clients, _ := ethclient.Dial("ws://127.0.0.1:7545")
+	rounter.Client = clients
+	defer clients.Close()
 	Start("localhost:8080")
 }
 func Start(addr string) (err error) {
 	r := gin.Default()
 	r.Static("/frontend", "./frontend")
 	r.LoadHTMLGlob("./template/*")
+
 	r.GET("/index-2.html", rounter.Index2)
 	r.GET("/404.html", rounter.NotFind)
 	r.GET("/collection.html", rounter.Collection)
@@ -29,6 +34,7 @@ func Start(addr string) (err error) {
 	r.POST("/register", rounter.Register)
 	r.POST("/login", rounter.Login)
 	r.POST("/logout", rounter.LoginOut)
+	r.POST("/upLoad", rounter.ReadFile)
 	err = r.Run(addr)
 	return err
 }
