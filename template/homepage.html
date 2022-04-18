@@ -32,259 +32,257 @@
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
 
 
-    <!--Navbar Start-->
-    <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
-        <div class="container-fluid custom-container">
-            <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
-                <img src="frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
-            </a>
-            <div>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+    <div class="container-fluid custom-container">
+        <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
+            <img src="frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
+        </a>
+        <div>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mx-auto navbar-center">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">主页</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="index-2.html" class="nav-link">市场</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="ranking.html" class="nav-link">排名</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="register.html" class="nav-link">注册</a>
-                    </li>
-
-                    <!--end dropdown-->
-
-                    <li class="nav-item">
-                        <a href="swap.html" class="nav-link">交换</a>
-                    </li>
-                    <!--end dropdown-->
-                    <li class="nav-item">
-                        <a href="homepage.html" class="nav-link">个人主页</a>
-                    </li>
-                    <!--end dropdown-->
-                </ul>
-                <!--end navbar-nav-->
-                {{ if .isLogin }}
-                <ul class="nav nav-tabs">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src={{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
-                    </a>
-                    <li class="nav-item dropdown">
-                        <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{ .username}}</p>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">退出登录</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                {{ else }}
-                <a href="login.html" class="btn btn-primary">登录</a>
-                {{ end }}
-            </div>
-
+                <i class="mdi mdi-menu"></i>
+            </button>
         </div>
-        <!--end container-->
-    </nav>
-    <!-- Navbar End -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto navbar-center">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">主页</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="index-2.html" class="nav-link">市场</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="ranking.html" class="nav-link">排名</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link">注册</a>
+                </li>
+
+                <!--end dropdown-->
+
+                <li class="nav-item">
+                    <a href="swap.html" class="nav-link">交换</a>
+                </li>
+                <!--end dropdown-->
+                <li class="nav-item">
+                    <a href="homepage.html" class="nav-link">个人主页</a>
+                </li>
+                <!--end dropdown-->
+            </ul>
+            <!--end navbar-nav-->
+            {{ if .isLogin }}
+            <ul class="nav nav-tabs">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src={{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
+                </a>
+                <li class="nav-item dropdown">
+                    <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{
+                        .username}}</p>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {{ else }}
+            <a href="login.html" class="btn btn-primary">登录</a>
+            {{ end }}
+        </div>
+
+    </div>
+    <!--end container-->
+</nav>
+<!-- Navbar End -->
 
 
-
-    <!-- start section -->
-    <section class="faq section bg-light">
-        <!-- start container -->
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb default mb-0">
-                            <li class="breadcrumb-item">
-                                <a href="/" class="text-muted">主页</a>
-                            </li>
-                            <li class="breadcrumb-item active text-primary" aria-current="page">个人主页</li>
-                        </ol>
-                    </nav>
-                </div>
+<!-- start section -->
+<section class="faq section bg-light">
+    <!-- start container -->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb default mb-0">
+                        <li class="breadcrumb-item">
+                            <a href="/" class="text-muted">主页</a>
+                        </li>
+                        <li class="breadcrumb-item active text-primary" aria-current="page">个人主页</li>
+                    </ol>
+                </nav>
             </div>
+        </div>
 
-            <div class="row faq align-items-center mt-5">
-                <div class="col-lg-12">
-                    <div class="row justify-content-center align-items-center">
-                        <div class="col-lg-5">
-                            <img src="frontend/static/picture/img-15.png" width="844.67538" height="595.26155" alt=""
-                                class="img-fluid">
+        <div class="row faq align-items-center mt-5">
+            <div class="col-lg-12">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-5">
+                        <img src="frontend/static/picture/img-15.png" width="844.67538" height="595.26155" alt=""
+                             class="img-fluid">
+                    </div>
+                    <div class="col-lg-6 offset-lg-1">
+                        <div class="col-12">
+                            <div class="inner-heading text-center">
+                                <div class="mt-4">
+                                    <h1 class="fw-bold">用户名:xxx</h1>、
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-lg-6 offset-lg-1">
-                            <div class="col-12">
-                                <div class="inner-heading text-center">
-                                    <div class="mt-4">
-                                        <h1 class="fw-bold">用户名:xxx</h1>、
+
+                        <div class="accordion mt-5" id="accordionExample">
+                            <!-- start 1 -->
+                            <div class="card mt-4">
+                                <a data-bs-toggle="collapse" href="#collapse1" class="faq collapsed">
+                                    <div class="card-header p-4">
+                                        <h5 class="mb-0 text-dark">账户</h5>
+                                    </div>
+                                </a>
+                                <div id="collapse1" class="collapse">
+                                    <div class="card-body align-items-center">
+                                        <p class="mb-0 text-muted">0afd196e90017073d53a2def27bd911ea6de34e95</p>
                                     </div>
                                 </div>
                             </div>
+                            <!-- end 1 -->
+                            <!-- start 2 -->
 
-                            <div class="accordion mt-5" id="accordionExample">
-                                <!-- start 1 -->
+                            <!-- end 2 -->
+                            <div class="faq-collaps faq-collaps-2">
+                                <!-- start 3 -->
                                 <div class="card mt-4">
-                                    <a data-bs-toggle="collapse" href="#collapse1" class="faq collapsed">
+                                    <a data-bs-toggle="collapse" href="#collapse3" class="faq collapsed">
                                         <div class="card-header p-4">
-                                            <h5 class="mb-0 text-dark">账户</h5>
+                                            <h5 class="mb-0 text-dark">我的密钥</h5>
                                         </div>
                                     </a>
-                                    <div id="collapse1" class="collapse">
-                                        <div class="card-body align-items-center">
-                                            <p class="mb-0 text-muted">0afd196e90017073d53a2def27bd911ea6de34e95</p>
+
+                                    <div id="collapse3" class="collapse">
+                                        <div class="d-flex card-body align-items-center">
+                                            <p class="mb-0 text-muted">
+                                                0afd196e90017073d53a2def27bd911ea6de34e95</p>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end 1 -->
-                                <!-- start 2 -->
+                                <!-- end 3 -->
 
-                                <!-- end 2 -->
-                                <div class="faq-collaps faq-collaps-2">
-                                    <!-- start 3 -->
-                                    <div class="card mt-4">
-                                        <a data-bs-toggle="collapse" href="#collapse3" class="faq collapsed">
-                                            <div class="card-header p-4">
-                                                <h5 class="mb-0 text-dark">我的密钥</h5>
-                                            </div>
-                                        </a>
 
-                                        <div id="collapse3" class="collapse">
-                                            <div class="d-flex card-body align-items-center">
-                                                <p class="mb-0 text-muted">
-                                                    0afd196e90017073d53a2def27bd911ea6de34e95</p>
-                                            </div>
+                                <!-- start 4 -->
+                                <div class="card mt-4">
+                                    <a data-bs-toggle="collapse" href="#collapse4" class="faq collapsed">
+                                        <div class="card-header p-4">
+                                            <h5 class="mb-0 text-dark">代币数量</h5>
+                                        </div>
+                                    </a>
+                                    <div id="collapse4" class="collapse">
+                                        <div class="card-body align-items-center">
+                                            <p class="mb-0 text-muted">5000000000000000000</p>
                                         </div>
                                     </div>
-                                    <!-- end 3 -->
+                                </div>
+                                <!-- end 4 -->
 
+                                <!-- start 5 -->
 
-                                    <!-- start 4 -->
-                                    <div class="card mt-4">
-                                        <a data-bs-toggle="collapse" href="#collapse4" class="faq collapsed">
-                                            <div class="card-header p-4">
-                                                <h5 class="mb-0 text-dark">代币数量</h5>
-                                            </div>
-                                        </a>
-                                        <div id="collapse4" class="collapse">
-                                            <div class="card-body align-items-center">
-                                                <p class="mb-0 text-muted">5000000000000000000</p>
-                                            </div>
+                                <div class="card mt-4">
+                                    <a data-bs-toggle="collapse" href="#collapse5" class="faq collapsed">
+                                        <div class="card-header p-4">
+                                            <h5 class="mb-0 text-dark">以太币数量</h5>
+                                        </div>
+                                    </a>
+                                    <div id="collapse5" class="collapse" aria-labelledby="heading3"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body align-items-center">
+                                            <p class="mb-0 text-muted">500000000000000</p>
                                         </div>
                                     </div>
-                                    <!-- end 4 -->
+                                </div>
+                                <!-- end 5 -->
 
-                                    <!-- start 5 -->
 
-                                    <div class="card mt-4">
-                                        <a data-bs-toggle="collapse" href="#collapse5" class="faq collapsed">
-                                            <div class="card-header p-4">
-                                                <h5 class="mb-0 text-dark">以太币数量</h5>
-                                            </div>
-                                        </a>
-                                        <div id="collapse5" class="collapse" aria-labelledby="heading3"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body align-items-center">
-                                                <p class="mb-0 text-muted">500000000000000</p>
-                                            </div>
+                                <!-- start 6 -->
+                                <div class="card mt-4">
+                                    <a data-bs-toggle="collapse" href="#collapse6" class="faq collapsed"
+                                       aria-expanded="false" aria-controls="collapse6">
+                                        <div class="card-header p-4" id="heading4">
+                                            <h5 class="mb-0 text-dark">个人作品</h5>
+                                        </div>
+                                    </a>
+                                    <div id="collapse6" class="collapse" aria-labelledby="heading4"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body align-items-center">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
                                         </div>
                                     </div>
-                                    <!-- end 5 -->
+                                </div>
+                                <!-- end 6 -->
 
-
-                                    <!-- start 6 -->
-                                    <div class="card mt-4">
-                                        <a data-bs-toggle="collapse" href="#collapse6" class="faq collapsed"
-                                            aria-expanded="false" aria-controls="collapse6">
-                                            <div class="card-header p-4" id="heading4">
-                                                <h5 class="mb-0 text-dark">个人作品</h5>
-                                            </div>
-                                        </a>
-                                        <div id="collapse6" class="collapse" aria-labelledby="heading4"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body align-items-center">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                            </div>
+                                <!-- start 7 -->
+                                <div class="card mt-4">
+                                    <a data-bs-toggle="collapse" href="#collapse7" class="faq collapsed"
+                                       aria-expanded="false" aria-controls="collapse7">
+                                        <div class="card-header p-4" id="heading5">
+                                            <h5 class="mb-0 text-dark">我的收藏</h5>
+                                        </div>
+                                    </a>
+                                    <div id="collapse7" class="collapse" aria-labelledby="heading4"
+                                         data-parent="#accordionExample">
+                                        <div class="card-body align-items-center">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
+                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
                                         </div>
                                     </div>
-                                    <!-- end 6 -->
+                                </div>
+                                <!-- end 7-->
 
-                                    <!-- start 7 -->
-                                    <div class="card mt-4">
-                                        <a data-bs-toggle="collapse" href="#collapse7" class="faq collapsed"
-                                            aria-expanded="false" aria-controls="collapse7">
-                                            <div class="card-header p-4" id="heading5">
-                                                <h5 class="mb-0 text-dark">我的收藏</h5>
-                                            </div>
-                                        </a>
-                                        <div id="collapse7" class="collapse" aria-labelledby="heading4"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body align-items-center">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                                <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end 7-->
-
-                                    <div class="card mt-4">
-                                        <a href="drag.html" class="btn btn-dark">添加作品</a>
-                                    </div>
+                                <div class="card mt-4">
+                                    <a href="drag.html" class="btn btn-dark">添加作品</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
-        <!-- end container -->
-    </section>
 
-    <!-- start footer -->
-    <section class="footer">
-        <div class="container">
-            <hr>
+    </div>
+    <!-- end container -->
+</section>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center">
-                        <p class="my-4 text-muted">&copy; 2022.
-                        </p>
-                    </div>
+<!-- start footer -->
+<section class="footer">
+    <div class="container">
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <p class="my-4 text-muted">&copy; 2022.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end footer -->
+    </div>
+</section>
+<!-- end footer -->
 
 
+<!--Bootstrap Js-->
+<script src="frontend/static/js/bootstrap.bundle.min.js"></script>
 
+<!-- Slider Js -->
+<script src="frontend/static/js/tiny-slider.js"></script>
+<script src="frontend/static/js/swiper.min.js"></script>
 
-    <!--Bootstrap Js-->
-    <script src="frontend/static/js/bootstrap.bundle.min.js"></script>
+<!-- counter -->
+<script src="frontend/static/js/counter.init.js"></script>
 
-    <!-- Slider Js -->
-    <script src="frontend/static/js/tiny-slider.js"></script>
-    <script src="frontend/static/js/swiper.min.js"></script>
-
-    <!-- counter -->
-    <script src="frontend/static/js/counter.init.js"></script>
-
-    <!-- App Js -->
-    <script src="frontend/static/js/app.js"></script>
+<!-- App Js -->
+<script src="frontend/static/js/app.js"></script>
 
 
 </body>

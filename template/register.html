@@ -25,210 +25,204 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="frontend/static/css/style.min.css" type="text/css">
     <style> .fileinput-button {
-             position: relative;
-             display: inline-block;
-             overflow: hidden;
-            }
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+    }
 
-            .fileinput-button input {
-             position: absolute;
-             right: 0px;
-             top: 0px;
-             opacity: 0;
-             font-size: 200px;
-            }</style>
+    .fileinput-button input {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        opacity: 0;
+        font-size: 200px;
+    }</style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
-    <!--Navbar Start-->
-    <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
-        <div class="container-fluid custom-container">
-            <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
-                <img src="frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
-            </a>
-            <div>
-                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+    <div class="container-fluid custom-container">
+        <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
+            <img src="frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
+        </a>
+        <div>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mx-auto navbar-center">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">主页</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="index-2.html" class="nav-link">市场</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="ranking.html" class="nav-link">排名</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="register.html" class="nav-link">注册</a>
-                    </li>
-
-                    <!--end dropdown-->
-
-                    <li class="nav-item">
-                        <a href="swap.html" class="nav-link">交换</a>
-                    </li>
-                    <!--end dropdown-->
-                    <li class="nav-item">
-                        <a href="homepage.html" class="nav-link">个人主页</a>
-                    </li>
-                    <!--end dropdown-->
-                </ul>
-                <!--end navbar-nav-->
-                {{ if .isLogin }}
-                <ul class="nav nav-tabs">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src={{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
-                    </a>
-                    <li class="nav-item dropdown">
-                        <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{ .username}}</p>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">退出登录</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                {{ else }}
-                <a href="login.html" class="btn btn-primary">登录</a>
-                {{ end }}
-            </div>
-
+                <i class="mdi mdi-menu"></i>
+            </button>
         </div>
-        <!--end container-->
-    </nav>
-    <!-- Navbar End -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto navbar-center">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">主页</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="index-2.html" class="nav-link">市场</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="ranking.html" class="nav-link">排名</a>
+                </li>
+                <li class="nav-item">
+                    <a href="register.html" class="nav-link">注册</a>
+                </li>
+
+                <!--end dropdown-->
+
+                <li class="nav-item">
+                    <a href="swap.html" class="nav-link">交换</a>
+                </li>
+                <!--end dropdown-->
+                <li class="nav-item">
+                    <a href="homepage.html" class="nav-link">个人主页</a>
+                </li>
+                <!--end dropdown-->
+            </ul>
+            <!--end navbar-nav-->
+            {{ if .isLogin }}
+            <ul class="nav nav-tabs">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src={{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
+                </a>
+                <li class="nav-item dropdown">
+                    <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{
+                        .username}}</p>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {{ else }}
+            <a href="login.html" class="btn btn-primary">登录</a>
+            {{ end }}
+        </div>
+
+    </div>
+    <!--end container-->
+</nav>
+<!-- Navbar End -->
 
 
-
-    <!-- start section -->
-    <section class="home section position-relative overflow-hidden"
-        style="background-image: url(https://themesdesign.in/artlink/layout/images/inner-image/login.png); background-repeat: no-repeat;">
-        <!-- start container -->
-        <div class="container">
-
+<!-- start section -->
+<section class="home section position-relative overflow-hidden"
+         style="background-image: url(https://themesdesign.in/artlink/layout/images/inner-image/login.png); background-repeat: no-repeat;">
+    <!-- start container -->
+    <div class="container">
 
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inner-heading">
-                        <h1 class="fw-bold">注册新帐户</h1>
-                        <p class="fw-semibold">通过开始，您承认并同意使用条款和隐私政策</p>
-                    </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-heading">
+                    <h1 class="fw-bold">注册新帐户</h1>
+                    <p class="fw-semibold">通过开始，您承认并同意使用条款和隐私政策</p>
                 </div>
             </div>
+        </div>
 
 
-            <div class="mt-4">
-                <form action="/register" class="info-box" method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="profile-item">
-                                <div class="avatar">
-                                    <img src="frontend/static/picture/img-15.png" alt=""
-                                        class="img-fluid rounded-circle avatar-xl">
-                                </div>
-                                <p class=" mb-0 my-3 fw-bold">档案照片 📷</p>
+        <div class="mt-4">
+            <form action="/register" class="info-box" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="profile-item">
+                            <div class="avatar">
+                                <img src="frontend/static/picture/img-15.png" alt=""
+                                     class="img-fluid rounded-circle avatar-xl">
+                            </div>
+                            <p class=" mb-0 my-3 fw-bold">档案照片 📷</p>
 
-                                <p class="mt-2">你的介绍和学分是你现在简介中最重要的两个元素.🙌</p>
-                                <div>
-                                    <span class ="btn btn-primary fileinput-button">
+                            <p class="mt-2">你的介绍和学分是你现在简介中最重要的两个元素.🙌</p>
+                            <div>
+                                    <span class="btn btn-primary fileinput-button">
                                         <span>上传文件</span>
                                         <input type="file" name="0">
                                     </span>
-                                </div>
-                            </div>
-
-
-                            <div class="mt-4">
-                                <div class="Name">
-                                    <label for="validationDefault03" class="form-label fw-semibold">用户名
-                                        :</label>
-                                    <input name="1" type="text" class="form-control" id="validationDefault03"
-                                        placeholder="请输入你的用户名" required="">
-                                </div>
-                            </div>
-
-                            <div class="mt-4">
-                                <div class="Name">
-                                    <label for="validationDefault001" class="form-label fw-semibold"> 密码
-                                        :</label>
-                                    <input type="text" name="2" class="form-control" id="validationDefault001"
-                                        placeholder="请输入你的密码" minlength="6" maxlength="32" value="" required="">
-                                </div>
-                            </div>
-
-
-
-
-
-                        </div>
-
-                        <div class="col-lg-5 offset-lg-1">
-                            <h4 class="fw-bold mt-lg-0 mt-4">你的社交媒体 <i
-                                    class="mdi mdi-heart-outline f-24 align-middle"></i></h4>
-                            <div class="mt-4">
-                                <div class="Name">
-                                    <div class="d-flex">
-                                        <label for="validationDefault002" class="form-label fw-semibold"> 邮箱
-                                            :</label>
-                                        <p class="mb-0 f-14 text-muted ms-auto">请输入有效邮箱 * exapmle@gmail.com
-                                        </p>
-                                    </div>
-                                    <input type="email" name="3" class="form-control" id="validationDefault002"
-                                           placeholder="请输入你的邮箱" required="" >
-                                </div>
                             </div>
                         </div>
-                        <hr class="my-4">
 
-                        <div class="submit-button">
-                            <button class="btn btn-primary" type="submit">提交</button>
+
+                        <div class="mt-4">
+                            <div class="Name">
+                                <label for="validationDefault03" class="form-label fw-semibold">用户名
+                                    :</label>
+                                <input name="1" type="text" class="form-control" id="validationDefault03"
+                                       placeholder="请输入你的用户名" required="">
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="Name">
+                                <label for="validationDefault001" class="form-label fw-semibold"> 密码
+                                    :</label>
+                                <input type="text" name="2" class="form-control" id="validationDefault001"
+                                       placeholder="请输入你的密码" minlength="6" maxlength="32" value="" required="">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-lg-5 offset-lg-1">
+                        <h4 class="fw-bold mt-lg-0 mt-4">你的社交媒体 <i
+                                class="mdi mdi-heart-outline f-24 align-middle"></i></h4>
+                        <div class="mt-4">
+                            <div class="Name">
+                                <div class="d-flex">
+                                    <label for="validationDefault002" class="form-label fw-semibold"> 邮箱
+                                        :</label>
+                                    <p class="mb-0 f-14 text-muted ms-auto">请输入有效邮箱 * exapmle@gmail.com
+                                    </p>
+                                </div>
+                                <input type="email" name="3" class="form-control" id="validationDefault002"
+                                       placeholder="请输入你的邮箱" required="">
+                            </div>
                         </div>
                     </div>
-                </form>
-            </div>
+                    <hr class="my-4">
+
+                    <div class="submit-button">
+                        <button class="btn btn-primary" type="submit">提交</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <!-- end container -->
-    </section>
+    </div>
+    <!-- end container -->
+</section>
 
 
-    <!-- start footer -->
-    <section class="footer">
-        <div class="container">
-            <hr>
+<!-- start footer -->
+<section class="footer">
+    <div class="container">
+        <hr>
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center">
-                        <p class="my-4 text-muted">&copy; 2022.
-                        </p>
-                    </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <p class="my-4 text-muted">&copy; 2022.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- end footer -->
+    </div>
+</section>
+<!-- end footer -->
 
 
+<!--Bootstrap Js-->
+<script src="frontend/static/js/bootstrap.bundle.min.js"></script>
 
+<!-- Slider Js -->
+<script src="frontend/static/js/tiny-slider.js"></script>
+<script src="frontend/static/js/swiper.min.js"></script>
 
-    <!--Bootstrap Js-->
-    <script src="frontend/static/js/bootstrap.bundle.min.js"></script>
+<!-- counter -->
+<script src="frontend/static/js/counter.init.js"></script>
 
-    <!-- Slider Js -->
-    <script src="frontend/static/js/tiny-slider.js"></script>
-    <script src="frontend/static/js/swiper.min.js"></script>
-
-    <!-- counter -->
-    <script src="frontend/static/js/counter.init.js"></script>
-
-    <!-- App Js -->
-    <script src="frontend/static/js/app.js"></script>
+<!-- App Js -->
+<script src="frontend/static/js/app.js"></script>
 
 
 </body>
