@@ -297,10 +297,10 @@
                     "2": $("#validationDefault01").val()
                 },
                 success: function(data){
-                    if (data) {
+                    if (data.judge) {
                         alert("登录成功")
                         window.location.href = "/";
-                    } else {
+                    }else{
                         alert("登录失败")
                     }
                 }

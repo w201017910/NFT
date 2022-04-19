@@ -5,6 +5,7 @@ import (
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
+	"net/http"
 	"nft/database"
 	"nft/util"
 	"path"
@@ -45,7 +46,7 @@ func ReadFile(c *gin.Context) {
 			tokenId := util.MintToken(Client, userInfo.Keystore[2:], common.HexToAddress(userInfo.Address), cids, type_, name)
 			id, _ := strconv.Atoi(tokenId.String())
 			database.CreateImg(id, userInfo.Address, userInfo.Address, cids, type_, intro)
-			//c.JSON(http.StatusOK, gin.H{"message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
+			c.JSON(http.StatusOK, gin.H{"tokenId": id, "message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
 		}
 		fmt.Println(del)
 	}
