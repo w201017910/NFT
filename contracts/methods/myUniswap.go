@@ -4,7 +4,6 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 	"math/big"
@@ -13,15 +12,12 @@ import (
 
 var uniswapIns *interfaces.UniswapExchange
 
-func Init_Uniswap(client *ethclient.Client, contractAddr string, privateKey string) (swapIns *interfaces.UniswapExchange, opts *bind.TransactOpts) {
+func Init_Uniswap(client *ethclient.Client, contractAddr string) {
 	uniswap, err := interfaces.NewUniswapExchange(common.HexToAddress(contractAddr), client)
 	if err != nil {
 		log.Fatal(err)
 	}
-	privatekey, _ := crypto.HexToECDSA(privateKey)
-	opts = bind.NewKeyedTransactor(privatekey)
 	uniswapIns = uniswap
-	return uniswap, opts
 }
 func Swap_InitilizeExchange(opt *bind.TransactOpts, tokenAmount *big.Int) (initRes *types.Transaction, err error) {
 	initExchange, err := uniswapIns.InitializeExchange(opt, tokenAmount)

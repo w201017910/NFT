@@ -26,7 +26,6 @@
     <!-- Custom Css -->
     <link rel="stylesheet" href="frontend/static/css/homepage.css" type="text/css">
 
-
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="71">
@@ -125,7 +124,7 @@
                         <div class="col-12">
                             <div class="inner-heading text-center">
                                 <div class="mt-4">
-                                    <h1 class="fw-bold">用户名:xxx</h1>、
+                                    <h1 class="fw-bold">用户名{{.username}}</h1>、
                                 </div>
                             </div>
                         </div>
@@ -140,7 +139,7 @@
                                 </a>
                                 <div id="collapse1" class="collapse">
                                     <div class="card-body align-items-center">
-                                        <p class="mb-0 text-muted">0afd196e90017073d53a2def27bd911ea6de34e95</p>
+                                        <p class="mb-0 text-muted">{{.address}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -160,7 +159,7 @@
                                     <div id="collapse3" class="collapse">
                                         <div class="d-flex card-body align-items-center">
                                             <p class="mb-0 text-muted">
-                                                0afd196e90017073d53a2def27bd911ea6de34e95</p>
+                                                {{.privateKey}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -176,7 +175,7 @@
                                     </a>
                                     <div id="collapse4" class="collapse">
                                         <div class="card-body align-items-center">
-                                            <p class="mb-0 text-muted">5000000000000000000</p>
+                                            <p class="mb-0 text-muted">{{.balance}} Frog</p>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +192,7 @@
                                     <div id="collapse5" class="collapse" aria-labelledby="heading3"
                                          data-parent="#accordionExample">
                                         <div class="card-body align-items-center">
-                                            <p class="mb-0 text-muted">500000000000000</p>
+                                            <p class="mb-0 text-muted">{{.etherBalance}} wei</p>
                                         </div>
                                     </div>
                                 </div>
@@ -211,11 +210,35 @@
                                     <div id="collapse6" class="collapse" aria-labelledby="heading4"
                                          data-parent="#accordionExample">
                                         <div class="card-body align-items-center">
-                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
-                                            <img src="frontend/static/picture/12.png" alt="" class="img-fluid">
+                                            <div id="carouselExampleControls" class="carousel slide"
+                                                 data-bs-ride="carousel">
+                                                <div class="carousel-inner">
+
+                                                    <div class="carousel-item active">
+                                                        <img src="{{ .cover0 }}" alt="..." height="100px" class="img">
+                                                    </div>
+                                                    {{range $i,$v := .cover}}
+                                                    <div class="carousel-item">
+                                                        <img src="{{ $v }}" alt="..." height="100px" class="img_etc">
+                                                    </div>
+                                                    {{ end }}
+                                                </div>
+                                                <button class="carousel-control-prev" type="button"
+                                                        data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon"
+                                                              aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button"
+                                                        data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon"
+                                                              aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
                                 <!-- end 6 -->
 
@@ -285,19 +308,47 @@
 <script src="frontend/static/js/app.js"></script>
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function() {
-        $('.logout').click(function(event){
+
+    $(function (){
+        $(".img").click(function (){
+            var href = $(".img").attr("src")
+            var a=href.split("/")
+            href=a[a.length-1]
+            $.ajax({
+                url:"/querydetail"+"/"+href,
+                type: "get",
+                success:function (path){
+                    window.location.href = path
+                }
+            })
+        })
+    })
+    $(function (){
+        $(".img_etc").click(function (){
+            var href = $(".img_etc").attr("src")
+            var a=href.split("/")
+            href=a[a.length-1]
+            $.ajax({
+                url:"/querydetail"+"/"+href,
+                type: "get",
+                success:function (path){
+                    window.location.href = path
+                }
+            })
+        })
+    })
+    $(function () {
+
+        $('.logout').click(function (event) {
             event.preventDefault();
             $.ajax({
                 url: '/logout',
-                type:'post',
-                data:{
-
-                },
-                success: function(data){
+                type: 'post',
+                data: {},
+                success: function (data) {
 
                     alert('退出成功');
-                    window.location.href="/";
+                    window.location.href = "/";
 
                 }
             });

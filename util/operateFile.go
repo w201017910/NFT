@@ -9,6 +9,7 @@ import (
 func UpLoad(fileName string) (imageCid string) {
 	r, err := os.Open(fileName)
 	defer r.Close()
+	//ipfsPort := "localhost:5001"
 	ipfsPort := "175.178.215.53:5001"
 	sh := shell.NewShell(ipfsPort)
 	cid, err := sh.Add(r)
