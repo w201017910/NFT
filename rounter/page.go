@@ -2,7 +2,6 @@ package rounter
 
 import (
 	"context"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -76,6 +75,7 @@ func Homepage(c *gin.Context) {
 			"etherBalance": etherBalance,
 			"cover0":       coverHref[0],
 			"cover":        coverHref[1:],
+			"cid0":         coverHref[0][32:],
 		})
 	} else {
 		c.HTML(http.StatusOK, "homepage.html", gin.H{
@@ -106,13 +106,13 @@ func ItemDetails(c *gin.Context) {
 	href := c.Param("href")
 	item_details := database.QueryImgByCid(cid_head + href)
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
-		"images": item_details.Cid,
+		"images":      item_details.Cid,
+		"tokenId":     item_details.TokenId,
+		"description": item_details.Description,
+		"price":       item_details.Balance,
+		"is_on_sale":  item_details.IsSell,
+		"type":        item_details.Type_,
 	})
-}
-func GetCid(c *gin.Context) {
-	itemHref := c.Param("href")
-	fmt.Println("itemHref:  ", itemHref)
-	c.JSON(http.StatusOK, "/item-details.html/"+itemHref)
 }
 func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})

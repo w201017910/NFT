@@ -215,11 +215,15 @@
                                                 <div class="carousel-inner">
 
                                                     <div class="carousel-item active">
+                                                        <a href="/item-details.html/{{.cid0}}">
                                                         <img src="{{ .cover0 }}" alt="..." height="100px" class="img">
+                                                        </a>
                                                     </div>
                                                     {{range $i,$v := .cover}}
                                                     <div class="carousel-item">
+                                                        <a href="/item-details.html/{{ silice $v }}">
                                                         <img src="{{ $v }}" alt="..." height="100px" class="img_etc">
+                                                        </a>
                                                     </div>
                                                     {{ end }}
                                                 </div>
@@ -309,34 +313,34 @@
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-    $(function (){
-        $(".img").click(function (){
-            var href = $(".img").attr("src")
-            var a=href.split("/")
-            href=a[a.length-1]
-            $.ajax({
-                url:"/querydetail"+"/"+href,
-                type: "get",
-                success:function (path){
-                    window.location.href = path
-                }
-            })
-        })
-    })
-    $(function (){
-        $(".img_etc").click(function (){
-            var href = $(".img_etc").attr("src")
-            var a=href.split("/")
-            href=a[a.length-1]
-            $.ajax({
-                url:"/querydetail"+"/"+href,
-                type: "get",
-                success:function (path){
-                    window.location.href = path
-                }
-            })
-        })
-    })
+    // $(function (){
+    //     $(".img").click(function (){
+    //         var href = $(".img").attr("src")
+    //         var a=href.split("/")
+    //         href=a[a.length-1]
+    //         $.ajax({
+    //             url:"/querydetail"+"/"+href,
+    //             type: "get",
+    //             success:function (path){
+    //                 window.location.href = path
+    //             }
+    //         })
+    //     })
+    // })
+    // $(function (){
+    //     $(".img_etc").click(function (){
+    //         var href = $(".img_etc").attr("src")
+    //         var a=href.split("/")
+    //         href=a[a.length-1]
+    //         $.ajax({
+    //             url:"/querydetail"+"/"+href,
+    //             type: "get",
+    //             success:function (path){
+    //                 window.location.href = path
+    //             }
+    //         })
+    //     })
+    // })
     $(function () {
 
         $('.logout').click(function (event) {
@@ -351,9 +355,9 @@
                     window.location.href = "/";
 
                 }
-            });
-        });
-    });
+            })
+        })
+    })
 </script>
 </body>
 

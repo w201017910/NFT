@@ -132,10 +132,7 @@
                             <div class="tab-content mt-4 ps-3">
                                 <div class="tab-pane fade show active" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <p class="text-muted">欢迎来到数字艺术画廊!我一直在绞尽脑汁
-                                        给你带来这些超时空的种子…我们提供各种各样的
-                                        不可替代的令牌，包括艺术品、抗审查域名和其他
-                                        收藏品.</p>
+                                    <p class="text-muted">{{.description}}</p>
                                 </div>
 
                             </div>
@@ -165,65 +162,25 @@
                             <div class="tab-content mt-4 ps-3" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <p class="text-muted"></p>
+                                    <p class="text-muted">{{.tokenId}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                      aria-labelledby="pills-profile-tab">
-                                    <p class="text-muted">是</p>
+                                    <p class="text-muted">{{.is_on_sale}}</p>
                                 </div>
                                 <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                                      aria-labelledby="pills-contact-tab">
-                                    <p class="text-muted">科技 </p>
+                                    <p class="text-muted">{{.type}} </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar-xs border rounded-circle border-3 border-white">
-                                            <img src="/frontend/static/picture/img-1.jpg" alt=""
-                                                 class="img-fluid rounded-circle">
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <p class="mb-0 f-14 fw-semibold">拥有者: @麦卡锡 斯盖..</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0">
-                                        <div class="avatar-xs border rounded-circle border-3 border-white">
-                                            <img src="/frontend/static/picture/img-21.jpg" alt=""
-                                                 class="img-fluid rounded-circle">
-                                        </div>
-                                    </div>
-                                    <div class="flex-grow-1 ms-2">
-                                        <p class="mb-0 f-14 fw-semibold">创作者: 麦卡锡 斯盖..</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         <hr class="my-4">
                         <div class="row ">
                             <div class="col-lg-6">
                                 <h6 class="fw-bold mb-1">价格 </h6>
-                                <p class="fw-semibold">4.00036 <span class="text-muted"> 以太币 / $3268.42</span></p>
-                            </div>
-                            <div class="col-lg-6 text-right">
-                                <h6 class="mb-0 fw-bold">倒计时</h6>
-                                <div class="countdown" id="countdown">
-                                    <ul class="d-flex ps-0">
-                                        <!-- <li class="d-flex"><span id="days"></span><span class="align-middle">:</span></li> -->
-                                        <li class="d-flex"><span id="hours"></span><span class="align-middle"> : </span>
-                                        </li>
-                                        <li class="d-flex"><span id="minutes"></span><span class="align-middle"> :
-                                            </span></li>
-                                        <li class="d-flex"><span id="seconds"></span></li>
-                                    </ul>
-                                </div>
+                                <p class="fw-semibold">{{.price}} <span class="text-muted"></span></p>
                             </div>
                         </div>
 
