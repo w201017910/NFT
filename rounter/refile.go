@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"nft/database"
 	"nft/util"
 	"path"
@@ -33,17 +32,21 @@ func ReadFile(c *gin.Context) {
 	cid := util.UpLoad(filepath)
 	if cid != "" {
 		del := util.DelImage(filepath)
+
 		if del == nil {
 			userInfo := database.QueryUser(username)
+
 			fmt.Println("Address", userInfo.Address)
 			type_ := c.PostForm("type")
 			name := c.PostForm("name")
 			intro := c.PostForm("intro")
 			cids := "http://175.178.215.53:8080/ipfs/" + cid
+			fmt.Println(1)
 			tokenId := util.MintToken(userInfo.Keystore[2:], common.HexToAddress(userInfo.Address), cids, type_, name)
+			fmt.Println(2)
 			id, _ := strconv.Atoi(tokenId.String())
 			database.CreateImg(id, userInfo.Address, userInfo.Address, cids, type_, intro)
-			c.JSON(http.StatusOK, gin.H{"tokenId": id, "message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
+			//c.JSON(http.StatusOK, gin.H{"message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
 		}
 		fmt.Println(del)
 	}

@@ -136,8 +136,8 @@
                 </div>
             </div>
             <div class="flex flex-col gap-3">
-                <div
-                        class="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-white p-3 flex flex-col gap-4">
+                <!--      start     -->
+                <div id="a" class="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-white p-3 flex flex-col gap-4">
                     <div class="flex items-end justify-between gap-2">
                         <div
                                 class="flex items-center gap-2 px-2 py-1 rounded-full shadow-md cursor-pointer text-high-emphesis bg-gray-400 hover:bg-dark-700">
@@ -162,30 +162,28 @@
                                 class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex items-baseline flex-grow gap-3 overflow-hidden">
                             <input inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off"
                                    type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.00" min="0" minlength="1"
-                                   maxlength="79" spellcheck="false"
-                                   class="relative font-bold outline-none border-none flex-auto overflow-hidden overflow-ellipsis placeholder-low-emphesis focus:placeholder-primary leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
-                                   value=""><span class="absolute" style="left: 60px;">~$2,909.52 </span>
-                            <div
-                                    class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex flex-row items-baseline">
-                                <span class="opacity-0 absolute pointer-events-none tracking-[0]">0.00</span>
-                            </div>
+                                   maxlength="79" spellcheck="false" onchange="calculator(this.value)" onporpertychange="calculator(this.value)" oninput="calculator(this.value)"
+                                   class=" eth2 relative font-bold outline-none border-none flex-auto overflow-hidden overflow-ellipsis placeholder-low-emphesis focus:placeholder-primary leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
+                                   value=""><span class="absolute eth1" style="left: 60px;">~$2,909.52 </span>
+
                         </div>
-                        <div class="flex whitespace-nowrap" role="button">余额: 0</div>
+                        <div class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex flex-row items-baseline"><span class="opacity-0 absolute pointer-events-none tracking-[0]" >0.00</span>
+                        </div>
+                        <div class="flex whitespace-nowrap eth" role="button">余额: 0</div>
                     </div>
-                </div>
+                </div><!--      end     -->
                 <div class="flex justify-center -mt-6 -mb-6 z-0">
                     <div role="button"
                          class="p-1.5 rounded-full bg-gray-400 border shadow-md border-dark-700  hover:border-dark-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                        <svg onclick="change()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                              aria-hidden="true" width="14" class="text-high-emphesis hover:text-white">
-                            <path fill-rule="evenodd"
+                            <path  fill-rule="evenodd"
                                   d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
                                   clip-rule="evenodd"></path>
                         </svg>
                     </div>
                 </div>
-                <div
-                        class="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-white p-3 flex flex-col gap-4">
+<!--      start     -->     <div id="b" class="rounded-[14px] border border-dark-700 hover:border-dark-600 bg-white p-3 flex flex-col gap-4">
                     <div class="flex items-end justify-between gap-2">
                         <div
                                 class="flex items-center gap-2 px-2 py-1 rounded-full shadow-md cursor-pointer text-high-emphesis bg-gray-400 hover:bg-dark-700">
@@ -201,7 +199,7 @@
                                                 style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"></span>
                                 </div>
                             </div>
-                            <div class="text-sm leading-5 font-bold !text-xl">SUSHI</div>
+                            <div class="text-sm leading-5 font-bold !text-xl">WTT</div>
 
                         </div>
                     </div>
@@ -210,20 +208,25 @@
                                 class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex items-baseline flex-grow gap-3 overflow-hidden">
                             <input inputmode="decimal" title="Token Amount" autocomplete="off" autocorrect="off"
                                    type="text" pattern="^[0-9]*[.,]?[0-9]*$" placeholder="0.00" min="0" minlength="1"
-                                   maxlength="79" spellcheck="false"
-                                   class="relative font-bold outline-none border-none flex-auto overflow-hidden overflow-ellipsis placeholder-low-emphesis focus:placeholder-primary leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
-                                   value=""><span class="absolute" style="left: 60px;">~$3.40 </span>
-                            <div
-                                    class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex flex-row items-baseline">
-                                <span class="opacity-0 absolute pointer-events-none tracking-[0]">0.00</span>
-                            </div>
+                                   maxlength="79" spellcheck="false" onchange="calculator1(this.value)" onporpertychange="calculator1(this.value)" oninput="calculator1(this.value)"
+                                   class="wtt2 relative font-bold outline-none border-none flex-auto overflow-hidden overflow-ellipsis placeholder-low-emphesis focus:placeholder-primary leading-[36px] focus:placeholder:text-low-emphesis flex-grow w-full text-left bg-transparent text-inherit disabled:cursor-not-allowed"
+                                   value=""><span class="absolute wtt1" style="left: 60px;">~$3.40 </span>
+
                         </div>
-                        <div class="flex whitespace-nowrap" role="button">余额: 0</div>
+                        <div
+                                class="text-2xl leading-7 tracking-[-0.01em] font-bold relative flex flex-row items-baseline">
+                            <span class="opacity-0 absolute pointer-events-none tracking-[0]">0.00</span>
+                        </div>
+                        <div class="flex whitespace-nowrap wtt" role="button">余额: 0</div>
                     </div>
-                </div>
-                <button
+                </div><!--      end     -->
+                <button onclick="getAccount()"
                         class="text-higher-emphesis hover:bg-gradient-to-b hover:from-black/20 focus:to-black/20 focus:bg-gradient-to-b focus:from-black/20 hover:to-black/20 active:bg-gradient-to-b active:from-black/40 active:to-black/40 disabled:pointer-events-none disabled:opacity-40 bg-blue text-sm rounded px-3 h-[36px] w-full font-bold flex items-center justify-center gap-1 rounded-2xl md:rounded !border-none"
                         id="connect-wallet">连接钱包
+                </button>
+                <button onclick="_sawp()"
+                        class="text-higher-emphesis hover:bg-gradient-to-b hover:from-black/20 focus:to-black/20 focus:bg-gradient-to-b focus:from-black/20 hover:to-black/20 active:bg-gradient-to-b active:from-black/40 active:to-black/40 disabled:pointer-events-none disabled:opacity-40 bg-blue text-sm rounded px-3 h-[36px] w-full font-bold flex items-center justify-center gap-1 rounded-2xl md:rounded !border-none"
+                        >交换
                 </button>
             </div>
         </div>
@@ -261,6 +264,9 @@
 <!-- App Js -->
 <script src="frontend/static/js/app.js"></script>
 <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="frontend/static/js/web3.min.js"></script>
+<script src="frontend/static/js/abi.js"></script>
+<script src="frontend/static/js/swap.js"></script>
 <script type="text/javascript">
     $(function() {
         $('.logout').click(function(event){

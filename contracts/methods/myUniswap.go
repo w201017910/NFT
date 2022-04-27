@@ -57,3 +57,12 @@ func Swap_TokenToEthPayment(opt *bind.TransactOpts, tokenAmount *big.Int, miniEt
 	}
 	return TTEP, nil
 }
+func Swap_EthPool() (*big.Int, error) {
+	return uniswapIns.EthPool(nil)
+}
+func Swap_TokenPool() (*big.Int, error) {
+	return uniswapIns.TokenPool(nil)
+}
+func Swap_Invariant() (*big.Int, error) {
+	return uniswapIns.Invariant(nil)
+}
