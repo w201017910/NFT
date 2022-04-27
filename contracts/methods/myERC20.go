@@ -4,7 +4,6 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 	"math/big"
@@ -13,15 +12,12 @@ import (
 
 var erc20Ins *interfaces.ERC20
 
-func Init_ERC20(client *ethclient.Client, contractAddr string, privateKey string) (ERC20INS *interfaces.ERC20, opts *bind.TransactOpts) {
+func Init_ERC20(client *ethclient.Client, contractAddr string) {
 	erc20, err := interfaces.NewERC20(common.HexToAddress(contractAddr), client)
 	if err != nil {
 		log.Fatal(err)
 	}
-	privatekey, _ := crypto.HexToECDSA(privateKey)
-	opt := bind.NewKeyedTransactor(privatekey)
 	erc20Ins = erc20
-	return erc20, opt
 }
 func ERC20_Approve(opts *bind.TransactOpts, address string, amount *big.Int) (transResult *types.Transaction, err error) {
 	spender := common.HexToAddress(address)
@@ -77,9 +73,8 @@ func ERC20_Allowance(opts *bind.CallOpts, owner string, spender string) (allRes 
 	}
 	return allowance, nil
 }
-func ERC20_BalanceOf(opts *bind.CallOpts, account string) (balanceRes *big.Int, err error) {
-	accountAddr := common.HexToAddress(account)
-	balanceOf, err := erc20Ins.BalanceOf(opts, accountAddr)
+func ERC20_BalanceOf(opts *bind.CallOpts, account common.Address) (balanceRes *big.Int, err error) {
+	balanceOf, err := erc20Ins.BalanceOf(opts, account)
 	if err != nil {
 		return nil, err
 	}

@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"log"
 )
 
 type IMG struct {
@@ -25,8 +26,36 @@ func CreateImg(tokenId int, owner string, creator string, cid string, _type stri
 
 	}
 }
+func QueryTokenId(address string) []int {
+	rows, err := db.Query("select `tokenId` from img where owner =?", address)
+	if err != nil {
+		log.Fatal(err)
+	}
+	var tokenIds []int
+scan:
+	if rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId)
+		tokenIds = append(tokenIds, img.TokenId)
+		goto scan
+	}
+	return tokenIds
+
+}
 func QueryImg(tokenID int) *IMG {
 	rows, err := db.Query("select * from img where tokenId=?", tokenID)
+	if err != nil {
+		fmt.Println(err)
+	}
+	if rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		return img
+	}
+	return nil
+}
+func QueryImgByCid(cid string) *IMG {
+	rows, err := db.Query("select * from img where cid=?", cid)
 	if err != nil {
 		fmt.Println(err)
 	}

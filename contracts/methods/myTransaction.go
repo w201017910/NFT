@@ -4,7 +4,6 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 	"math/big"
@@ -13,15 +12,12 @@ import (
 
 var transactionIns *interfaces.Tranaaction
 
-func Init_Transaction(client *ethclient.Client, contractAddr string, privateKey string) (TransINS *interfaces.Tranaaction, opts *bind.TransactOpts) {
+func Init_Transaction(client *ethclient.Client, contractAddr string) {
 	transaction, err := interfaces.NewTranaaction(common.HexToAddress(contractAddr), client)
 	if err != nil {
 		log.Fatal(err)
 	}
-	privatekey, _ := crypto.HexToECDSA(privateKey)
-	opt := bind.NewKeyedTransactor(privatekey)
 	transactionIns = transaction
-	return transaction, opt
 }
 func Trans_Sell(opt *bind.TransactOpts, tokenId *big.Int, price *big.Int) (sellRes *types.Transaction, err error) {
 	sell, err := transactionIns.Sell(opt, tokenId, price)

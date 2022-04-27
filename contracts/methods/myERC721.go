@@ -4,7 +4,6 @@ import (
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"log"
 	"math/big"
@@ -13,15 +12,12 @@ import (
 
 var erc721Ins *interfaces.ERC721
 
-func Init_ERC721(client *ethclient.Client, contractAddr string, privateKey string) (ERC721INS *interfaces.ERC721, opts *bind.TransactOpts) {
+func Init_ERC721(client *ethclient.Client, contractAddr string) {
 	erc721, err := interfaces.NewERC721(common.HexToAddress(contractAddr), client)
 	if err != nil {
 		log.Fatal(err)
 	}
-	privatekey, _ := crypto.HexToECDSA(privateKey)
-	opt := bind.NewKeyedTransactor(privatekey)
 	erc721Ins = erc721
-	return erc721, opt
 }
 func ERC721_Approve(opt *bind.TransactOpts, to string, tokenId *big.Int) (approveRes *types.Transaction, err error) {
 	toAddr := common.HexToAddress(to)
@@ -63,7 +59,7 @@ func ERC721_BalanceOf(opt *bind.CallOpts, owner string) (balanceRes *big.Int, er
 	}
 	return balance, nil
 }
-func ERC721_GrtApproved(opt *bind.CallOpts, tokenId int64) (getApprovedRes common.Address, err error) {
+func ERC721_GetApproved(opt *bind.CallOpts, tokenId int64) (getApprovedRes common.Address, err error) {
 	tokenid := big.NewInt(tokenId)
 	getApproved, err := erc721Ins.GetApproved(opt, tokenid)
 	if err != nil {
@@ -78,6 +74,19 @@ func ERC721_OwnerOf(opt *bind.CallOpts, tokenId int64) (ownerRes common.Address,
 		return common.Address{}, err
 	}
 	return ownerOf, nil
+}
+func TokenInfo(opt *bind.CallOpts, tokenId *big.Int) struct {
+	Owner   common.Address
+	Creator common.Address
+	Cid     string
+	Name    string
+	Type    string
+} {
+	info, err := erc721Ins.Information(opt, tokenId)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return info
 }
 func ERC721_Name(opt *bind.CallOpts) (nameRes string, err error) {
 	name, err := erc721Ins.Name(opt)
