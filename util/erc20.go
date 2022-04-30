@@ -9,7 +9,6 @@ import (
 	contract "nft/contracts/methods"
 )
 
-var erc20Address = "0xCA473e5E9272324864851852AEc94a5CCD5723Ad"
 var opts *bind.TransactOpts
 
 func QueryBalance(address common.Address, privateKey_ string) (balance *big.Int) {
