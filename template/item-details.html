@@ -63,7 +63,7 @@
                     </li>
                     <!--end dropdown-->
                     <li class="nav-item">
-                        <a href="homepage.html" class="nav-link">个人主页</a>
+                        <a href="/homepage.html" class="nav-link">个人主页</a>
                     </li>
                     <!--end dropdown-->
                 </ul>
@@ -143,34 +143,38 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                            aria-selected="true">作品ID
+                                            aria-selected="true">NFT 详情
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-profile" type="button" role="tab"
-                                            aria-controls="pills-profile" aria-selected="false">是否在售
+                                            aria-controls="pills-profile" aria-selected="false">交易详情
                                     </button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-contact" type="button" role="tab"
-                                            aria-controls="pills-contact" aria-selected="false">图片类型
-                                    </button>
-                                </li>
+<!--                                <li class="nav-item" role="presentation">-->
+<!--                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"-->
+<!--                                            data-bs-target="#pills-contact" type="button" role="tab"-->
+<!--                                            aria-controls="pills-contact" aria-selected="false">图片类型-->
+<!--                                    </button>-->
+<!--                                </li>-->
                             </ul>
                             <div class="tab-content mt-4 ps-3" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                      aria-labelledby="pills-home-tab">
-                                    <p class="text-muted">{{.tokenId}}</p>
+                                    <p class="text-muted">TokenId: {{.tokenId}}</p>
+                                    <p class="text-muted">是否在售: {{.is_on_sale}}</p>
+                                    <p class="text-muted">作品类型: {{.type}}</p>
+                                    <p class="text-muted">Cid: <a href="{{.cid}}" target="_blank">{{.cid}}</a></p>
+                                    <p class="text-muted">合约地址: <a href="https://etherscan.io/address/{{.contractAddress}}"target="_blank">{{.contractAddress}}</a></p>
                                 </div>
                                 <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                      aria-labelledby="pills-profile-tab">
-                                    <p class="text-muted">{{.is_on_sale}}</p>
+<!--                                    <p class="text-muted">{{.is_on_sale}}</p>-->
                                 </div>
                                 <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                                      aria-labelledby="pills-contact-tab">
-                                    <p class="text-muted">{{.type}} </p>
+<!--                                    <p class="text-muted">{{.type}} </p>-->
                                 </div>
                             </div>
                         </div>
@@ -180,15 +184,22 @@
                         <div class="row ">
                             <div class="col-lg-6">
                                 <h6 class="fw-bold mb-1">价格 </h6>
-                                <p class="fw-semibold">{{.price}} <span class="text-muted"></span></p>
+                                <p class="fw-semibold">{{.price}} Frog<span class="text-muted"></span></p>
                             </div>
                         </div>
-
+                        {{if .isOwner}}
                         <div class="d-flex">
-                            <a href="wallet.html" class="btn btn-primary">现在购买</a>
-                            <button class="btn btn-outline-primary ms-2">出价</button>
+                            <button class="btn btn-outline-primary ms-2" id="{{.tokenId}}">出价</button>
                         </div>
-
+                        {{else if .is_on_sale}}
+                        <div class="d-flex">
+                            <a href="" class="btn btn-primary">现在购买</a>
+                        </div>
+                        {{else}}
+                        <div class="d-flex">
+                        <a class="btn btn-primary">无法购买</a>
+                    </div>
+                        {{end}}
                     </div>
                 </div>
             </div>

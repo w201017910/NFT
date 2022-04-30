@@ -16,14 +16,12 @@ func ReadFile(c *gin.Context) {
 	if e == nil {
 		username = cookie.Value
 	}
-	fmt.Println("name", username)
 	file, err := c.FormFile("file")
 	if err != nil {
 		fmt.Println("file_err:", err)
 		return
 	}
 	filepath := path.Join("./images", file.Filename)
-	fmt.Println(filepath)
 	err = c.SaveUploadedFile(file, filepath)
 	if err != nil {
 		fmt.Println(err)

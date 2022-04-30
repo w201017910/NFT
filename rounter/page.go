@@ -102,16 +102,27 @@ func Index1(c *gin.Context) {
 	}
 }
 func ItemDetails(c *gin.Context) {
+	cookie, e := c.Request.Cookie("name")
 	cid_head := "http://175.178.215.53:8080/ipfs/"
 	href := c.Param("href")
 	item_details := database.QueryImgByCid(cid_head + href)
+	isOwner := false
+	if e == nil {
+		userName := database.QueryUser(cookie.Value)
+		if cookie.Value == userName.Name {
+			isOwner = true
+		}
+	}
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
-		"images":      item_details.Cid,
-		"tokenId":     item_details.TokenId,
-		"description": item_details.Description,
-		"price":       item_details.Balance,
-		"is_on_sale":  item_details.IsSell,
-		"type":        item_details.Type_,
+		"isOwner":         isOwner,
+		"images":          item_details.Cid,
+		"tokenId":         item_details.TokenId,
+		"description":     item_details.Description,
+		"price":           item_details.Balance,
+		"is_on_sale":      item_details.IsSell,
+		"type":            item_details.Type_,
+		"cid":             item_details.Cid,
+		"contractAddress": contract.Erc721Address,
 	})
 }
 func LoginPage(c *gin.Context) {
