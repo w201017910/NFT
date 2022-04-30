@@ -83,6 +83,7 @@ func Homepage(c *gin.Context) {
 		c.HTML(http.StatusOK, "homepage.html", gin.H{
 			"isLogin": isLogin,
 		})
+		fmt.Println("qqqq")
 	}
 }
 func Index1(c *gin.Context) {
