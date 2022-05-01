@@ -8,6 +8,7 @@ import (
 
 type IMG struct {
 	TokenId     int
+	Name        string
 	Owner       string
 	Creator     string
 	Cid         string
@@ -19,8 +20,8 @@ type IMG struct {
 	BrowseCount int
 }
 
-func CreateImg(tokenId int, owner string, creator string, cid string, _type string, description string) {
-	_, err := db.Exec("insert img  values (?,?,?,?,?,?,false,0,0,0)", tokenId, owner, creator, cid, _type, description)
+func CreateImg(tokenId int, name string, owner string, creator string, cid string, _type string, description string) {
+	_, err := db.Exec("insert img  values (?,?,?,?,?,?,?,false,0,0,0)", tokenId, name, owner, creator, cid, _type, description)
 	if err != nil {
 		fmt.Println(err)
 
@@ -49,7 +50,7 @@ func QueryImg(tokenID int) *IMG {
 	}
 	if rows.Next() {
 		img := new(IMG)
-		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		return img
 	}
 	return nil
@@ -61,7 +62,7 @@ func QueryImgByCid(cid string) *IMG {
 	}
 	if rows.Next() {
 		img := new(IMG)
-		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		return img
 	}
 	return nil
@@ -75,7 +76,7 @@ func QueryAllImg() []IMG {
 scan:
 	if rows.Next() {
 		img := new(IMG)
-		rows.Scan(&img.TokenId, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		images = append(images, *img)
 		goto scan
 	}
