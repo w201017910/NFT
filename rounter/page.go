@@ -122,6 +122,8 @@ func ItemDetails(c *gin.Context) {
 		"is_on_sale":      item_details.IsSell,
 		"type":            item_details.Type_,
 		"cid":             item_details.Cid,
+		"creator":         item_details.Creator,
+		"owner":           item_details.Owner,
 		"contractAddress": contract.Erc721Address,
 	})
 }

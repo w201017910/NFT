@@ -43,7 +43,7 @@ func Start(addr string) (err error) {
 	r.POST("/login", rounter.Login)
 	r.POST("/logout", rounter.LoginOut)
 	r.POST("/upLoad", rounter.ReadFile)
-
+	r.POST("/confirm", rounter.Transaction)
 	err = r.Run(addr)
 	return err
 }
