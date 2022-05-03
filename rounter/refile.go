@@ -41,6 +41,5 @@ func ReadFile(c *gin.Context) {
 			database.CreateImg(id, name, userInfo.Address, userInfo.Address, cids, type_, intro)
 			//c.JSON(http.StatusOK, gin.H{"message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
 		}
-		fmt.Println(del)
 	}
 }

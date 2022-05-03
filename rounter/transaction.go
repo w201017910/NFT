@@ -33,11 +33,43 @@ func Transaction(c *gin.Context) {
 				c.JSON(http.StatusOK, gin.H{
 					"err": "上架失败",
 				})
+			} else {
+				_, _ = contract.ERC721_Approve(opts, contract.TransactionAddress, big.NewInt(t))
+				token, _ := strconv.Atoi(tokenId)
+				prices, _ := strconv.Atoi(price)
+				database.ChangeSell(token, true, prices)
+				c.JSON(http.StatusOK, gin.H{
+					"ok": "ok",
+				})
 			}
 		}
 	}
-	//contract.Trans_Sell()
-	fmt.Println("tokenId: ", tokenId)
-	fmt.Println("price: ", price)
-	fmt.Println("owner: ", owner)
+}
+func Buy(c *gin.Context) {
+	tokenId, _ := strconv.ParseInt(c.PostForm("id"), 10, 64)
+	price, _ := strconv.Atoi(c.PostForm("price"))
+	owner := c.PostForm("owner")
+	cookie, e := c.Request.Cookie("name")
+	if e == nil {
+		user := database.QueryUser(cookie.Value)
+		privateKey, _ := crypto.HexToECDSA(user.Keystore[2:])
+		opts := bind.NewKeyedTransactor(privateKey)
+		_, err := contract.Trans_Buy(opts, big.NewInt(tokenId))
+		if err != nil {
+			fmt.Println("trans_err: ", err)
+			c.JSON(http.StatusOK, gin.H{
+				"err": "购买失败",
+			})
+		} else {
+			database.AddTransactions(int(tokenId), owner, user.Address, price)
+			database.ChangeOwner(int(tokenId), user.Address)
+			c.JSON(http.StatusOK, gin.H{
+				"ok": "ok",
+			})
+		}
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"err": "请先登录账号",
+		})
+	}
 }

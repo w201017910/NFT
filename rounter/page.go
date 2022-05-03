@@ -2,6 +2,7 @@ package rounter
 
 import (
 	"context"
+	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -113,6 +114,7 @@ func ItemDetails(c *gin.Context) {
 			isOwner = true
 		}
 	}
+	fmt.Println("is_on_sale:  ", item_details.IsSell)
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
 		"isOwner":         isOwner,
 		"images":          item_details.Cid,
