@@ -12,7 +12,6 @@ import (
 
 //
 //var ERC721Address = "0xf1daeeecA21937B5Ba4dd691a68A352B08299599"
-var transContractAddr = "0x0EAb21e5e1DD285d23660f1C86fCE2ecDA21308D"
 
 //var clients, _ = ethclient.Dial("ws://127.0.0.1:7545")
 
@@ -27,9 +26,7 @@ func MintToken(privateKey_ string, to common.Address, cid string, _type string, 
 		log.Fatal(err)
 	}
 	tokenid, err := contract.ERC721_TotalToken(nil)
-	approveResult, err := contract.ERC721_Approve(opts, transContractAddr, tokenid)
 	fmt.Println("MintToken", mintResult)
-	fmt.Println("approveResult", approveResult)
 	return tokenid
 }
 func QueryTokenBalance(owner string) (tokenCount *big.Int) {
