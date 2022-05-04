@@ -52,18 +52,33 @@ balance()
 function calculator(tt){
     if(tt==0){$(".wtt2").val(0);return;}
 var test=web3.utils.toBN(tt*10**18)
-    test=test.add(web3.utils.toBN(eth))
-    test=test.sub(test.div(web3.utils.toBN(500)))
-    test=web3.utils.toBN(token).sub(web3.utils.toBN(_invariant).div(test))
-$(".wtt2").val((test.toString())/(10**18))
+    if (judge){
+        test=test.add(web3.utils.toBN(eth))
+        test=test.sub(test.div(web3.utils.toBN(500)))
+        test=web3.utils.toBN(token).sub(web3.utils.toBN(_invariant).div(test))
+        $(".wtt2").val((test.toString())/(10**18))
+    }else {
+        test=web3.utils.toBN(eth).sub(test)
+        var token1=(web3.utils.toBN(_invariant).div(test)).sub(web3.utils.toBN(token))
+        test=token1.add(token1.div(web3.utils.toBN(499)))
+        $(".wtt2").val((test.toString())/(10**18))
+    }
 }
 function calculator1(tt){
     if(tt==0){$(".eth2").val(0);return;}
-    var test=web3.utils.toBN(tt*10**18)
-    test=test.add(web3.utils.toBN(token))
-    test=test.sub(test.div(web3.utils.toBN(500)))
-    test=web3.utils.toBN(eth).sub(web3.utils.toBN(_invariant).div(test))
-    $(".eth2").val((test.toString())/(10**18))
+   if (judge){
+       var test=web3.utils.toBN(tt*10**18)
+       test=web3.utils.toBN(token).sub(test)
+       var token1=(web3.utils.toBN(_invariant).div(test)).sub(web3.utils.toBN(eth))
+       test=token1.add(token1.div(web3.utils.toBN(499)))
+       $(".eth2").val((test.toString())/(10**18))
+   }else {
+       var test=web3.utils.toBN(tt*10**18)
+       test=test.add(web3.utils.toBN(token))
+       test=test.sub(test.div(web3.utils.toBN(500)))
+       test=web3.utils.toBN(eth).sub(web3.utils.toBN(_invariant).div(test))
+       $(".eth2").val((test.toString())/(10**18))
+   }
 }
  function _sawp() {
      if (judge){
