@@ -83,7 +83,7 @@ scan:
 	return images
 }
 func ChangeOwner(tokenId int, owner string) {
-	_, err := db.Exec("UPDATE `img` SET `owner` = ? WHERE `tokenId` = ?", owner, tokenId)
+	_, err := db.Exec("UPDATE `img` SET `owner` = ?,`isSell` = ?,`balance` = ? WHERE `tokenId` = ?", owner, false, 0, tokenId)
 	if err != nil {
 		fmt.Println(err)
 	}
