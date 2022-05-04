@@ -32,10 +32,8 @@ func ReadFile(c *gin.Context) {
 		del := util.DelImage(filepath)
 		if del == nil {
 			userInfo := database.QueryUser(username)
-			fmt.Println("Address", userInfo.Address)
 			type_ := c.PostForm("type")
 			name := c.PostForm("name")
-			fmt.Println("name:", name)
 			intro := c.PostForm("intro")
 			cids := "http://175.178.215.53:8080/ipfs/" + cid
 			tokenId := util.MintToken(userInfo.Keystore[2:], common.HexToAddress(userInfo.Address), cids, type_, name)
@@ -43,6 +41,5 @@ func ReadFile(c *gin.Context) {
 			database.CreateImg(id, name, userInfo.Address, userInfo.Address, cids, type_, intro)
 			//c.JSON(http.StatusOK, gin.H{"message": "ok", "url": "https://ipfs.io/ipfs/" + cid})
 		}
-		fmt.Println(del)
 	}
 }
