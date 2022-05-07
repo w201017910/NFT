@@ -28,13 +28,14 @@ func Transaction(c *gin.Context) {
 			t, _ := strconv.ParseInt(tokenId, 10, 64)
 			privateKey, _ := crypto.HexToECDSA(database.QueryUser(cookie.Value).Keystore[2:])
 			opts := bind.NewKeyedTransactor(privateKey)
+			_, _ = contract.ERC721_Approve(opts, contract.TransactionAddress, big.NewInt(t))
 			_, err := contract.Trans_Sell(opts, big.NewInt(t), big.NewInt(p))
 			if err != nil {
+				fmt.Println("transErr", err)
 				c.JSON(http.StatusOK, gin.H{
 					"err": "上架失败",
 				})
 			} else {
-				_, _ = contract.ERC721_Approve(opts, contract.TransactionAddress, big.NewInt(t))
 				token, _ := strconv.Atoi(tokenId)
 				prices, _ := strconv.Atoi(price)
 				database.ChangeSell(token, true, prices)
@@ -52,6 +53,7 @@ func Buy(c *gin.Context) {
 	cookie, e := c.Request.Cookie("name")
 	if e == nil {
 		user := database.QueryUser(cookie.Value)
+		fmt.Println("Address: ", user.Address)
 		privateKey, _ := crypto.HexToECDSA(user.Keystore[2:])
 		opts := bind.NewKeyedTransactor(privateKey)
 		_, err := contract.Trans_Buy(opts, big.NewInt(tokenId))

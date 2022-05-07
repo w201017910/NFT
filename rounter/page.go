@@ -2,7 +2,6 @@ package rounter
 
 import (
 	"context"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -12,6 +11,7 @@ import (
 	contract "nft/contracts/methods"
 	"nft/database"
 	"nft/util"
+	"time"
 )
 
 var client, _ = ethclient.Dial("ws://127.0.0.1:7545")
@@ -118,6 +118,15 @@ func ItemDetails(c *gin.Context) {
 	cid_head := "http://175.178.215.53:8080/ipfs/"
 	href := c.Param("href")
 	item_details := database.QueryImgByCid(cid_head + href)
+	transactions := database.QueryTransaction(item_details.TokenId)
+	var fromName []string
+	var toName []string
+	var format []string
+	for i, v := range transactions {
+		fromName = append(fromName, database.QueryUserByAddress(v.FormID).Name)
+		toName = append(toName, database.QueryUserByAddress(v.ToID).Name)
+		format = append(format, time.Unix(int64(transactions[i].Times), 0).Format("2006/01/02 15:04"))
+	}
 	isOwner := false
 	if e == nil {
 		userName := database.QueryUser(cookie.Value)
@@ -125,7 +134,6 @@ func ItemDetails(c *gin.Context) {
 			isOwner = true
 		}
 	}
-	fmt.Println("is_on_sale:  ", item_details.IsSell)
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
 		"isOwner":         isOwner,
 		"images":          item_details.Cid,
@@ -138,6 +146,10 @@ func ItemDetails(c *gin.Context) {
 		"creator":         item_details.Creator,
 		"owner":           item_details.Owner,
 		"contractAddress": contract.Erc721Address,
+		"time":            format,
+		"transaction":     transactions,
+		"from":            fromName,
+		"to":              toName,
 	})
 }
 func LoginPage(c *gin.Context) {

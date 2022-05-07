@@ -65,6 +65,21 @@ func QueryUser(name string) *Person {
 	return nil
 }
 
+func QueryUserByAddress(address string) *Person {
+
+	rows, err := db.Query("select uname from user where address=?", address)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	if rows.Next() {
+		person := new(Person)
+		rows.Scan(&person.Name)
+		return person
+	}
+	return nil
+}
+
 type Person struct {
 	Name     string
 	Password string
