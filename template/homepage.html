@@ -213,19 +213,24 @@
                                             <div id="carouselExampleControls" class="carousel slide"
                                                  data-bs-ride="carousel">
                                                 <div class="carousel-inner">
-
+                                                    {{if .judge}}
                                                     <div class="carousel-item active">
-                                                        <a href="/item-details.html/{{.cid0}}">
-                                                        <img src="{{ .cover0 }}" alt="..." height="100px" class="img">
+                                                        <a href="/item-details.html/{{ silice .cover0 }}">
+                                                            <img src="{{ .cover0 }}" alt="..." height="100px" class="img">
                                                         </a>
                                                     </div>
                                                     {{range $i,$v := .cover}}
+
+
+
                                                     <div class="carousel-item">
                                                         <a href="/item-details.html/{{ silice $v }}">
                                                         <img src="{{ $v }}" alt="..." height="100px" class="img_etc">
                                                         </a>
                                                     </div>
+
                                                     {{ end }}
+                                                    {{end}}
                                                 </div>
                                                 <button class="carousel-control-prev" type="button"
                                                         data-bs-target="#carouselExampleControls" data-bs-slide="prev">

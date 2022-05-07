@@ -66,6 +66,17 @@ func Homepage(c *gin.Context) {
 			tokenId_ := big.NewInt(int64(v))
 			coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
 		}
+		judge := true
+		var cover1 string
+		var cover2 []string
+		if len(coverHref) == 0 {
+			judge = false
+			cover1 = ""
+			cover2 = nil
+		} else {
+			cover1 = coverHref[0]
+			cover2 = coverHref[1:]
+		}
 		c.HTML(http.StatusOK, "homepage.html", gin.H{
 			"isLogin":      isLogin,
 			"username":     cookie.Value,
@@ -74,9 +85,9 @@ func Homepage(c *gin.Context) {
 			"privateKey":   privateKey,
 			"balance":      tokenBalance,
 			"etherBalance": etherBalance,
-			"cover0":       coverHref[0],
-			"cover":        coverHref[1:],
-			"cid0":         coverHref[0][32:],
+			"cover0":       cover1,
+			"cover":        cover2,
+			"judge":        judge,
 		})
 	} else {
 		c.HTML(http.StatusOK, "homepage.html", gin.H{
