@@ -11,6 +11,7 @@ type Transaction struct {
 	ToID       string
 	TokenPrice string
 	Times      int
+	Count      int
 }
 
 func AddTransactions(tokenId int, formID string, toID string, tokenPrice int) {
@@ -45,6 +46,21 @@ scan:
 	if rows.Next() {
 		transaction := new(Transaction)
 		rows.Scan(&transaction.TokenId, &transaction.FormID, &transaction.ToID, &transaction.TokenPrice, &transaction.Times)
+		transactions = append(transactions, *transaction)
+		goto scan
+	}
+	return transactions
+}
+func QueryPopularTransactions() []Transaction {
+	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by (tokenId) order by count(tokenId) DESC LIMIT 5")
+	if err != nil {
+		fmt.Println(err)
+	}
+	var transactions []Transaction
+scan:
+	if rows.Next() {
+		transaction := new(Transaction)
+		rows.Scan(&transaction.TokenId, &transaction.Count)
 		transactions = append(transactions, *transaction)
 		goto scan
 	}

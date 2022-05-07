@@ -2,6 +2,7 @@ package rounter
 
 import (
 	"context"
+	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -17,23 +18,45 @@ import (
 var client, _ = ethclient.Dial("ws://127.0.0.1:7545")
 
 func Index2(c *gin.Context) {
-	cookie, e := c.Request.Cookie("name")
-	isLogin := false
-	if e == nil {
-		isLogin = true
+	//cookie, e := c.Request.Cookie("name")
+	//isLogin := false
+	//if e == nil {
+	//	isLogin = true
+	//}
+	//if isLogin {
+	//	c.HTML(http.StatusOK, "index-2.html", gin.H{
+	//		"isLogin":  isLogin,
+	//		"username": cookie.Value,
+	//		"img":      database.QueryUser(cookie.Value).Picture,
+	//		"balance":  database.QueryUser(cookie.Value),
+	//	})
+	//} else {
+	//	c.HTML(http.StatusOK, "index-2.html", gin.H{
+	//		"isLogin": isLogin,
+	//	})
+	//}
+	popularToken := database.QueryPopularTransactions()
+	var tokenId []int
+	var count []int
+	for _, v := range popularToken {
+		tokenId = append(tokenId, v.TokenId)
+		count = append(count, v.Count)
 	}
-	if isLogin {
-		c.HTML(http.StatusOK, "index-2.html", gin.H{
-			"isLogin":  isLogin,
-			"username": cookie.Value,
-			"img":      database.QueryUser(cookie.Value).Picture,
-			"balance":  database.QueryUser(cookie.Value),
-		})
-	} else {
-		c.HTML(http.StatusOK, "index-2.html", gin.H{
-			"isLogin": isLogin,
-		})
+	var token []*database.IMG
+	var ownerName []string
+	var pic []string
+	for i, v := range tokenId {
+		token = append(token, database.QueryImg(v))
+		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
+		fmt.Println(database.QueryUserByAddress(token[i].Owner))
+		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
 	}
+	fmt.Println(pic)
+	c.HTML(http.StatusOK, "index-2.html", gin.H{
+		"token": token,
+		"name":  ownerName,
+		"pic":   pic,
+	})
 }
 func NotFind(c *gin.Context) {
 	c.HTML(http.StatusOK, "404.html", gin.H{})
@@ -210,5 +233,5 @@ func Swap(c *gin.Context) {
 	}
 }
 func Wallet(c *gin.Context) {
-	c.HTML(http.StatusOK, "wallet.html", gin.H{})
+	c.HTML(http.StatusOK, "homepage1.html", gin.H{})
 }

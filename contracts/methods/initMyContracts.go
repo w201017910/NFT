@@ -2,10 +2,10 @@ package methods
 
 import "github.com/ethereum/go-ethereum/ethclient"
 
-var Erc20Address = "0x966F1E31f406042C3c50309Dd744d3FdCc6ffBb4"
-var Erc721Address = "0x11CCB0D2794b54fDD4bcf88fF7ac2c48fa8957D6"
-var TransactionAddress = "0x403b9a0382fd5342d6b2c8722636ccFbB7797200"
-var UniswapAddress = "0x1F891dD1fdD7b6659bC70eE9A12F3a06E4f6aFC6"
+var Erc20Address = "0x5a3bd595BE596FCee19b11FfFf9af5B1fDC62913"
+var Erc721Address = "0xf1daeeecA21937B5Ba4dd691a68A352B08299599"
+var TransactionAddress = "0x0EAb21e5e1DD285d23660f1C86fCE2ecDA21308D"
+var UniswapAddress = "0x2Bd2E76BdAa9dD336CB8a1c62a78152c0d8061B0"
 
 func InitAll(client *ethclient.Client) {
 	Init_ERC20(client, Erc20Address)

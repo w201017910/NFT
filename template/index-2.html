@@ -118,24 +118,18 @@
                             <div class="col-lg-4 col-6">
                                 <div class="counter-box">
                                     <div class="d-flex align-items-center justify-content-start">
-                                        <h6 class="me-1">艺术品</h6>
-                                        <h6>(<span class="counter_value fw-bold" data-bs-target="310">0</span>)</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-6">
                                 <div class="counter-box">
                                     <div class="d-flex align-items-center justify-content-start">
-                                        <h6 class="me-1">藏品</h6>
-                                        <h6>(<span class="counter_value fw-bold" data-bs-target="450">0</span>)</h6>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-6">
                                 <div class="counter-box">
                                     <div class="d-flex align-items-center justify-content-start">
-                                        <h6 class="me-1">数字艺术</h6>
-                                        <h6>(<span class="counter_value fw-bold" data-bs-target="244">0</span>)</h6>
                                     </div>
                                 </div>
                             </div>
@@ -148,226 +142,222 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="clientslider-2 mt-5 position-relative" id="clientslider-2">
+                    {{range $i,$v := .token}}
                     <div class="item">
                         <div class="card">
                             <div class="header d-flex">
                                 <div class="dropdown menu">
                                     <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton1"
                                        data-bs-toggle="dropdown"></i>
-
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
                                 </div>
                                 <div class="ms-auto">
-                                    <div class="badge rounded-pill">艺术品</div>
+                                    <div class="badge rounded-pill">{{$v.Type_}}</div>
                                 </div>
                             </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/11.png" alt="" class="img-fluid">
+                            <div class="card-image mt-3" style="height: 180px;width: 200px">
+                                <img src="{{$v.Cid}}" alt="" class="img-fluid" style="height: 180px;width: 200px">
                             </div>
                             <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">121 以太币</p>
+                                <h6 class="fw-bold mb-0">{{$v.Name}}</h6>
+                                <p class="f-14 text-orange">{{$v.Balance}} Frog</p>
 
                                 <div class="profile-content align-items-center d-flex justify-content-start">
                                     <div class="avatar-sm">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                        <img src="{{index $.pic $i}}"
                                              alt="" class="img-fluid avatar-sm">
                                     </div>
                                     <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
+                                        <h6 class="fw-bold mb-0 ms-2 f-14">{{index $.name $i}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    {{ end }}
                     <!-- slider item -->
 
-                    <div class="item ">
-                        <div class="card">
-                            <div class="header d-flex">
-                                <div class="dropdown menu">
-                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton01"
-                                       data-bs-toggle="dropdown"></i>
+<!--                    <div class="item ">-->
+<!--                        <div class="card">-->
+<!--                            <div class="header d-flex">-->
+<!--                                <div class="dropdown menu">-->
+<!--                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton01"-->
+<!--                                       data-bs-toggle="dropdown"></i>-->
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton01">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="badge rounded-pill">绘画作品</div>
-                                </div>
-                            </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/21.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">120 以太币</p>
+<!--                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton01">-->
+<!--                                        <li><a class="dropdown-item" href="#">动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="ms-auto">-->
+<!--                                    <div class="badge rounded-pill">绘画作品</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-image mt-3">-->
+<!--                                <img src="frontend/static/picture/21.png" alt="" class="img-fluid">-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h6 class="fw-bold mb-0">进化的现实</h6>-->
+<!--                                <p class="f-14 text-orange">120 以太币</p>-->
 
-                                <div class="profile-content align-items-center d-flex justify-content-start">
-                                    <div class="avatar-sm">
-                                        <img src="frontend/static/picture/img-2.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                                <div class="profile-content align-items-center d-flex justify-content-start">-->
+<!--                                    <div class="avatar-sm">-->
+<!--                                        <img src="frontend/static/picture/img-2.jpg" alt="" class="img-fluid">-->
+<!--                                    </div>-->
+<!--                                    <div class="profile-name">-->
+<!--                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- slider item -->
 
-                    <div class="item ">
-                        <div class="card">
-                            <div class="header d-flex">
-                                <div class="dropdown menu">
-                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton02"
-                                       data-bs-toggle="dropdown"></i>
+<!--                    <div class="item ">-->
+<!--                        <div class="card">-->
+<!--                            <div class="header d-flex">-->
+<!--                                <div class="dropdown menu">-->
+<!--                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton02"-->
+<!--                                       data-bs-toggle="dropdown"></i>-->
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton02">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="badge rounded-pill">抽象派艺术作品</div>
-                                </div>
-                            </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/31.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">210 以太币</p>
+<!--                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton02">-->
+<!--                                        <li><a class="dropdown-item" href="#">动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="ms-auto">-->
+<!--                                    <div class="badge rounded-pill">抽象派艺术作品</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-image mt-3">-->
+<!--                                <img src="frontend/static/picture/31.png" alt="" class="img-fluid">-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h6 class="fw-bold mb-0">进化的现实</h6>-->
+<!--                                <p class="f-14 text-orange">210 以太币</p>-->
 
-                                <div class="profile-content align-items-center d-flex justify-content-start">
-                                    <div class="avatar-sm">
-                                        <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                                <div class="profile-content align-items-center d-flex justify-content-start">-->
+<!--                                    <div class="avatar-sm">-->
+<!--                                        <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">-->
+<!--                                    </div>-->
+<!--                                    <div class="profile-name">-->
+<!--                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- slider item -->
 
-                    <div class="item ">
-                        <div class="card">
-                            <div class="header d-flex">
-                                <div class="dropdown menu">
-                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton"
-                                       data-bs-toggle="dropdown"></i>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="badge rounded-pill">绘画作品</div>
-                                </div>
-                            </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/41.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">214 以太币</p>
+<!--                    <div class="item ">-->
+<!--                        <div class="card">-->
+<!--                            <div class="header d-flex">-->
+<!--                                <div class="dropdown menu">-->
+<!--                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton"-->
+<!--                                       data-bs-toggle="dropdown"></i>-->
+<!--                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+<!--                                        <li><a class="dropdown-item" href="#">动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="ms-auto">-->
+<!--                                    <div class="badge rounded-pill">绘画作品</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-image mt-3">-->
+<!--                                <img src="frontend/static/picture/41.png" alt="" class="img-fluid">-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h6 class="fw-bold mb-0">进化的现实</h6>-->
+<!--                                <p class="f-14 text-orange">214 以太币</p>-->
 
-                                <div class="profile-content align-items-center d-flex justify-content-start">
-                                    <div class="avatar-sm">
-                                        <img src="frontend/static/picture/img-4.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                                <div class="profile-content align-items-center d-flex justify-content-start">-->
+<!--                                    <div class="avatar-sm">-->
+<!--                                        <img src="frontend/static/picture/img-4.jpg" alt="" class="img-fluid">-->
+<!--                                    </div>-->
+<!--                                    <div class="profile-name">-->
+<!--                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- slider item -->
 
-                    <div class="item ">
-                        <div class="card">
-                            <div class="header d-flex">
-                                <div class="dropdown menu">
-                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenu"
-                                       data-bs-toggle="dropdown"></i>
+<!--                    <div class="item ">-->
+<!--                        <div class="card">-->
+<!--                            <div class="header d-flex">-->
+<!--                                <div class="dropdown menu">-->
+<!--                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenu"-->
+<!--                                       data-bs-toggle="dropdown"></i>-->
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="badge rounded-pill">艺术品</div>
-                                </div>
-                            </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/5.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">136 以太币</p>
+<!--                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu">-->
+<!--                                        <li><a class="dropdown-item" href="#">动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="ms-auto">-->
+<!--                                    <div class="badge rounded-pill">艺术品</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-image mt-3">-->
+<!--                                <img src="frontend/static/picture/5.png" alt="" class="img-fluid">-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h6 class="fw-bold mb-0">进化的现实</h6>-->
+<!--                                <p class="f-14 text-orange">136 以太币</p>-->
 
-                                <div class="profile-content align-items-center d-flex justify-content-start">
-                                    <div class="avatar-sm">
-                                        <img src="frontend/static/picture/img-5.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                                <div class="profile-content align-items-center d-flex justify-content-start">-->
+<!--                                    <div class="avatar-sm">-->
+<!--                                        <img src="frontend/static/picture/img-5.jpg" alt="" class="img-fluid">-->
+<!--                                    </div>-->
+<!--                                    <div class="profile-name">-->
+<!--                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- slider item -->
 
-                    <div class="item ">
-                        <div class="card">
-                            <div class="header d-flex">
-                                <div class="dropdown menu">
-                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton05"
-                                       data-bs-toggle="dropdown"></i>
+<!--                    <div class="item ">-->
+<!--                        <div class="card">-->
+<!--                            <div class="header d-flex">-->
+<!--                                <div class="dropdown menu">-->
+<!--                                    <i class="mdi mdi-dots-vertical f-20" id="dropdownMenuButton05"-->
+<!--                                       data-bs-toggle="dropdown"></i>-->
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton05">
-                                        <li><a class="dropdown-item" href="#">动作</a></li>
-                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>
-                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>
-                                    </ul>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="badge rounded-pill">抽象派艺术作品</div>
-                                </div>
-                            </div>
-                            <div class="card-image mt-3">
-                                <img src="frontend/static/picture/6.png" alt="" class="img-fluid">
-                            </div>
-                            <div class="card-body">
-                                <h6 class="fw-bold mb-0">进化的现实</h6>
-                                <p class="f-14 text-orange">150 以太币</p>
+<!--                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton05">-->
+<!--                                        <li><a class="dropdown-item" href="#">动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">另一个动作</a></li>-->
+<!--                                        <li><a class="dropdown-item" href="#">别的东西在这里</a></li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                                <div class="ms-auto">-->
+<!--                                    <div class="badge rounded-pill">抽象派艺术作品</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="card-image mt-3">-->
+<!--                                <img src="frontend/static/picture/6.png" alt="" class="img-fluid">-->
+<!--                            </div>-->
+<!--                            <div class="card-body">-->
+<!--                                <h6 class="fw-bold mb-0">进化的现实</h6>-->
+<!--                                <p class="f-14 text-orange">150 以太币</p>-->
 
-                                <div class="profile-content align-items-center d-flex justify-content-start">
-                                    <div class="avatar-sm">
-                                        <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">
-                                    </div>
-                                    <div class="profile-name">
-                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!--                                <div class="profile-content align-items-center d-flex justify-content-start">-->
+<!--                                    <div class="avatar-sm">-->
+<!--                                        <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">-->
+<!--                                    </div>-->
+<!--                                    <div class="profile-name">-->
+<!--                                        <h6 class="fw-bold mb-0 ms-2 f-14">克里斯汀沃森</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <!-- slider item -->
                 </div>
                 <!-- End slider -->
