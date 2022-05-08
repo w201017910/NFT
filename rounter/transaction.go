@@ -53,9 +53,22 @@ func Buy(c *gin.Context) {
 	cookie, e := c.Request.Cookie("name")
 	if e == nil {
 		user := database.QueryUser(cookie.Value)
+		b, _ := contract.ERC20_Allowance(nil, user.Address, contract.TransactionAddress)
+		a1 := big.NewInt(int64(price))
+		fmt.Println(b.String(), a1.String())
 		fmt.Println("Address: ", user.Address)
 		privateKey, _ := crypto.HexToECDSA(user.Keystore[2:])
 		opts := bind.NewKeyedTransactor(privateKey)
+		if b.Cmp(a1) == -1 {
+			fmt.Println(1)
+			_, err := contract.ERC20_Approve(opts, contract.TransactionAddress, a1)
+			if err != nil {
+				fmt.Println(err)
+				c.JSON(200, gin.H{"value": "授权失败"})
+				return
+			}
+		}
+
 		_, err := contract.Trans_Buy(opts, big.NewInt(tokenId))
 		if err != nil {
 			fmt.Println("trans_err: ", err)
