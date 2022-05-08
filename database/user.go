@@ -67,14 +67,14 @@ func QueryUser(name string) *Person {
 
 func QueryUserByAddress(address string) *Person {
 
-	rows, err := db.Query("select uname from user where address=?", address)
+	rows, err := db.Query("select * from user where address=?", address)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	if rows.Next() {
 		person := new(Person)
-		rows.Scan(&person.Name)
+		rows.Scan(&person.Name, &person.Password, &person.Address, &person.Picture, &person.Email, &person.Keystore, &person.Mneonic)
 		return person
 	}
 	return nil

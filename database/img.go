@@ -67,6 +67,32 @@ func QueryImgByCid(cid string) *IMG {
 	}
 	return nil
 }
+
+func QueryMyOwnImg(address string) []IMG {
+	rows, err := db.Query("select * from img where creator = ?", address)
+	if err != nil {
+		fmt.Println(err)
+	}
+	var images []IMG
+scan:
+	if rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		images = append(images, *img)
+		goto scan
+	}
+	return images
+}
+func QueryMyOwnImgCount(address string) int {
+	rows, _ := db.Query("select count(tokenId) from img where creator = ?", address)
+
+	for rows.Next() {
+		var count int
+		rows.Scan(&count)
+		return count
+	}
+	return 0
+}
 func QueryAllImg() []IMG {
 	rows, err := db.Query("select * from img")
 	if err != nil {

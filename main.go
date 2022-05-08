@@ -20,6 +20,7 @@ func main() {
 func silice(href string) string {
 	return href[32:]
 }
+
 func Start(addr string) (err error) {
 	r := gin.Default()
 	r.SetFuncMap(template.FuncMap{
@@ -37,7 +38,7 @@ func Start(addr string) (err error) {
 	r.GET("/ranking.html", rounter.Ranking)
 	r.GET("/register.html", rounter.RegisterPage)
 	r.GET("/swap.html", rounter.Swap)
-	r.GET("/wallet.html", rounter.Wallet)
+	r.GET("/homepage1.html", rounter.Homepage1)
 	r.GET("/", rounter.Index1)
 	r.POST("/register", rounter.Register)
 	r.POST("/login", rounter.Login)

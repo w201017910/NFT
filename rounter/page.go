@@ -48,7 +48,6 @@ func Index2(c *gin.Context) {
 	for i, v := range tokenId {
 		token = append(token, database.QueryImg(v))
 		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
-		fmt.Println(database.QueryUserByAddress(token[i].Owner))
 		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
 	}
 	fmt.Println(pic)
@@ -56,6 +55,7 @@ func Index2(c *gin.Context) {
 		"token": token,
 		"name":  ownerName,
 		"pic":   pic,
+		"count": count,
 	})
 }
 func NotFind(c *gin.Context) {
@@ -81,26 +81,29 @@ func Homepage(c *gin.Context) {
 		tokenBalance := util.QueryBalance(common.HexToAddress(address), privateKey[2:])
 		etherBalance, err := client.BalanceAt(context.Background(), common.HexToAddress(address), nil)
 		tokenId := database.QueryTokenId(address)
+		ownImg := database.QueryMyOwnImg(address)
+		ownImgCount := database.QueryMyOwnImgCount(address)
 		if err != nil {
 			log.Fatal(err)
 		}
 		var coverHref []string
+		var token []*database.IMG
+		var count int
 		for _, v := range tokenId {
+			token = append(token, database.QueryImg(v))
+			count = count + 1
 			tokenId_ := big.NewInt(int64(v))
 			coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
 		}
 		judge := true
-		var cover1 string
-		var cover2 []string
+		var cover []string
 		if len(coverHref) == 0 {
 			judge = false
-			cover1 = ""
-			cover2 = nil
+			cover = nil
 		} else {
-			cover1 = coverHref[0]
-			cover2 = coverHref[1:]
+			cover = coverHref
 		}
-		c.HTML(http.StatusOK, "homepage.html", gin.H{
+		c.HTML(http.StatusOK, "homepage1.html", gin.H{
 			"isLogin":      isLogin,
 			"username":     cookie.Value,
 			"img":          database.QueryUser(cookie.Value).Picture,
@@ -108,12 +111,15 @@ func Homepage(c *gin.Context) {
 			"privateKey":   privateKey,
 			"balance":      tokenBalance,
 			"etherBalance": etherBalance,
-			"cover0":       cover1,
-			"cover":        cover2,
+			"cover":        cover,
 			"judge":        judge,
+			"token":        token,
+			"count":        count,
+			"ownImgCount":  ownImgCount,
+			"ownImg":       ownImg,
 		})
 	} else {
-		c.HTML(http.StatusOK, "homepage.html", gin.H{
+		c.HTML(http.StatusOK, "homepage1.html", gin.H{
 			"isLogin": isLogin,
 		})
 	}
@@ -232,6 +238,6 @@ func Swap(c *gin.Context) {
 		})
 	}
 }
-func Wallet(c *gin.Context) {
+func Homepage1(c *gin.Context) {
 	c.HTML(http.StatusOK, "homepage1.html", gin.H{})
 }

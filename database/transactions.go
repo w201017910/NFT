@@ -52,7 +52,7 @@ scan:
 	return transactions
 }
 func QueryPopularTransactions() []Transaction {
-	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by (tokenId) order by count(tokenId) DESC LIMIT 5")
+	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by (tokenId) order by count(tokenId) DESC LIMIT 10")
 	if err != nil {
 		fmt.Println(err)
 	}
