@@ -35,12 +35,18 @@ func Index2(c *gin.Context) {
 	//		"isLogin": isLogin,
 	//	})
 	//}
-	popularToken := database.QueryPopularTransactions()
+	//search := database.QueryImgFuzzyly()
+
+	allTrans := database.QueryAllImg()
 	var tokenId []int
-	var count []int
-	for _, v := range popularToken {
-		tokenId = append(tokenId, v.TokenId)
-		count = append(count, v.Count)
+	if len(allTrans) > 5 {
+		for _, v := range allTrans[len(allTrans)-5:] {
+			tokenId = append(tokenId, v.TokenId)
+		}
+	} else {
+		for _, v := range allTrans {
+			tokenId = append(tokenId, v.TokenId)
+		}
 	}
 	var token []*database.IMG
 	var ownerName []string
@@ -55,7 +61,6 @@ func Index2(c *gin.Context) {
 		"token": token,
 		"name":  ownerName,
 		"pic":   pic,
-		"count": count,
 	})
 }
 func NotFind(c *gin.Context) {
@@ -185,22 +190,46 @@ func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
 }
 func Ranking(c *gin.Context) {
-	cookie, e := c.Request.Cookie("name")
-	isLogin := false
-	if e == nil {
-		isLogin = true
+	//cookie, e := c.Request.Cookie("name")
+	//isLogin := false
+	//if e == nil {
+	//	isLogin = true
+	//}
+	//if isLogin {
+	//	c.HTML(http.StatusOK, "ranking.html", gin.H{
+	//		"isLogin":  isLogin,
+	//		"username": cookie.Value,
+	//		"img":      database.QueryUser(cookie.Value).Picture,
+	//	})
+	//} else {
+	//	c.HTML(http.StatusOK, "ranking.html", gin.H{
+	//		"isLogin": isLogin,
+	//	})
+	//}
+	popularToken := database.QueryPopularTransactions()
+	var tokenId []int
+	var count []int
+	//nowTime := time.Now().Unix()
+	//var week = 604800
+	//var month = 2592000
+	for _, v := range popularToken {
+		tokenId = append(tokenId, v.TokenId)
+		count = append(count, v.Count)
 	}
-	if isLogin {
-		c.HTML(http.StatusOK, "ranking.html", gin.H{
-			"isLogin":  isLogin,
-			"username": cookie.Value,
-			"img":      database.QueryUser(cookie.Value).Picture,
-		})
-	} else {
-		c.HTML(http.StatusOK, "ranking.html", gin.H{
-			"isLogin": isLogin,
-		})
+	var token []database.IMG
+	var ownerName []string
+	var pic []string
+	for i, v := range tokenId {
+		token = append(token, *database.QueryImg(v))
+		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
+		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
 	}
+	c.HTML(http.StatusOK, "ranking.html", gin.H{
+		"token": token,
+		"name":  ownerName,
+		"pic":   pic,
+		"count": count,
+	})
 }
 func RegisterPage(c *gin.Context) {
 	cookie, e := c.Request.Cookie("name")
@@ -238,6 +267,27 @@ func Swap(c *gin.Context) {
 		})
 	}
 }
+func Search(c *gin.Context) {
+	name := c.Param("name")
+	searchResult := database.QueryImgFuzzyly(name)
+	var ownerName []string
+	var pic []string
+	if searchResult != nil {
+		for _, v := range searchResult {
+			ownerName = append(ownerName, database.QueryUserByAddress(v.Owner).Name)
+			pic = append(pic, database.QueryUserByAddress(v.Owner).Picture)
+		}
+		c.HTML(http.StatusOK, "search.html", gin.H{
+			"result": searchResult,
+			"pic":    pic,
+			"name":   ownerName,
+		})
+	} else {
+		c.JSON(200, gin.H{
+			"err": "nil",
+		})
+	}
+}
 func Homepage1(c *gin.Context) {
-	c.HTML(http.StatusOK, "homepage1.html", gin.H{})
+	//c.HTML(http.StatusOK, "search.html", gin.H{})
 }

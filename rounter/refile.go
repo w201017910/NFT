@@ -33,7 +33,7 @@ func ReadFile(c *gin.Context) {
 		del := util.DelImage(filepath)
 		if del == nil {
 			userInfo := database.QueryUser(username)
-			fmt.Println("userInfo", userInfo)
+			fmt.Println("userInfo", userInfo.Name)
 			type_ := c.PostForm("type")
 			name := c.PostForm("name")
 			intro := c.PostForm("intro")

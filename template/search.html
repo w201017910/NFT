@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>NFT Marketplace</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="">
+    <meta content="Themesdesign" name="author">
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="/frontend/static/css/bootstrap.min.css" type="text/css" id="bootstrap-style">
+    <!-- Material Icon Css -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css">
+
+    <!-- Unicon Css -->
+    <link rel="stylesheet" href="/frontend/static/css/line.css">
+
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="/frontend/static/css/tiny-slider.css" type="text/css">
+    <link rel="stylesheet" href="/frontend/static/css/swiper.min.css" type="text/css">
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/frontend/static/css/style.min.css" type="text/css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/frontend/static/css/homepage.css" type="text/css">
+
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
+<!--Navbar Start-->
+<nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+    <div class="container-fluid custom-container">
+        <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
+            <img src="/frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
+        </a>
+        <div>
+            <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
+                <i class="mdi mdi-menu"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mx-auto navbar-center">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">主页</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/index-2.html" class="nav-link">市场</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="collection.html" class="nav-link">藏品</a>
+                </li>
+
+                <li class="nav-item dropdown dropdown-hover">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="pagedropdown" role="button"
+                       data-bs-toggle="dropdown">
+                        分类
+                    </a>
+                    <div class="dropdown-menu dropmenu-width dropdown-menu-center">
+                        <div class="row">
+                            <ul class="col-lg-6 list-unstyled">
+
+                                <li><a class="dropdown-item" href="item-details.html"><i
+                                        class="mdi mdi-image-filter-frames f-20 me-2 align-middle"></i>商品详情</a>
+                                </li>
+
+
+                                <li><a class="dropdown-item" href="login.html"><i
+                                        class="mdi mdi-account-outline f-20 me-2 align-middle"></i>登录</a>
+                                </li>
+                            </ul>
+
+                            <ul class="col-lg-6 list-unstyled">
+                                <li><a class="dropdown-item" href="ranking.html"><i
+                                        class="mdi mdi-numeric-1-box-outline f-20 me-2 align-middle"></i>排名</a>
+                                </li>
+
+                                <li><a class="dropdown-item" href="register.html"><i
+                                        class="mdi mdi-account-box-outline f-20 me-2 align-middle"></i>注册</a>
+                                </li>
+                                <li><a class="dropdown-item" href="404.html"><i
+                                        class="mdi mdi-alert-outline f-20 me-2 align-middle"></i>404</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </li>
+                <!--end dropdown-->
+
+                <li class="nav-item">
+                    <a href="swap.html" class="nav-link">交换</a>
+                </li>
+                <!--end dropdown-->
+                <li class="nav-item">
+                    <a href="homepage.html" class="nav-link">个人主页</a>
+                </li>
+            </ul>
+            <!--end navbar-nav-->
+            <a href="wallet.html" class="btn btn-primary">连接钱包</a>
+        </div>
+
+    </div>
+    <!--end container-->
+</nav>
+<!-- Navbar End -->
+<div class="row mt-4">
+    <div class="col mt-5">
+        <div class="tab-content" id="pills-tabContent">
+            <div class="row">
+                {{range $i,$v := .result}}
+                <div class="col-lg-4 mt-4">
+                    <div class="tab-box p-4 border-0">
+                        <div class="card-image mt-2 position-relative">
+                            <a href="{{$v.Cid}}">
+                                <img src="{{$v.Cid}}"
+                                     alt="" class="img-thumbnail" style="height: 225px">
+                            </a>
+                        </div>
+                        <div class="body-content mt-3">
+                            <div class="d-flex align-items-center justify-content-start mt-3">
+                                <div class=" slider-content-image d-flex ">
+                                    <div class="avatar-xs">
+                                        <img src="/{{index $.pic $i}}" alt=""
+                                             style="border-radius: 50px;width: 48px;height: 48px;margin-top: -7px;: 5px">
+
+                                    </div>
+
+                                </div>
+                                <div class="ms-4">
+                                    <p class="text-success mb-0 fw-semibold">{{index $.name $i}}</p>
+                                </div>
+                                <div class="ms-4">
+                                    <p class="text-success mb-0 fw-semibold">{{$v.Balance}} Frog</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{end}}
+
+
+                <div class="mt-5">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- start footer -->
+<section class="footer">
+    <div class="container">
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center">
+                    <p class="my-4 text-muted">&copy; 2022.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end footer -->
+
+
+<!--Bootstrap Js-->
+<script src="/frontend/static/js/bootstrap.bundle.min.js"></script>
+
+<!-- Slider Js -->
+<script src="/frontend/static/js/tiny-slider.js"></script>
+<script src="/frontend/static/js/swiper.min.js"></script>
+
+
+<!-- App Js -->
+<script src="/frontend/static/js/app.js"></script>
+
+
+</body>
+
+</html>

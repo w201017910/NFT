@@ -48,12 +48,25 @@ func QueryImg(tokenID int) *IMG {
 	if err != nil {
 		fmt.Println(err)
 	}
-	if rows.Next() {
+	for rows.Next() {
 		img := new(IMG)
 		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
 		return img
 	}
 	return nil
+}
+func QueryImgFuzzyly(content string) []IMG {
+	rows, err := db.Query("select * from img where name like concat('%',?,'%') or description like concat('%',?,'%') ", content, content)
+	if err != nil {
+		fmt.Println(err)
+	}
+	var images []IMG
+	for rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		images = append(images, *img)
+	}
+	return images
 }
 func QueryImgByCid(cid string) *IMG {
 	rows, err := db.Query("select * from img where cid=?", cid)

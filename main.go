@@ -45,6 +45,7 @@ func Start(addr string) (err error) {
 	r.POST("/logout", rounter.LoginOut)
 	r.POST("/upLoad", rounter.ReadFile)
 	r.POST("/confirm", rounter.Transaction)
+	r.GET("/search/:name", rounter.Search)
 	r.POST("/purchase", rounter.Buy)
 	r.GET("/balance", rounter.Balance)
 	r.POST("/ethToTokenSwap", rounter.EthToTokenSwap)

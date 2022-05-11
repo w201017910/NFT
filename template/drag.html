@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -148,68 +148,67 @@
         </div>
 
         <div class="mt-5">
-            <form method="post" name="myForm" onsubmit="">
+            <form method="post" name="myForm"  action="/upLoad" enctype="multipart/form-data">
                 <p id="error-msg"></p>
-                <div class="info-box">
-                    <div class="row">
-
-                        <div class="col-lg-5">
-                            <h4 class="fw-bold">铸造作品<i class="mdi mdi-information-outline f-30 align-middle"></i>
-                            </h4>
-
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <label for="name" class="form-label">作品名称* :</label>
-                                    <input name="name" id="name" type="text" class="form-control"
-                                           placeholder="请输入作品名称">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="info-box">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">作品名称* :</label>
+                                        <input name="name" id="name" type="text" class="form-control"
+                                               placeholder="请输入作品名称">
+                                    </div>
                                 </div>
-                            </div>
-                            <!--end col-->
-
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">作者名称* :</label>
-                                    <input type="email" class="form-control" name="email" id="email"
-                                           placeholder="请输入作者名称">
+                                <!--end col-->
+                                <!-- end row -->
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label  class="form-label">作品类型* :</label>
+                                        <input type="text" class="form-control" name="type" id="email"
+                                               placeholder="请输入作品类型">
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- end col -->
+                                <!-- end col -->
 
-                            <div class="col-lg-12">
-                                <div class="mb-3">
-                                    <label for="comments" class="form-label">作品简介 :</label>
-                                    <textarea class="form-control" placeholder="请输入作品简介" name="comments"
-                                              id="comments" style="height: 100px"></textarea>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label for="comments" class="form-label">作品简介 :</label>
+                                        <textarea class="form-control" placeholder="请输入作品简介" name="intro"
+                                                  id="comments" style="height: 100px"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <div class="col-lg-5 offset-lg-1">
-                            <h4 class="fw-bold mt-lg-0 mt-4">上传文件<i
-                                    class="mdi mdi-heart-outline f-30 align-middle"></i></h4>
-                            <div class=" mt-4">
+                                <!-- end col -->
                                 <div class="col-4">
                                     </br>
                                     <span id="upload-span">
-                                            <input type="file" name="file" id="file" />
-                                            <img src="/frontend/static/picture/upload.png" width="200px" height="200px">
-                                        </span>
+                                        <input type="file" name="file" id="file" />
+                                        <img src="frontend/static/picture/bottom.png" width="200px" height="200px">
+                                    </span>
 
                                 </div>
                             </div>
+                            <!-- end row -->
                         </div>
-                        <!-- end row -->
                     </div>
-                </div>
-                <!-- end col -->
+                    <!-- end col -->
 
+                    <div class="col-lg-8">
+                        <div class="mt-3 text-end">
+                            <button type="submit"  name="send" class=" btn btn-primary submitMint" >提交</button>
+                            <div id="simple-msg"></div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+                <div class="request-image position-absolute top-0 end-0 p-0">
+                    <img src="https://themesdesign.in/artlink/layout/images/inner-image/contact-bg.png" alt=""
+                         class="img-fluid">
+                </div>
             </form>
         </div>
 
-        <div class="mt-3 text-end">
-            <input type="submit" id="submit" name="send" class="submitBnt btn btn-primary" value="提交">
-            <div id="simple-msg"></div>
-        </div>
     </div>
     <!-- end container -->
 </section>
@@ -244,10 +243,9 @@
 <script src="frontend/static/js/counter.init.js"></script>
 
 <script src="frontend/static/js/contact.js"></script>
-
 <!-- App Js -->
 <script src="frontend/static/js/app.js"></script>
-
+<script src="frontend/static/js/jquery.mini.js"></script>
 
 </body>
 

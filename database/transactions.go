@@ -52,17 +52,15 @@ scan:
 	return transactions
 }
 func QueryPopularTransactions() []Transaction {
-	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by (tokenId) order by count(tokenId) DESC LIMIT 10")
+	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by tokenId order by count(tokenId) DESC LIMIT 10;")
 	if err != nil {
 		fmt.Println(err)
 	}
 	var transactions []Transaction
-scan:
-	if rows.Next() {
+	for rows.Next() {
 		transaction := new(Transaction)
 		rows.Scan(&transaction.TokenId, &transaction.Count)
 		transactions = append(transactions, *transaction)
-		goto scan
 	}
 	return transactions
 }
