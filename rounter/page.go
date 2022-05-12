@@ -73,60 +73,89 @@ func Drag(c *gin.Context) {
 	c.HTML(http.StatusOK, "drag.html", gin.H{})
 }
 func Homepage(c *gin.Context) {
-
-	cookie, e := c.Request.Cookie("name")
-	isLogin := false
-	if e == nil {
-		isLogin = true
-	}
-	if isLogin {
-		//ether := big.NewInt(int64(10 * math.Pow(10, 18)))
-		address := database.QueryUser(cookie.Value).Address
-		privateKey := database.QueryUser(cookie.Value).Keystore
-		tokenBalance := util.QueryBalance(common.HexToAddress(address), privateKey[2:])
-		etherBalance, err := client.BalanceAt(context.Background(), common.HexToAddress(address), nil)
-		tokenId := database.QueryTokenId(address)
-		ownImg := database.QueryMyOwnImg(address)
-		ownImgCount := database.QueryMyOwnImgCount(address)
-		if err != nil {
-			log.Fatal(err)
+	var address string
+	var tokenId []int
+	var ownImg []database.IMG
+	var ownImgCount int
+	var coverHref []string
+	var token []*database.IMG
+	var count int
+	var cover []string
+	username := c.Query("username")
+	if username != "" {
+		address = database.QueryUser(username).Address
+		if address != "" {
+			tokenId = database.QueryTokenId(address)
+			ownImg = database.QueryMyOwnImg(address)
+			ownImgCount = database.QueryMyOwnImgCount(address)
+			for _, v := range tokenId {
+				token = append(token, database.QueryImg(v))
+				count = count + 1
+				tokenId_ := big.NewInt(int64(v))
+				coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
+			}
+			c.HTML(http.StatusOK, "homepage1.html", gin.H{
+				"username":    username,
+				"img":         database.QueryUser(username).Picture,
+				"address":     address,
+				"cover":       cover,
+				"token":       token,
+				"count":       count,
+				"ownImgCount": ownImgCount,
+				"ownImg":      ownImg,
+			})
 		}
-		var coverHref []string
-		var token []*database.IMG
-		var count int
-		for _, v := range tokenId {
-			token = append(token, database.QueryImg(v))
-			count = count + 1
-			tokenId_ := big.NewInt(int64(v))
-			coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
-		}
-		judge := true
-		var cover []string
-		if len(coverHref) == 0 {
-			judge = false
-			cover = nil
-		} else {
-			cover = coverHref
-		}
-		c.HTML(http.StatusOK, "homepage1.html", gin.H{
-			"isLogin":      isLogin,
-			"username":     cookie.Value,
-			"img":          database.QueryUser(cookie.Value).Picture,
-			"address":      address,
-			"privateKey":   privateKey,
-			"balance":      tokenBalance,
-			"etherBalance": etherBalance,
-			"cover":        cover,
-			"judge":        judge,
-			"token":        token,
-			"count":        count,
-			"ownImgCount":  ownImgCount,
-			"ownImg":       ownImg,
-		})
 	} else {
-		c.HTML(http.StatusOK, "homepage1.html", gin.H{
-			"isLogin": isLogin,
-		})
+		cookie, e := c.Request.Cookie("name")
+		isLogin := false
+		if e == nil {
+			isLogin = true
+		}
+		if isLogin {
+			//ether := big.NewInt(int64(10 * math.Pow(10, 18)))
+			address = database.QueryUser(cookie.Value).Address
+			privateKey := database.QueryUser(cookie.Value).Keystore
+			tokenBalance := util.QueryBalance(common.HexToAddress(address), privateKey[2:])
+			etherBalance, err := client.BalanceAt(context.Background(), common.HexToAddress(address), nil)
+			tokenId = database.QueryTokenId(address)
+			ownImg = database.QueryMyOwnImg(address)
+			ownImgCount = database.QueryMyOwnImgCount(address)
+			if err != nil {
+				log.Fatal(err)
+			}
+			for _, v := range tokenId {
+				token = append(token, database.QueryImg(v))
+				count = count + 1
+				tokenId_ := big.NewInt(int64(v))
+				coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
+			}
+			judge := true
+			if len(coverHref) == 0 {
+				judge = false
+				cover = nil
+			} else {
+				cover = coverHref
+			}
+			c.HTML(http.StatusOK, "homepage1.html", gin.H{
+				"isLogin":      isLogin,
+				"username":     cookie.Value,
+				"img":          database.QueryUser(cookie.Value).Picture,
+				"address":      address,
+				"privateKey":   privateKey,
+				"balance":      tokenBalance,
+				"etherBalance": etherBalance,
+				"cover":        cover,
+				"judge":        judge,
+				"token":        token,
+				"count":        count,
+				"ownImgCount":  ownImgCount,
+				"ownImg":       ownImg,
+			})
+		} else {
+			c.HTML(http.StatusOK, "homepage1.html", gin.H{
+				"isLogin": isLogin,
+			})
+		}
 	}
 }
 func Index1(c *gin.Context) {
