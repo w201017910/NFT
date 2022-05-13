@@ -10,20 +10,23 @@ import (
 	contract "nft/contracts/methods"
 )
 
-func MintToken(privateKey_ string, to common.Address, cid string, _type string, name string) (tokenId *big.Int) {
-	privateKey, err := crypto.HexToECDSA(privateKey_)
-	if err != nil {
-		log.Fatal(err)
+func MintToken(privateKey_ string, to common.Address, cid string, _type string, name string) (tokenId *big.Int, err error) {
+	privateKey, cryErr := crypto.HexToECDSA(privateKey_)
+	if cryErr != nil {
+		return nil, cryErr
 	}
 	opts = bind.NewKeyedTransactor(privateKey)
-	mintResult, err := contract.ERC721_Mint(opts, to, cid, _type, name)
-	if err != nil {
-		log.Fatal(err)
+	mintResult, mintErr := contract.ERC721_Mint(opts, to, cid, _type, name)
+	if mintErr != nil {
+		return nil, mintErr
 	}
-	tokenid, err := contract.ERC721_TotalToken(nil)
+	tokenid, idErr := contract.ERC721_TotalToken(nil)
+	if idErr != nil {
+		return nil, idErr
+	}
 	//approveResult, err := contract.ERC721_Approve(opts, transContractAddr, tokenid)
 	fmt.Println("MintToken", mintResult)
-	return tokenid
+	return tokenid, nil
 }
 func QueryTokenBalance(owner string) (tokenCount *big.Int) {
 	result, err := contract.ERC721_BalanceOf(nil, owner)

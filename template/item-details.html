@@ -28,6 +28,16 @@
             margin-top: 25px;
             margin-left:74%;
         }
+
+        .like {
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .cs {
+            color: #f00;
+        }
+
     </style>
 
 </head>
@@ -126,6 +136,19 @@
             <div class="col-lg-6">
                 <div class="backhome-content mt-4 mt-lg-0">
                     <h2 class="fw-bold">作品名称</h2>
+                    <div class="d-flex align-items-center">
+                        <a href=""><span
+                                class="badge rounded-pill bg-white box-shadow text-dark f-16 fw-normal py-2 px-3">
+                                    <i class="mdi mdi-heart text-danger f-18 me-2 align-middle"></i>数量:
+                                </span></a>
+
+                        <div class="icon d-flex ms-auto">
+                            <div class="like">
+                                <p class="like">&#10084;</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="tab-box my-4">
                         <ul class="nav nav-pills" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -168,8 +191,8 @@
                                 <p class="text-muted tokenId" id="{{.tokenId}}">TokenId: {{.tokenId}}</p>
                                 <p class="text-muted">是否在售: {{.is_on_sale}}</p>
                                 <p class="text-muted">作品类型: {{.type}}</p>
-                                <p class="text-muted">创作者: {{.creator}}</p>
-                                <p class="text-muted owner" id="{{.owner}}">所属者: {{.owner}}</p>
+                                <p class="text-muted overflow-hidden">创作者: {{.creator}}</p>
+                                <p class="text-muted overflow-hidden owner" id="{{.owner}}">所属者: {{.owner}}</p>
                                 <p class="text-muted overflow-hidden">Cid: <a href="{{.cid}}" target="_blank">{{.cid}}</a></p>
                                 <p class="text-muted overflow-hidden">合约地址: <a href="https://etherscan.io/address/{{.contractAddress}}"
                                                                target="_blank">{{.contractAddress}}</a></p>
@@ -188,8 +211,8 @@
                                     <tbody>
                                     {{range $i,$v := .transaction }}
                                     <tr>
-                                        <th scope="row" style="word-break:break-all">{{index $.from $i}}</th>
-                                        <td style="word-break:break-all">{{index $.to $i}}</td>
+                                        <th scope="row" style="word-break:break-all"><a href="/homepage.html?username={{index $.from $i}}">{{index $.from $i}}</a></th>
+                                        <td style="word-break:break-all"><a href="/homepage.html?username={{index $.to $i}}">{{index $.to $i}}</a></td>
                                         <td>{{$v.TokenPrice}} Frog</td>
                                         <td>{{index $.time $i}}</td>
                                     </tr>
@@ -350,7 +373,13 @@
         })
     })
 </script>
-
+<script>
+    $(function () {
+        $(".like").click(function () {
+            $(this).toggleClass('cs');
+        })
+    })
+</script>
 
 </body>
 
