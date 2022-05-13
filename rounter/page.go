@@ -190,45 +190,48 @@ func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
 }
 func Ranking(c *gin.Context) {
-	//cookie, e := c.Request.Cookie("name")
-	//isLogin := false
-	//if e == nil {
-	//	isLogin = true
-	//}
-	//if isLogin {
-	//	c.HTML(http.StatusOK, "ranking.html", gin.H{
-	//		"isLogin":  isLogin,
-	//		"username": cookie.Value,
-	//		"img":      database.QueryUser(cookie.Value).Picture,
-	//	})
-	//} else {
-	//	c.HTML(http.StatusOK, "ranking.html", gin.H{
-	//		"isLogin": isLogin,
-	//	})
-	//}
+
 	popularToken := database.QueryPopularTransactions()
-	var tokenId []int
 	var count []int
 	//nowTime := time.Now().Unix()
 	//var week = 604800
 	//var month = 2592000
-	for _, v := range popularToken {
-		tokenId = append(tokenId, v.TokenId)
-		count = append(count, v.Count)
-	}
 	var token []database.IMG
 	var ownerName []string
-	var pic []string
-	for i, v := range tokenId {
-		token = append(token, *database.QueryImg(v))
+	var weeks []float64
+	var mouth []float64
+	var week1 []string
+	var mouth1 []string
+	for i, v := range popularToken {
+		count = append(count, v.Count)
+		token = append(token, *database.QueryImg(v.TokenId))
 		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
-		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
+		t := database.QueryTransaction(v.TokenId)
+		weeks = append(weeks, util.Week(t))
+
+		if weeks[i] >= 0 {
+			week1 = append(week1, "text-success")
+		} else {
+			week1 = append(week1, "text-danger")
+		}
+		mouth = append(mouth, util.Mouth(t))
+
+		if mouth[i] >= 0 {
+			mouth1 = append(mouth1, "text-success")
+		} else {
+			mouth1 = append(mouth1, "text-danger")
+		}
+
 	}
+
 	c.HTML(http.StatusOK, "ranking.html", gin.H{
-		"token": token,
-		"name":  ownerName,
-		"pic":   pic,
-		"count": count,
+		"token":  token,
+		"name":   ownerName,
+		"weeks":  weeks,
+		"week1":  week1,
+		"mouths": mouth,
+		"mouth1": mouth1,
+		"count":  count,
 	})
 }
 func RegisterPage(c *gin.Context) {

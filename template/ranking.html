@@ -130,40 +130,7 @@
 
         <div class="row align-items-center mt-5">
             <div class="col-lg-12">
-                <ul class="nav nav-pills align-items-center mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active f-20" id="pills-games-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-games" type="button" role="tab" aria-controls="pills-games"
-                                aria-selected="true"><i class="mdi mdi-gamepad-variant f-24 align-middle"></i>
-                            游戏
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link f-20" id="pills-art-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-art" type="button" role="tab" aria-controls="pills-art"
-                                aria-selected="false"><i class="mdi mdi-brush f-24 align-middle"></i> 艺术
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link f-20" id="pills-tranding-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-tranding" type="button" role="tab" aria-controls="pills-tranding"
-                                aria-selected="false"><i class="mdi mdi-chart-line f-24 align-middle"></i>
-                            趋势
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link f-20" id="pills-music-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-music" type="button" role="tab" aria-controls="pills-music"
-                                aria-selected="false"><i class="mdi mdi-music f-24 align-middle"></i> 音乐
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link f-20" id="pills-domain-tab" data-bs-toggle="pill"
-                                data-bs-target="#pills-domain" type="button" role="tab" aria-controls="pills-domain"
-                                aria-selected="false"><i class="mdi mdi-web f-24 align-middle"></i> 领域
-                        </button>
-                    </li>
-                </ul>
+
                 <div class="tab-content mt-5" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-games" role="tabpanel"
                          aria-labelledby="pills-games-tab">
@@ -172,6 +139,7 @@
                                 <thead>
                                 <tr class="table-title">
                                     <th scope="col">藏品</th>
+                                    <th scope="col">所有人</th>
                                     <th scope="col">交易次数</th>
                                     <th scope="col">1 周 %</th>
                                     <th scope="col">1 月 %</th>
@@ -196,9 +164,11 @@
                                             </div>
                                         </div>
                                     </th>
+                                    <td class="text-success">{{index $.name $i}}</td>
                                     <td>{{index $.count $i}}</td>
-                                    <td class="text-success">+1245%</td>
-                                    <td class="text-danger">-210%</td>
+
+                                    <td class={{index $.week1 $i}}>{{index $.weeks $i}}%</td>
+                                    <td class={{index $.mouth1 $i}}>{{index $.mouths $i}}%</td>
                                     <td>{{$v.Balance}} Frog</td>
                                 </tr>
                                 {{end }}
