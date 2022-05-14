@@ -137,16 +137,23 @@
                 <div class="backhome-content mt-4 mt-lg-0">
                     <h2 class="fw-bold">作品名称</h2>
                     <div class="d-flex align-items-center">
-                        <a href=""><span
+                        <span
                                 class="badge rounded-pill bg-white box-shadow text-dark f-16 fw-normal py-2 px-3">
-                                    <i class="mdi mdi-heart text-danger f-18 me-2 align-middle"></i>数量:
-                                </span></a>
-
+                                    <i class="mdi mdi-heart text-danger f-18 me-2 align-middle"></i>数量:{{.likeCount}}
+                                </span>
+                        {{if .isLiked}}
+                        <div class="icon d-flex ms-auto">
+                            <div class="like">
+                                <p class="like" style="color: #f00;">&#10084;</p>
+                            </div>
+                        </div>
+                        {{else}}
                         <div class="icon d-flex ms-auto">
                             <div class="like">
                                 <p class="like">&#10084;</p>
                             </div>
                         </div>
+                        {{ end }}
                     </div>
 
                     <div class="tab-box my-4">
@@ -266,6 +273,9 @@
                         <form>
                         <button class="btn btn-primary" id="purchase" type="submit">现在购买</button>
                         </form>
+                        <form>
+                            <button class="btn btn-primary" id="undercarriage" type="submit">下架</button>
+                        </form>
                     </div>
                     {{else}}
                     <div class="d-flex">
@@ -346,11 +356,11 @@
         })
     })
     $(function (){
+        var tokenId = $(".tokenId").attr("id")
+        var price  = $(".price").attr("id")
+        var owner = $(".owner").attr("id")
         $("#purchase").click(function (e){
             e.preventDefault()
-            var tokenId = $(".tokenId").attr("id")
-            var price  = $(".price").attr("id")
-            var owner = $(".owner").attr("id")
             $.ajax({
                 url:"/purchase",
                 type: "post",
@@ -371,12 +381,48 @@
                 }
             })
         })
+        $("#undercarriage").click(function (e){
+            e.preventDefault()
+            $.ajax({
+                url:"/undercarriage",
+                type:"post",
+                data:{
+                    id : tokenId,
+                    owner:owner
+                },
+                success:function (data){
+                    if (data.err != null){
+                        alert(data.err)
+                        location.reload()
+                    }
+                    else if (data.ok !=null){
+                        alert(data.ok)
+                        window.location.href = "/homepage.html"
+                    }
+                }
+            })
+        })
     })
 </script>
 <script>
     $(function () {
-        $(".like").click(function () {
-            $(this).toggleClass('cs');
+        $(".like").click(function (e) {
+            e.preventDefault()
+            let tokenId = $(".tokenId").attr("id")
+            $.ajax({
+                url:"/like",
+                method:"post",
+                data:{
+                    "id":tokenId
+                },
+                success:function (data){
+                    if (data.message != null){
+                        alert(data.message)
+                    }
+                    location.reload()
+                }
+            })
+            return false
         })
     })
 </script>

@@ -2,7 +2,6 @@ package rounter
 
 import (
 	"context"
-	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -12,6 +11,7 @@ import (
 	contract "nft/contracts/methods"
 	"nft/database"
 	"nft/util"
+	"strconv"
 	"time"
 )
 
@@ -35,7 +35,7 @@ func Index2(c *gin.Context) {
 	//		"isLogin": isLogin,
 	//	})
 	//}
-	//search := database.QueryImgFuzzyly()
+	//search := database.QueryImgFuzzily()
 
 	allTrans := database.QueryAllImg()
 	var tokenId []int
@@ -56,7 +56,6 @@ func Index2(c *gin.Context) {
 		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
 		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
 	}
-	fmt.Println(pic)
 	c.HTML(http.StatusOK, "index-2.html", gin.H{
 		"token": token,
 		"name":  ownerName,
@@ -191,14 +190,20 @@ func ItemDetails(c *gin.Context) {
 		format = append(format, time.Unix(int64(transactions[i].Times), 0).Format("2006/01/02 15:04"))
 	}
 	isOwner := false
+	isLiked := false
 	if e == nil {
 		userName := database.QueryUser(cookie.Value)
+		isLike := database.IsLiked(item_details.TokenId, userName.Address)
+		if isLike == "1" {
+			isLiked = true
+		}
 		if cookie.Value == userName.Name {
 			isOwner = true
 		}
 	}
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
 		"isOwner":         isOwner,
+		"isLiked":         isLiked,
 		"images":          item_details.Cid,
 		"tokenId":         item_details.TokenId,
 		"description":     item_details.Description,
@@ -213,7 +218,25 @@ func ItemDetails(c *gin.Context) {
 		"transaction":     transactions,
 		"from":            fromName,
 		"to":              toName,
+		"likeCount":       item_details.ThumbsUp,
 	})
+}
+func Like(c *gin.Context) {
+	cookie, e := c.Request.Cookie("name")
+	tokenId, _ := strconv.Atoi(c.PostForm("id"))
+	if e == nil {
+		address := database.QueryUser(cookie.Value).Address
+		isLiked := database.IsLiked(tokenId, address)
+		if isLiked == "" {
+			database.LikeIt(tokenId, address)
+		} else if isLiked == "1" {
+			database.DisLikeIt(tokenId, address)
+		}
+	} else {
+		c.JSON(200, gin.H{
+			"message": "请先登录！",
+		})
+	}
 }
 func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
@@ -301,7 +324,7 @@ func Swap(c *gin.Context) {
 }
 func Search(c *gin.Context) {
 	name := c.Param("name")
-	searchResult := database.QueryImgFuzzyly(name)
+	searchResult := database.QueryImgFuzzily(name)
 	var ownerName []string
 	var pic []string
 	if searchResult != nil {

@@ -1,6 +1,7 @@
 package database
 
 import (
+	"database/sql"
 	"fmt"
 	"time"
 )
@@ -14,17 +15,21 @@ type Transaction struct {
 	Count      int
 }
 
+func CloseConnection(rows *sql.Rows) {
+	rows.Close()
+}
 func AddTransactions(tokenId int, formID string, toID string, tokenPrice int) {
-	_, err := db.Exec("insert transactions  values (?,?,?,?,?)", tokenId, formID, toID, tokenPrice, time.Now().Unix())
+	_, err := Db.Exec("insert transactions  values (?,?,?,?,?)", tokenId, formID, toID, tokenPrice, time.Now().Unix())
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 func QueryTransaction(tokenID int) []Transaction {
-	rows, err := db.Query("select * from transactions where tokenID=?", tokenID)
+	rows, err := Db.Query("select * from transactions where tokenID=?", tokenID)
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer CloseConnection(rows)
 	var transactions []Transaction
 scan:
 	if rows.Next() {
@@ -37,10 +42,11 @@ scan:
 	return transactions
 }
 func QueryAllTransaction() []Transaction {
-	rows, err := db.Query("select * from transactions")
+	rows, err := Db.Query("select * from transactions")
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer CloseConnection(rows)
 	var transactions []Transaction
 scan:
 	if rows.Next() {
@@ -52,10 +58,11 @@ scan:
 	return transactions
 }
 func QueryPopularTransactions() []Transaction {
-	rows, err := db.Query("select tokenId,count(tokenId) from transactions group by tokenId order by count(tokenId) DESC LIMIT 10;")
+	rows, err := Db.Query("select tokenId,count(tokenId) from transactions group by tokenId order by count(tokenId) DESC LIMIT 10;")
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer CloseConnection(rows)
 	var transactions []Transaction
 	for rows.Next() {
 		transaction := new(Transaction)

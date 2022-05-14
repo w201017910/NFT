@@ -55,12 +55,9 @@ func Buy(c *gin.Context) {
 		user := database.QueryUser(cookie.Value)
 		b, _ := contract.ERC20_Allowance(nil, user.Address, contract.TransactionAddress)
 		a1 := big.NewInt(int64(price))
-		fmt.Println(b.String(), a1.String())
-		fmt.Println("Address: ", user.Address)
 		privateKey, _ := crypto.HexToECDSA(user.Keystore[2:])
 		opts := bind.NewKeyedTransactor(privateKey)
 		if b.Cmp(a1) == -1 {
-			fmt.Println(1)
 			_, err := contract.ERC20_Approve(opts, contract.TransactionAddress, a1)
 			if err != nil {
 				fmt.Println(err)
@@ -68,10 +65,8 @@ func Buy(c *gin.Context) {
 				return
 			}
 		}
-
 		_, err := contract.Trans_Buy(opts, big.NewInt(tokenId))
 		if err != nil {
-			fmt.Println("trans_err: ", err)
 			c.JSON(http.StatusOK, gin.H{
 				"err": "购买失败",
 			})
@@ -84,6 +79,38 @@ func Buy(c *gin.Context) {
 		}
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"err": "请先登录账号",
+		})
+	}
+}
+func Undercarriage(c *gin.Context) {
+	tokenId, _ := strconv.ParseInt(c.PostForm("id"), 10, 64)
+	owner := c.PostForm("owner")
+	cookie, e := c.Request.Cookie("name")
+	if e == nil {
+		user := database.QueryUser(cookie.Value)
+		if user.Address == owner {
+			privateKey, _ := crypto.HexToECDSA(user.Keystore[2:])
+			opts := bind.NewKeyedTransactor(privateKey)
+			_, err := contract.Trans_Undo(opts, big.NewInt(tokenId))
+			if err != nil {
+				fmt.Println(err)
+				c.JSON(200, gin.H{
+					"err": "下架失败",
+				})
+			} else {
+				database.ChangeSell(int(tokenId), false, 0)
+				c.JSON(200, gin.H{
+					"ok": "下架成功！",
+				})
+			}
+		} else {
+			c.JSON(200, gin.H{
+				"err": "暂无权限！",
+			})
+		}
+	} else {
+		c.JSON(200, gin.H{
 			"err": "请先登录账号",
 		})
 	}

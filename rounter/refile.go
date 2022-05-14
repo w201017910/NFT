@@ -34,7 +34,6 @@ func ReadFile(c *gin.Context) {
 				isCidExist := database.QueryImgByCid("http://175.178.215.53:8080/ipfs/" + cid)
 				fmt.Println("isCidExist != nil: ", isCidExist != nil)
 				if isCidExist != nil {
-					fmt.Println("rrr")
 					c.JSON(http.StatusOK, gin.H{
 						"exist": "该作品在链上已存在！",
 					})

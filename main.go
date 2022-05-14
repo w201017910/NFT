@@ -11,6 +11,7 @@ import (
 
 func main() {
 	database.Init()
+	defer database.Db.Close()
 	clients, _ := ethclient.Dial("ws://127.0.0.1:7545")
 	methods.InitAll(clients)
 	defer clients.Close()
@@ -34,6 +35,7 @@ func Start(addr string) (err error) {
 	r.GET("/drag.html", rounter.Drag)
 	r.GET("/homepage.html", rounter.Homepage)
 	r.GET("/item-details.html/:href", rounter.ItemDetails)
+	r.POST("/like", rounter.Like)
 	r.GET("/login.html", rounter.LoginPage)
 	r.GET("/ranking.html", rounter.Ranking)
 	r.GET("/register.html", rounter.RegisterPage)
@@ -46,6 +48,7 @@ func Start(addr string) (err error) {
 	r.POST("/confirm", rounter.Transaction)
 	r.GET("/search/:name", rounter.Search)
 	r.POST("/purchase", rounter.Buy)
+	r.POST("/undercarriage", rounter.Undercarriage)
 	r.GET("/balance", rounter.Balance)
 	r.POST("/ethToTokenSwap", rounter.EthToTokenSwap)
 	r.POST("/tokenToEthSwap", rounter.TokenToEthSwap)

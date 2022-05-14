@@ -8,10 +8,11 @@ type Collection struct {
 }
 
 func CollectionCount(tokenID int) int {
-	rows, err := db.Query("SELECT COUNT(tokenID) FROM collection where tokenID=?", tokenID)
+	rows, err := Db.Query("SELECT COUNT(tokenID) FROM collection where tokenID=?", tokenID)
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer CloseConnection(rows)
 	var s int
 	if rows.Next() {
 
@@ -21,16 +22,17 @@ func CollectionCount(tokenID int) int {
 	return s
 }
 func InsertCollection(tokenID int, userID string) {
-	_, err := db.Exec("insert collection values (?,?)", tokenID, userID)
+	_, err := Db.Exec("insert collection values (?,?)", tokenID, userID)
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 func QueryCollection(userID string) []Collection {
-	rows, err := db.Query("select * from collection where userID=?", userID)
+	rows, err := Db.Query("select * from collection where userID=?", userID)
 	if err != nil {
 		fmt.Println(err)
 	}
+	defer CloseConnection(rows)
 	var collections []Collection
 scan:
 	if rows.Next() {
