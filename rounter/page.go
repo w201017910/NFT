@@ -76,6 +76,7 @@ func Homepage(c *gin.Context) {
 	var tokenId []int
 	var ownImg []database.IMG
 	var ownImgCount int
+	var myLikeImg []database.IMG
 	var coverHref []string
 	var token []*database.IMG
 	var count int
@@ -87,6 +88,7 @@ func Homepage(c *gin.Context) {
 			tokenId = database.QueryTokenId(address)
 			ownImg = database.QueryMyOwnImg(address)
 			ownImgCount = database.QueryMyOwnImgCount(address)
+			myLikeImg = database.QueryMyLikeImg(address)
 			for _, v := range tokenId {
 				token = append(token, database.QueryImg(v))
 				count = count + 1
@@ -102,6 +104,7 @@ func Homepage(c *gin.Context) {
 				"count":       count,
 				"ownImgCount": ownImgCount,
 				"ownImg":      ownImg,
+				"myLikeImg":   myLikeImg,
 			})
 		}
 	} else {
@@ -119,6 +122,7 @@ func Homepage(c *gin.Context) {
 			tokenId = database.QueryTokenId(address)
 			ownImg = database.QueryMyOwnImg(address)
 			ownImgCount = database.QueryMyOwnImgCount(address)
+			myLikeImg = database.QueryMyLikeImg(address)
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -149,6 +153,7 @@ func Homepage(c *gin.Context) {
 				"count":        count,
 				"ownImgCount":  ownImgCount,
 				"ownImg":       ownImg,
+				"myLikeImg":    myLikeImg,
 			})
 		} else {
 			c.HTML(http.StatusOK, "homepage1.html", gin.H{
@@ -194,7 +199,7 @@ func ItemDetails(c *gin.Context) {
 	if e == nil {
 		userName := database.QueryUser(cookie.Value)
 		isLike := database.IsLiked(item_details.TokenId, userName.Address)
-		if isLike == "1" {
+		if isLike == "" {
 			isLiked = true
 		}
 		if cookie.Value == userName.Name {
@@ -227,9 +232,9 @@ func Like(c *gin.Context) {
 	if e == nil {
 		address := database.QueryUser(cookie.Value).Address
 		isLiked := database.IsLiked(tokenId, address)
-		if isLiked == "" {
+		if isLiked == "1" {
 			database.LikeIt(tokenId, address)
-		} else if isLiked == "1" {
+		} else if isLiked == "" {
 			database.DisLikeIt(tokenId, address)
 		}
 	} else {
@@ -342,7 +347,4 @@ func Search(c *gin.Context) {
 			"err": "nil",
 		})
 	}
-}
-func Homepage1(c *gin.Context) {
-	//c.HTML(http.StatusOK, "search.html", gin.H{})
 }

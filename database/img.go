@@ -101,6 +101,22 @@ scan:
 	}
 	return images
 }
+func QueryMyLikeImg(address string) []IMG {
+	rows, err := Db.Query("select img.* from img  left join likes on img.tokenId = likes.tokenId where likes.owner = ?", address)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer CloseConnection(rows)
+	var images []IMG
+scan:
+	if rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		images = append(images, *img)
+		goto scan
+	}
+	return images
+}
 func QueryMyOwnImgCount(address string) int {
 	rows, _ := Db.Query("select count(tokenId) from img where creator = ?", address)
 

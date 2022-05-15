@@ -32,7 +32,7 @@
 <!--Navbar Start-->
 <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
     <div class="container-fluid custom-container">
-        <a class="navbar-brand logo f-30 text-dark fw-bold" href="">
+        <a class="navbar-brand logo f-30 text-dark fw-bold" href="/">
             <img src="/frontend/static/picture/logo-dark.png" class="logo-dark" alt="" height="40">
         </a>
         <div>
@@ -166,8 +166,12 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label  class="form-label">作品类型* :</label>
-                                        <input type="text" class="form-control" name="type" id="type"
-                                               placeholder="请输入作品类型">
+                                        <select class="form-control" id="type">
+                                            <option disabled selected>请选择作品类型</option>
+                                            <option value="图片">图片</option>
+                                        </select>
+<!--                                        <input type="text" class="form-control" name="type" id="type"-->
+<!--                                               placeholder="请输入作品类型">-->
                                     </div>
                                 </div>
                                 <!-- end col -->
@@ -183,7 +187,7 @@
                                 <div class="col-4">
                                     </br>
                                     <span id="upload-span">
-                                        <input type="file" name="file" id="file" class="file" />
+                                        <input type="file" name="file" id="file" class="file" accept="image/jpeg,image/png" />
                                         <img src="frontend/static/picture/upload.png" width="200px" height="200px">
                                     </span>
 
@@ -249,33 +253,39 @@
 <script>
     $('.submitMint').click(function (e){
         e.preventDefault()
-        let formData = new FormData()
-        let f = $("#file")[0].files[0]
-        formData.append("file",f)
-        formData.append("name",$("#name").val())
-        formData.append("type",$("#type").val())
-        formData.append("intro",$("#intro").val())
-        $.ajax({
-            url:"/upLoad",
-            type:"post",
-            dataType :"json",
-            contentType:false,
-            processData: false,
-            mimeType:"multipart/form-data",
-            data: formData,
-            success:function (data){
-                if (data.exist != null){
-                alert(data.exist)
-                location.reload()
-            }else if (data.message == "ok"){
-                    alert("铸造成功！")
-                    window.location.href="/homepage.html"
-                }else if (data.err != null){
-                    alert(data.err)
-                    window.location.href="/homepage.html"
+        let fileAccept = $("#file").val().split(".")[1]
+        if (fileAccept !== "jpg" && fileAccept !== "png" && fileAccept !== "jpeg"){
+            alert("请选择正确格式的文件！")
+            location.reload()
+        }else {
+            let formData = new FormData()
+            let f = $("#file")[0].files[0]
+            formData.append("file",f)
+            formData.append("name",$("#name").val())
+            formData.append("type",$("#type option:selected").val())
+            formData.append("intro",$("#intro").val())
+            $.ajax({
+                url:"/upLoad",
+                type:"post",
+                dataType :"json",
+                contentType:false,
+                processData: false,
+                mimeType:"multipart/form-data",
+                data: formData,
+                success:function (data){
+                    if (data.exist != null){
+                        alert(data.exist)
+                        location.reload()
+                    }else if (data.message == "ok"){
+                        alert("铸造成功！")
+                        window.location.href="/homepage.html"
+                    }else if (data.err != null){
+                        alert(data.err)
+                        window.location.href="/homepage.html"
+                    }
                 }
-            }
-        })
+            })
+        }
     })
 </script>
 </body>

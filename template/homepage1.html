@@ -227,12 +227,19 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                aria-selected="true">藏品</button>
+                                aria-selected="true">藏品
+                        </button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
                                 data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
                                 aria-selected="false">创造
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-likE-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-likE" type="button" role="tab" aria-controls="pills-likE"
+                                aria-selected="false">收藏
                         </button>
                     </li>
 
@@ -246,7 +253,7 @@
                                 <div class="tab-box p-4 border-0">
                                     <div class="card-image mt-2 position-relative" style="height: 142.49px">
                                         <a href="/item-details.html/{{ silice $v.Cid }}">
-                                        <img src="{{$v.Cid}}" class="img-fluid" alt="" height="142.49px">
+                                            <img src="{{$v.Cid}}" class="img-fluid" alt="" height="142.49px">
                                         </a>
                                         <div class="position-absolute top-0 end-0 me-3 mt-3">
                                         </div>
@@ -256,7 +263,8 @@
 
                                         <div class="blog-slider-footer">
                                             <h6 class="f-14"><i
-                                                    class="mdi mdi-crown f-18 text-primary me-2 align-middle"></i>{{$v.Name}} <span class="text-muted ms-2">{{$v.Balance}} Frog</span></h6>
+                                                    class="mdi mdi-crown f-18 text-primary me-2 align-middle"></i>{{$v.Name}}
+                                                <span class="text-muted ms-2">{{$v.Balance}} Frog</span></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -288,7 +296,42 @@
 
                                         <div class="blog-slider-footer">
                                             <h6 class="f-14"><i
-                                                    class="mdi mdi-crown f-18 text-primary me-2 align-middle"></i>{{$v.Name}} <span class="text-muted ms-2">{{$v.Balance}} Frog</span></h6>
+                                                    class="mdi mdi-crown f-18 text-primary me-2 align-middle"></i>{{$v.Name}}
+                                                <span class="text-muted ms-2">{{$v.Balance}} Frog</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{end}}
+                            <div class="mt-5">
+                                <div class="col-lg-12">
+                                    <div class="text-center">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane blog fade" id="pills-likE" role="tabpanel"
+                         aria-labelledby="pills-likE-tab">
+                        <div class="row">
+                            {{range $i,$v := .myLikeImg}}
+                            <div class="col-lg-4 mt-4">
+                                <div class="tab-box p-4 border-0">
+                                    <div class="card-image mt-2 position-relative" style="height: 142.49px">
+                                        <a href="/item-details.html/{{ silice $v.Cid }}">
+                                            <img src="{{$v.Cid}}" class="img-fluid" alt=""
+                                                 height="142.49px">
+                                        </a>
+                                        <div class="position-absolute top-0 end-0 me-3 mt-3">
+                                        </div>
+                                    </div>
+                                    <div class="body-content mt-3">
+                                        <hr class="my-3">
+
+                                        <div class="blog-slider-footer">
+                                            <h6 class="f-14"><i
+                                                    class="mdi mdi-crown f-18 text-primary me-2 align-middle"></i>{{$v.Name}}
+                                                <span class="text-muted ms-2">{{$v.Balance}} Frog</span></h6>
                                         </div>
                                     </div>
                                 </div>
