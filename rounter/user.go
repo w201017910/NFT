@@ -40,9 +40,9 @@ func Register(ctx *gin.Context) {
 		newName = "./frontend/static/updata/" + fileName
 		ctx.SaveUploadedFile(file, newName)
 	}
-	mneonic := util.Create_mneonic()
-	keys, address := util.DeriveAddressFromMnemonic(mneonic)
-	database.InsertUser(name, password, address, email, newName, keys, mneonic)
+	path, address, mneonic := util.NewAccount("./keystore", password)
+
+	database.InsertUser(name, password, address, email, newName, path, mneonic)
 	ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
 	ctx.Redirect(http.StatusMovedPermanently, "/")
 
