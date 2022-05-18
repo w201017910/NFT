@@ -193,10 +193,6 @@
                 <div class="about-detail">
                     <h6 class="fw-bold">个人介绍:</h6>
                     <div class="details-box">
-                        {{if .judge}}
-                        <p class="text-muted f-16">代币余额: {{.balance}} Frog</p>
-                        <p class="text-muted f-16">以太币余额: {{.etherBalance}} wei</p>
-                        {{end}}
                         <div class="row d-flex mt-4">
                             <div class="col-lg-6">
                                 <p class="fw-semibold f-16 mb-0 text-muted">藏品数</p>
@@ -207,6 +203,10 @@
                                 <p class="fw-semibold f-18">{{.ownImgCount}}</p>
                             </div>
                         </div>
+                        {{if .isLogin}}
+                        <p class="text-muted f-16">代币余额: {{.balance}} Frog</p>
+                        <p class="text-muted f-16">以太币余额: {{.etherBalance}} wei</p>
+                        {{end}}
                     </div>
                 </div>
 

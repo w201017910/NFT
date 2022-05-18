@@ -4,18 +4,12 @@ import (
 	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
 	"log"
 	"math/big"
 	contract "nft/contracts/methods"
 )
 
-func MintToken(privateKey_ string, to common.Address, cid string, _type string, name string) (tokenId *big.Int, err error) {
-	privateKey, cryErr := crypto.HexToECDSA(privateKey_)
-	if cryErr != nil {
-		return nil, cryErr
-	}
-	opts = bind.NewKeyedTransactor(privateKey)
+func MintToken(opts *bind.TransactOpts, to common.Address, cid string, _type string, name string) (tokenId *big.Int, err error) {
 	mintResult, mintErr := contract.ERC721_Mint(opts, to, cid, _type, name)
 	if mintErr != nil {
 		return nil, mintErr

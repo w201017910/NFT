@@ -43,7 +43,8 @@ func ReadFile(c *gin.Context) {
 					name := c.PostForm("name")
 					intro := c.PostForm("intro")
 					cids := "http://175.178.215.53:8080/ipfs/" + cid
-					tokenId, mintErr := util.MintToken(userInfo.Keystore[2:], common.HexToAddress(userInfo.Address), cids, type_, name)
+					opts, _ := util.BindOptsByKeystore(database.QueryUser(cookie.Value).Keystore, database.QueryUser(cookie.Value).Password)
+					tokenId, mintErr := util.MintToken(opts, common.HexToAddress(userInfo.Address), cids, type_, name)
 					if mintErr != nil {
 						c.JSON(200, gin.H{
 							"err": "铸币失败！",

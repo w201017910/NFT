@@ -2,6 +2,7 @@ package rounter
 
 import (
 	"context"
+	"fmt"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
@@ -116,9 +117,9 @@ func Homepage(c *gin.Context) {
 		if isLogin {
 			//ether := big.NewInt(int64(10 * math.Pow(10, 18)))
 			address = database.QueryUser(cookie.Value).Address
-			privateKey := database.QueryUser(cookie.Value).Keystore
-			tokenBalance := util.QueryBalance(common.HexToAddress(address), privateKey[2:])
+			tokenBalance := util.QueryBalance(common.HexToAddress(address))
 			etherBalance, err := client.BalanceAt(context.Background(), common.HexToAddress(address), nil)
+			fmt.Println(tokenBalance, etherBalance)
 			tokenId = database.QueryTokenId(address)
 			ownImg = database.QueryMyOwnImg(address)
 			ownImgCount = database.QueryMyOwnImgCount(address)
@@ -144,7 +145,6 @@ func Homepage(c *gin.Context) {
 				"username":     cookie.Value,
 				"img":          database.QueryUser(cookie.Value).Picture,
 				"address":      address,
-				"privateKey":   privateKey,
 				"balance":      tokenBalance,
 				"etherBalance": etherBalance,
 				"cover":        cover,
