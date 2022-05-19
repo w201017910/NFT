@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -179,6 +179,11 @@
                     <a class="btn btn-primary" href="drag.html">
                         铸造作品
                     </a>
+                    <form method="post" id="exportPrivateKey" action="/exportPrivateKey">
+                    <button class="btn btn-primary" type="submit" >
+                    导出私钥
+                </button>
+                    </form>
                     {{end}}
                 </div>
 
@@ -402,6 +407,38 @@
                 }
             })
         })
+    })
+    $('#exportPrivateKey').click(function (e){
+        e.preventDefault()
+        var auth = prompt("请输入密码:")
+        if (auth.toString() == ""){
+            alert("请输入密码！！！")
+        }else {
+            $.ajax({
+                url: "/exportPrivateKey",
+                type: "post",
+                data: {
+                    "auth":auth
+                },
+                success:function (data){
+                    if (data.err != null){
+                        alert(data.err)
+                        location.reload()
+                    }else if (data.key != null){
+                        alert(data.key+"               "+"请务必妥善保管私钥！！！")
+                        location.reload()
+                    }else{
+                        location.reload()
+                    }
+                },
+                error:function (err){
+                    if(err.err != null){
+                        alert(err.err)
+                        location.reload()
+                    }
+                }
+            })
+        }
     })
 </script>
 

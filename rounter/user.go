@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"nft/database"
 	"nft/util"
+	"os"
 	"path"
 	"strconv"
 	"time"
@@ -39,8 +40,9 @@ func Register(ctx *gin.Context) {
 		newName = "./frontend/static/updata/" + fileName
 		ctx.SaveUploadedFile(file, newName)
 	}
+	fmt.Println(privateKey == "" && keyFileErr == nil)
 	if privateKey != "" {
-		keyFile, mnemonic, err := util.ImportAccountByPrivateKey(privateKey, password)
+		keyFile, err := util.ImportAccountByPrivateKey(privateKey, password)
 		if err != "" {
 			ctx.JSON(200, gin.H{
 				"err": err,
@@ -48,38 +50,45 @@ func Register(ctx *gin.Context) {
 		}
 		privateKey_, _ := crypto.HexToECDSA(privateKey)
 		publicKey := crypto.PubkeyToAddress(privateKey_.PublicKey)
-		database.InsertUser(name, password, publicKey.String(), email, newName, keyFile, mnemonic)
-	}
-	if keyFileErr != nil {
-		fmt.Println("获取数据失败")
+		database.InsertUser(name, password, publicKey.String(), email, newName, keyFile, "")
+		ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
+	} else if keyFileErr != nil {
+		fmt.Println("keyFileErr: ", keyFileErr)
 	} else {
 		keyStorePath := path.Join("./keyStoreFile", keyStoreFile.Filename)
-		fmt.Println("keyStorePath", keyStorePath)
 		ctx.SaveUploadedFile(keyStoreFile, keyStorePath)
-		publicKey, mnemonic, importKeyErr := util.ImportAccountByKetstoreFile(keyStorePath, auth)
-		isPublicKeyExist := database.QueryUserByAddress(publicKey).Address
+		publicKey, importKeyErr := util.ImportAccountByKetstoreFile(keyStorePath, auth)
+		isPublicKeyExist := database.QueryUserByAddress(publicKey)
 		if importKeyErr != nil {
+			_ = os.Remove("./" + keyStorePath)
+			fmt.Println("导入失败")
 			ctx.JSON(200, gin.H{
 				"err": "导入失败！",
 			})
-		} else if isPublicKeyExist != "" {
+		} else if isPublicKeyExist != nil {
 			ctx.JSON(200, gin.H{
 				"err": "该账号已存在！",
 			})
 		} else {
-			database.InsertUser(name, password, publicKey, email, newName, "./"+keyStorePath, mnemonic)
+			database.InsertUser(name, password, publicKey, email, newName, "./"+keyStorePath, "")
+			ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
+			ctx.JSON(200, gin.H{})
 		}
 	}
-	publicKey, keystorePath, mnemonic, err := util.NewAccounts(password)
-	if err != nil {
-		ctx.JSON(200, err)
+	if privateKey == "" && keyFileErr != nil {
+		publicKey, keystorePath, err := util.NewAccounts(password)
+		if err != nil {
+			ctx.JSON(200, gin.H{
+				"err": err,
+			})
+		}
+		database.InsertUser(name, password, publicKey, email, newName, keystorePath, "")
+		ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
+		ctx.JSON(200, gin.H{})
 	}
-	database.InsertUser(name, password, publicKey, email, newName, keystorePath, mnemonic)
 	//path, address, mneonic := util.NewAccount("./keystore", password)
 
 	//database.InsertUser(name, password, address, email, newName, path, mneonic)
-	ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
-	ctx.Redirect(http.StatusMovedPermanently, "/")
 
 }
 func Login(c *gin.Context) {

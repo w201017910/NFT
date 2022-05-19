@@ -34,6 +34,7 @@ func Start(addr string) (err error) {
 	r.GET("/collection.html", rounter.Collection)
 	r.GET("/drag.html", rounter.Drag)
 	r.GET("/homepage.html", rounter.Homepage)
+	r.POST("/exportPrivateKey", rounter.ExportPrivateKey)
 	r.GET("/item-details.html/:href", rounter.ItemDetails)
 	r.POST("/like", rounter.Like)
 	r.GET("/login.html", rounter.LoginPage)

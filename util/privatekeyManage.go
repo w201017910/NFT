@@ -1,12 +1,12 @@
 package util
 
 import (
+	"fmt"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"io/ioutil"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -17,13 +17,12 @@ func BindOptsByKeystore(keyfile string, passwd string) (*bind.TransactOpts, erro
 	reader, _ := os.Open(keyfile)
 	opts, err := bind.NewTransactor(reader, passwd)
 	if err != nil {
-		log.Fatal("NewTransactor", err)
+		fmt.Println("NewTransactor", err)
 		return nil, err
 	}
 	return opts, nil
 }
-func NewAccounts(passwd string) (publicKey string, keystoreName string, mnemonics string, err error) {
-	mnemonic := Create_mneonic()
+func NewAccounts(passwd string) (publicKey string, keystoreName string, err error) {
 	key := keystore.NewKeyStore("./keyStoreFile", keystore.StandardScryptN, keystore.StandardScryptP)
 	account, err := key.NewAccount(passwd)
 	address := account.Address.String()
@@ -32,12 +31,11 @@ func NewAccounts(passwd string) (publicKey string, keystoreName string, mnemonic
 	path = "./" + path
 	key.Wallets()
 	if err != nil {
-		return "", "", "", err
+		return "", "", err
 	}
-	return address, path, mnemonic, nil
+	return address, path, nil
 }
-func ImportAccountByPrivateKey(privateKey string, passwd string) (keystoreName string, mnemonics string, err string) {
-	mnemonic := Create_mneonic()
+func ImportAccountByPrivateKey(privateKey string, passwd string) (keystoreName string, err string) {
 	key := keystore.NewKeyStore("./keyStoreFile", keystore.StandardScryptN, keystore.StandardScryptP)
 	privateKey_, _ := crypto.HexToECDSA(privateKey)
 	account, _ := key.ImportECDSA(privateKey_, passwd)
@@ -45,9 +43,9 @@ func ImportAccountByPrivateKey(privateKey string, passwd string) (keystoreName s
 	path, _ = filepath.Rel(base, path)
 	path = "./" + path
 	if path == "" {
-		return "", "", "该账户已存在"
+		return "", "该账户已存在"
 	}
-	return path, mnemonic, ""
+	return path, ""
 	//pk, _ := crypto.HexToECDSA(privateKey)
 	//path := "keyStoreFile"
 	//hdKeyStore := NewHDkeyStore(path, pk)
@@ -58,31 +56,30 @@ func ImportAccountByPrivateKey(privateKey string, passwd string) (keystoreName s
 	//}
 	//fmt.Println(NewAccount(hdKeyStore.keysDirPath, passwd))
 }
-func ImportAccountByKetstoreFile(keyfile string, passwd string) (address string, mnemonics string, err error) {
-	mnemonic := Create_mneonic()
-	file, err := ioutil.ReadFile(keyfile)
-	if err != nil {
-		log.Fatal("readKeystore: ", err)
-		return "", "", err
+func ImportAccountByKetstoreFile(keyfile string, passwd string) (address string, err error) {
+	file, fileErr := ioutil.ReadFile(keyfile)
+	if fileErr != nil {
+		fmt.Println("readKeystore: ", fileErr)
+		return "", err
 	}
-	key, err := keystore.DecryptKey(file, passwd)
-	if err != nil {
-		log.Fatal("DecryptKey", err)
-		return "", "", err
+	key, DecryptKeyErr := keystore.DecryptKey(file, passwd)
+	if DecryptKeyErr != nil {
+		fmt.Println("DecryptKeyErr : ", DecryptKeyErr)
+		return "", DecryptKeyErr
 	}
 	publicKey := crypto.PubkeyToAddress(key.PrivateKey.PublicKey).String()
 	//fmt.Println(hexutil.Encode(crypto.FromECDSA(key.PrivateKey)))
-	return publicKey, mnemonic, nil
+	return publicKey, nil
 }
 func ExportPrivateKey(keyfile string, passwd string) (string, error) {
 	file, err := ioutil.ReadFile(keyfile)
 	if err != nil {
-		log.Fatal("readKeystore", err)
+		fmt.Println("readKeystore", err)
 		return "", err
 	}
 	key, err := keystore.DecryptKey(file, passwd)
 	if err != nil {
-		log.Fatal("DecryptKey", err)
+		fmt.Println("DecryptKey", err)
 		return "", err
 	}
 	return hexutil.Encode(crypto.FromECDSA(key.PrivateKey)), nil

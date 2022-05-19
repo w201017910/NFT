@@ -348,3 +348,25 @@ func Search(c *gin.Context) {
 		})
 	}
 }
+func ExportPrivateKey(c *gin.Context) {
+	auth := c.PostForm("auth")
+	cookie, e := c.Request.Cookie("name")
+	if e == nil {
+		keyFile := database.QueryUser(cookie.Value).Keystore
+		//passwd := database.QueryUser(cookie.Value).Password
+		privateKey, err := util.ExportPrivateKey(keyFile, auth)
+		if err != nil {
+			c.JSON(200, gin.H{
+				"err": "导出失败，请检查账号正常或密码正确！",
+			})
+		} else {
+			c.JSON(200, gin.H{
+				"key": privateKey,
+			})
+		}
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"err": "未登录！",
+		})
+	}
+}
