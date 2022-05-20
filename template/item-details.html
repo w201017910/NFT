@@ -325,21 +325,25 @@
 
     $(function (){
         $("#confirmPrice").click(function (e){
+            e.preventDefault()
             var tokenId = $(".tokenId").attr("id")
             var price  = $(".tokenPrice").val()
             var owner = $(".owner").attr("id")
-            e.preventDefault()
+            var auths = prompt("请输入交易密码：")
             if (parseInt(price) <0 || price == "" ){
                 alert("请输入正确的价格")
             }
-            else {
+            if (auths.toString() == ""){
+                alert("请输入密码！！！")
+            }else {
                 $.ajax({
                     url:"/confirm",
                     type:"post",
                     data:{
                         id : tokenId,
                         price:price,
-                        owner:owner
+                        owner:owner,
+                        auth:auths
                     },
                     success:function (data){
                         if (data.err != null){
@@ -361,46 +365,58 @@
         var owner = $(".owner").attr("id")
         $("#purchase").click(function (e){
             e.preventDefault()
-            $.ajax({
-                url:"/purchase",
-                type: "post",
-                data: {
-                    id : tokenId,
-                    price:price,
-                    owner:owner
-                },
-                success:function (data){
-                    if (data.err != null){
-                        alert(data.err)
-                        location.reload()
+            let auths = prompt("请输入交易密码：")
+            if (auths.toString() == ""){
+                alert("请输入密码！！！")
+            }else {
+                $.ajax({
+                    url:"/purchase",
+                    type: "post",
+                    data: {
+                        id : tokenId,
+                        price:price,
+                        owner:owner,
+                        auth:auths
+                    },
+                    success:function (data){
+                        if (data.err != null){
+                            alert(data.err)
+                            location.reload()
+                        }
+                        else if (data.ok == "ok"){
+                            alert("购买成功")
+                            location.reload()
+                        }
                     }
-                    else if (data.ok == "ok"){
-                        alert("购买成功")
-                        location.reload()
-                    }
-                }
-            })
+                })
+            }
         })
         $("#undercarriage").click(function (e){
             e.preventDefault()
-            $.ajax({
-                url:"/undercarriage",
-                type:"post",
-                data:{
-                    id : tokenId,
-                    owner:owner
-                },
-                success:function (data){
-                    if (data.err != null){
-                        alert(data.err)
-                        location.reload()
+            let auths = prompt("请输入交易密码：")
+            if (auths.toString() == ""){
+                alert("请输入密码！！！")
+            }else {
+                $.ajax({
+                    url:"/undercarriage",
+                    type:"post",
+                    data:{
+                        id : tokenId,
+                        owner:owner,
+                        auth:auths
+                    },
+                    success:function (data){
+                        if (data.err != null){
+                            alert(data.err)
+                            location.reload()
+                        }
+                        else if (data.ok !=null){
+                            alert(data.ok)
+                            window.location.href = "/homepage.html"
+                        }
                     }
-                    else if (data.ok !=null){
-                        alert(data.ok)
-                        window.location.href = "/homepage.html"
-                    }
-                }
-            })
+                })
+            }
         })
     })
 </script>

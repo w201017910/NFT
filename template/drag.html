@@ -258,33 +258,39 @@
             alert("请选择正确格式的文件！")
             location.reload()
         }else {
-            let formData = new FormData()
-            let f = $("#file")[0].files[0]
-            formData.append("file",f)
-            formData.append("name",$("#name").val())
-            formData.append("type",$("#type option:selected").val())
-            formData.append("intro",$("#intro").val())
-            $.ajax({
-                url:"/upLoad",
-                type:"post",
-                dataType :"json",
-                contentType:false,
-                processData: false,
-                mimeType:"multipart/form-data",
-                data: formData,
-                success:function (data){
-                    if (data.exist != null){
-                        alert(data.exist)
-                        location.reload()
-                    }else if (data.message == "ok"){
-                        alert("铸造成功！")
-                        window.location.href="/homepage.html"
-                    }else if (data.err != null){
-                        alert(data.err)
-                        window.location.href="/homepage.html"
+            var auth = prompt("请输入交易密码:")
+            if (auth.toString() == ""){
+                alert("请输入密码！！！")
+            }else {
+                let formData = new FormData()
+                let f = $("#file")[0].files[0]
+                formData.append("file",f)
+                formData.append("name",$("#name").val())
+                formData.append("type",$("#type option:selected").val())
+                formData.append("intro",$("#intro").val())
+                formData.append("auth",auth)
+                $.ajax({
+                    url:"/upLoad",
+                    type:"post",
+                    dataType :"json",
+                    contentType:false,
+                    processData: false,
+                    mimeType:"multipart/form-data",
+                    data: formData,
+                    success:function (data){
+                        if (data.exist != null){
+                            alert(data.exist)
+                            location.reload()
+                        }else if (data.message == "ok"){
+                            alert("铸造成功！")
+                            window.location.href="/homepage.html"
+                        }else if (data.err != null){
+                            alert(data.err)
+                            window.location.href="/homepage.html"
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     })
 </script>

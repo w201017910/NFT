@@ -42,17 +42,25 @@ func ReadFile(c *gin.Context) {
 					type_ := c.PostForm("type")
 					name := c.PostForm("name")
 					intro := c.PostForm("intro")
+					auth := c.PostForm("auth")
 					cids := "http://175.178.215.53:8080/ipfs/" + cid
-					opts, _ := util.BindOptsByKeystore(database.QueryUser(cookie.Value).Keystore, database.QueryUser(cookie.Value).Password)
-					tokenId, mintErr := util.MintToken(opts, common.HexToAddress(userInfo.Address), cids, type_, name)
-					if mintErr != nil {
+					opts, BindOptsErr := util.BindOptsByKeystore(database.QueryUser(cookie.Value).Keystore, auth)
+					if BindOptsErr != nil {
+						fmt.Println("BindOptsErr: ", BindOptsErr)
 						c.JSON(200, gin.H{
-							"err": "铸币失败！",
+							"err": "铸币失败，请检查账号是否安全或密码正确!",
 						})
 					} else {
-						id, _ := strconv.Atoi(tokenId.String())
-						database.CreateImg(id, name, userInfo.Address, userInfo.Address, cids, type_, intro)
-						c.JSON(http.StatusOK, gin.H{"message": "ok"})
+						tokenId, mintErr := util.MintToken(opts, common.HexToAddress(userInfo.Address), cids, type_, name)
+						if mintErr != nil {
+							c.JSON(200, gin.H{
+								"err": "铸币失败！",
+							})
+						} else {
+							id, _ := strconv.Atoi(tokenId.String())
+							database.CreateImg(id, name, userInfo.Address, userInfo.Address, cids, type_, intro)
+							c.JSON(http.StatusOK, gin.H{"message": "ok"})
+						}
 					}
 				}
 			} else {
