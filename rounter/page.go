@@ -7,6 +7,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/gin-gonic/gin"
 	"log"
+	"math"
 	"math/big"
 	"net/http"
 	contract "nft/contracts/methods"
@@ -19,35 +20,25 @@ import (
 var client, _ = ethclient.Dial("ws://127.0.0.1:7545")
 
 func Index2(c *gin.Context) {
-	//cookie, e := c.Request.Cookie("name")
-	//isLogin := false
-	//if e == nil {
-	//	isLogin = true
-	//}
-	//if isLogin {
-	//	c.HTML(http.StatusOK, "index-2.html", gin.H{
-	//		"isLogin":  isLogin,
-	//		"username": cookie.Value,
-	//		"img":      database.QueryUser(cookie.Value).Picture,
-	//		"balance":  database.QueryUser(cookie.Value),
-	//	})
-	//} else {
-	//	c.HTML(http.StatusOK, "index-2.html", gin.H{
-	//		"isLogin": isLogin,
-	//	})
-	//}
-	//search := database.QueryImgFuzzily()
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	var username string
+	var img string
+	if e == nil {
+		isLogin = true
+		username = cookie.Value
+		img = database.QueryUser(cookie.Value).Picture
+	}
 
 	allTrans := database.QueryAllImg()
 	var tokenId []int
-	if len(allTrans) > 5 {
-		for _, v := range allTrans[len(allTrans)-5:] {
-			tokenId = append(tokenId, v.TokenId)
+	for _, v := range allTrans {
+		if len(tokenId) >= 10 {
+			break
 		}
-	} else {
-		for _, v := range allTrans {
-			tokenId = append(tokenId, v.TokenId)
-		}
+
+		tokenId = append(tokenId, v.TokenId)
+
 	}
 	var token []*database.IMG
 	var ownerName []string
@@ -57,10 +48,48 @@ func Index2(c *gin.Context) {
 		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
 		pic = append(pic, database.QueryUserByAddress(token[i].Owner).Picture)
 	}
+	p := database.QueryTypeImg("影视动漫")
+	var users []database.Person
+	for _, v := range p {
+		users = append(users, *database.QueryUserByAddress(v.Owner))
+	}
+	p1 := database.QueryTypeImg("人文艺术")
+	var user1 []database.Person
+	for _, v := range p1 {
+		user1 = append(users, *database.QueryUserByAddress(v.Owner))
+	}
+	p2 := database.QueryTypeImg("自然百态")
+	var user2 []database.Person
+	for _, v := range p2 {
+		user2 = append(users, *database.QueryUserByAddress(v.Owner))
+	}
+	p3 := database.QueryTypeImg("万物生灵")
+	var user3 []database.Person
+	for _, v := range p3 {
+		user3 = append(users, *database.QueryUserByAddress(v.Owner))
+	}
+	p4 := database.QueryTypeImg("其他")
+	var user4 []database.Person
+	for _, v := range p4 {
+		user4 = append(users, *database.QueryUserByAddress(v.Owner))
+	}
 	c.HTML(http.StatusOK, "index-2.html", gin.H{
-		"token": token,
-		"name":  ownerName,
-		"pic":   pic,
+		"img":      img,
+		"username": username,
+		"isLogin":  isLogin,
+		"token":    token,
+		"name":     ownerName,
+		"pic":      pic,
+		"tokens":   p,
+		"users":    users,
+		"token1":   p1,
+		"user1":    user1,
+		"token2":   p2,
+		"user2":    user2,
+		"token3":   p3,
+		"user3":    user3,
+		"token4":   p4,
+		"user4":    user4,
 	})
 }
 func NotFind(c *gin.Context) {
@@ -133,13 +162,14 @@ func Homepage(c *gin.Context) {
 				tokenId_ := big.NewInt(int64(v))
 				coverHref = append(coverHref, contract.TokenInfo(nil, tokenId_).Cid)
 			}
-			judge := true
+
 			if len(coverHref) == 0 {
-				judge = false
+
 				cover = nil
 			} else {
 				cover = coverHref
 			}
+
 			c.HTML(http.StatusOK, "homepage1.html", gin.H{
 				"isLogin":      isLogin,
 				"username":     cookie.Value,
@@ -148,12 +178,12 @@ func Homepage(c *gin.Context) {
 				"balance":      tokenBalance,
 				"etherBalance": etherBalance,
 				"cover":        cover,
-				"judge":        judge,
-				"token":        token,
-				"count":        count,
-				"ownImgCount":  ownImgCount,
-				"ownImg":       ownImg,
-				"myLikeImg":    myLikeImg,
+
+				"token":       token,
+				"count":       count,
+				"ownImgCount": ownImgCount,
+				"ownImg":      ownImg,
+				"myLikeImg":   myLikeImg,
 			})
 		} else {
 			c.HTML(http.StatusOK, "homepage1.html", gin.H{
@@ -165,23 +195,62 @@ func Homepage(c *gin.Context) {
 func Index1(c *gin.Context) {
 	cookie, e := c.Request.Cookie("name")
 	isLogin := false
+	var username string
+	var img string
 	if e == nil {
 		isLogin = true
+		username = cookie.Value
+		img = database.QueryUser(cookie.Value).Picture
 	}
-	if isLogin {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"isLogin":  isLogin,
-			"username": cookie.Value,
-			"img":      database.QueryUser(cookie.Value).Picture,
-		})
-	} else {
-		c.HTML(http.StatusOK, "index.html", gin.H{
-			"isLogin": isLogin,
-		})
+	img1 := database.QueryImg(7)
+	img2 := database.QueryImg(32)
+	img3 := database.QueryImg(33)
+	img4 := database.QueryAllImg()
+	var img5 []database.IMG
+	for i, v := range img4 {
+		if i >= 8 {
+			break
+		}
+		img5 = append(img5, v)
 	}
+	var user5 []database.Person
+	for _, v := range img5 {
+		user5 = append(user5, *database.QueryUserByAddress(v.Owner))
+	}
+	var count []int
+	for _, v := range img5 {
+		count = append(count, database.LikeCount(v.TokenId))
+	}
+	var min []int
+	for _, v := range img5 {
+		min = append(min, database.MinTransaction(v.TokenId))
+	}
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"isLogin":  isLogin,
+		"username": username,
+		"img":      img,
+		"user1":    database.QueryUserByAddress(img1.Owner),
+		"user2":    database.QueryUserByAddress(img2.Owner),
+		"user3":    database.QueryUserByAddress(img3.Owner),
+		"balance1": img1.Balance,
+		"balance2": img2.Balance,
+		"balance3": img3.Balance,
+		"img5":     img5,
+		"user5":    user5,
+		"count":    count,
+		"min":      min,
+	})
 }
 func ItemDetails(c *gin.Context) {
 	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	var img string
+	var username string
+	if e == nil {
+		isLogin = true
+		img = database.QueryUser(cookie.Value).Picture
+		username = cookie.Value
+	}
 	cid_head := "http://175.178.215.53:8080/ipfs/"
 	href := c.Param("href")
 	item_details := database.QueryImgByCid(cid_head + href)
@@ -197,16 +266,20 @@ func ItemDetails(c *gin.Context) {
 	isOwner := false
 	isLiked := false
 	if e == nil {
-		userName := database.QueryUser(cookie.Value)
+		userName := database.QueryUser(username)
 		isLike := database.IsLiked(item_details.TokenId, userName.Address)
 		if isLike == "" {
 			isLiked = true
 		}
-		if cookie.Value == userName.Name {
+
+		if database.QueryUserByAddress(item_details.Owner).Name == userName.Name {
 			isOwner = true
 		}
 	}
 	c.HTML(http.StatusOK, "item-details.html", gin.H{
+		"username":        username,
+		"img":             img,
+		"isLogin":         isLogin,
 		"isOwner":         isOwner,
 		"isLiked":         isLiked,
 		"images":          item_details.Cid,
@@ -247,7 +320,15 @@ func LoginPage(c *gin.Context) {
 	c.HTML(http.StatusOK, "login.html", gin.H{})
 }
 func Ranking(c *gin.Context) {
-
+	cookie, e := c.Request.Cookie("name")
+	isLogin := false
+	var img string
+	var username string
+	if e == nil {
+		isLogin = true
+		img = database.QueryUser(cookie.Value).Picture
+		username = cookie.Value
+	}
 	popularToken := database.QueryPopularTransactions()
 	var count []int
 	//nowTime := time.Now().Unix()
@@ -255,8 +336,8 @@ func Ranking(c *gin.Context) {
 	//var month = 2592000
 	var token []database.IMG
 	var ownerName []string
-	var weeks []float64
-	var mouth []float64
+	var weeks []string
+	var mouth []string
 	var week1 []string
 	var mouth1 []string
 	for i, v := range popularToken {
@@ -264,16 +345,18 @@ func Ranking(c *gin.Context) {
 		token = append(token, *database.QueryImg(v.TokenId))
 		ownerName = append(ownerName, database.QueryUserByAddress(token[i].Owner).Name)
 		t := database.QueryTransaction(v.TokenId)
-		weeks = append(weeks, util.Week(t))
+		f := math.Trunc(util.Week(t)*1e2) * 1e-2
+		weeks = append(weeks, strconv.FormatFloat(f, 'f', -1, 64))
 
-		if weeks[i] >= 0 {
+		if f >= 0 {
 			week1 = append(week1, "text-success")
 		} else {
 			week1 = append(week1, "text-danger")
 		}
-		mouth = append(mouth, util.Mouth(t))
+		f = math.Trunc(util.Mouth(t)*1e2) * 1e-2
+		mouth = append(mouth, strconv.FormatFloat(f, 'f', -1, 64))
 
-		if mouth[i] >= 0 {
+		if f >= 0 {
 			mouth1 = append(mouth1, "text-success")
 		} else {
 			mouth1 = append(mouth1, "text-danger")
@@ -282,13 +365,16 @@ func Ranking(c *gin.Context) {
 	}
 
 	c.HTML(http.StatusOK, "ranking.html", gin.H{
-		"token":  token,
-		"name":   ownerName,
-		"weeks":  weeks,
-		"week1":  week1,
-		"mouths": mouth,
-		"mouth1": mouth1,
-		"count":  count,
+		"isLogin":  isLogin,
+		"img":      img,
+		"username": username,
+		"token":    token,
+		"name":     ownerName,
+		"weeks":    weeks,
+		"week1":    week1,
+		"mouths":   mouth,
+		"mouth1":   mouth1,
+		"count":    count,
 	})
 }
 func RegisterPage(c *gin.Context) {

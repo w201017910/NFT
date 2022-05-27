@@ -84,7 +84,22 @@
                 <!--end dropdown-->
             </ul>
             <!--end navbar-nav-->
-            <a href="wallet.html" class="btn btn-primary">连接钱包</a>
+            {{ if .isLogin }}
+            <ul class="nav nav-tabs">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src=.{{.img}} class="rounded-circle" width="32px" height="32px" alt="User Image">
+                </a>
+                <li class="nav-item dropdown">
+                    <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{
+                        .username}}</p>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item logout" href="javascript:void(0)">退出登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {{ else }}
+            <a href="/login.html" class="btn btn-primary">登录</a>
+            {{ end }}
         </div>
 
     </div>
@@ -268,18 +283,23 @@
                             </div>
                         </div>
                     </div>
-                    {{else if .is_on_sale}}
+                    {{else if and .isOwner .is_on_sale}}
                     <div class="d-flex">
                         <form>
-                        <button class="btn btn-primary" id="purchase" type="submit">现在购买</button>
-                        </form>
-                        <form>
                             <button class="btn btn-primary" id="undercarriage" type="submit">下架</button>
+                        </form>
+
+
+                    </div>
+                    {{else if and .isLogin .is_on_sale}}
+                    <div class="d-flex">
+                        <form>
+                            <button class="btn btn-primary" id="purchase" type="submit">现在购买</button>
                         </form>
                     </div>
                     {{else}}
                     <div class="d-flex">
-                        <a class="btn btn-primary">无法购买</a>
+                        <a href="/login.html" class="btn btn-primary">未登录</a>
                     </div>
                     {{end}}
                 </div>
@@ -442,7 +462,26 @@
         })
     })
 </script>
+<script type="text/javascript">
+    $(function() {
+        $('.logout').click(function(event){
+            event.preventDefault();
+            $.ajax({
+                url: '/logout',
+                type:'post',
+                data:{
 
+                },
+                success: function(data){
+
+                    alert('退出成功');
+                    window.location.href="/";
+
+                }
+            });
+        });
+    });
+</script>
 </body>
 
 </html>

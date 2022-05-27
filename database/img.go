@@ -14,7 +14,7 @@ type IMG struct {
 	Cid         string
 	Type_       string
 	Description string
-	IsSell      bool
+	IsSell      int
 	Balance     int
 	ThumbsUp    int
 	BrowseCount int
@@ -130,6 +130,22 @@ func QueryMyOwnImgCount(address string) int {
 }
 func QueryAllImg() []IMG {
 	rows, err := Db.Query("select * from img")
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer CloseConnection(rows)
+	var images []IMG
+scan:
+	if rows.Next() {
+		img := new(IMG)
+		rows.Scan(&img.TokenId, &img.Name, &img.Owner, &img.Creator, &img.Cid, &img.Type_, &img.Description, &img.IsSell, &img.Balance, &img.ThumbsUp, &img.BrowseCount)
+		images = append(images, *img)
+		goto scan
+	}
+	return images
+}
+func QueryTypeImg(_type string) []IMG {
+	rows, err := Db.Query("select * from img where type=?", _type)
 	if err != nil {
 		fmt.Println(err)
 	}

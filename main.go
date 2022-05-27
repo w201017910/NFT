@@ -21,11 +21,18 @@ func main() {
 func silice(href string) string {
 	return href[32:]
 }
-
+func name(href []database.Person, i int) string {
+	return href[i].Name
+}
+func img(href []database.Person, i int) string {
+	return href[i].Picture
+}
 func Start(addr string) (err error) {
 	r := gin.Default()
 	r.SetFuncMap(template.FuncMap{
 		"silice": silice,
+		"name":   name,
+		"img":    img,
 	})
 	r.Static("/frontend", "./frontend")
 	r.LoadHTMLGlob("./template/*")

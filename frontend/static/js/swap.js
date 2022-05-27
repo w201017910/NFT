@@ -81,6 +81,7 @@ function calculator1(tt){
    }
 }
  function _sawp() {
+
      if (judge){
          swap1()
      }else {
@@ -101,18 +102,25 @@ async function swap2(){
     balance()
 }
 function swaps() {
+    var auths = prompt("请输入交易密码：")
+    if (auths.toString() == ""){
+        alert("请输入密码！！！")
+        return;
+    }
+    console.log(auths)
     if (judge){
-        swap3()
+        swap3(auths)
     }else {
-        swap4()
+        swap4(auths)
     }
 }
-function swap3() {
+function swap3(auths) {
     $.ajax({
         url: '/ethToTokenSwap',
         type: 'post',
         data:{
             "value":web3.utils.toBN($(".eth2").val()*10**18).toString(),
+            "passwd":auths,
         },
         success: function(data){
             balance()
@@ -123,12 +131,13 @@ function swap3() {
 
 
 }
-function swap4() {
+function swap4(auths) {
     $.ajax({
         url: '/tokenToEthSwap',
         type: 'post',
         data:{
             "value":web3.utils.toBN($(".wtt2").val()*10**18).toString(),
+            "passwd":auths,
         },
         success: function(data){
             balance()

@@ -110,21 +110,28 @@
                 <div class="client-slider" id="clients-slider">
                     <div class="item">
                         <div class="card position-relative overflow-hidden m-2 m-lg-0">
-                            <img src="frontend/static/picture/img-21.png" alt="logo-img" class="img-fluid">
+                            <img src="http://175.178.215.53:8080/ipfs/QmQqc788ef6LGEhy3ThiH6XwnyVPzAr37EwESBH6xox5LR" alt="logo-img" class="img-fluid">
                             <div class="card-body slider-content position-relative">
                                 <p class="mb-2">燃烧 & 融化</p>
-                                <h5 class="fw-bold">3.4 以太币</h5>
+                                <h5 class="fw-bold">{{.balance1}} frog</h5>
 
                                 <div class="d-flex">
+                                    <a href="/homepage.html?username={{.user2.Name}}">
                                     <div class="slider-content-image d-flex mt-3">
                                         <div class="avatar-sm">
-                                            <img src="frontend/static/picture/img-7.jpg" alt="" class="img-fluid">
+                                            <img src="{{.user1.Picture}}" alt="" class="img-fluid">
                                         </div>
+                                        <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{.user1.Name}}</p>
+
                                     </div>
+                                </a>
                                     <div class="slider-content-button">
-                                        <button class="btn btn-dark pe-5">出价</button>
+                                        <a href="/item-details.html/QmQqc788ef6LGEhy3ThiH6XwnyVPzAr37EwESBH6xox5LR">
+                                            <button class="btn btn-dark pe-5">出价</button>
+                                        </a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -132,22 +139,27 @@
 
                     <div class="item">
                         <div class="card position-relative overflow-hidden m-2 m-lg-0">
-                            <img src="frontend/static/picture/img-31.png" alt="logo-img" class="img-fluid">
+                            <img src="http://175.178.215.53:8080/ipfs/QmSp4UEmrayPq6QwQSZvjfEK3WGXMRdE3T4x6b3Y4AEAKA" alt="logo-img" class="img-fluid">
                             <div class="card-body slider-content position-relative">
                                 <p class="mb-2">数字</p>
-                                <h5 class="fw-bold ">3.4 以太币</h5>
+                                <h5 class="fw-bold ">{{.balance2}} frog</h5>
 
                                 <div class="d-flex">
+                                    <a href="/homepage.html?username={{.user2.Name}}">
                                     <div class=" slider-content-image d-flex mt-3">
                                         <div class="avatar-sm">
-                                            <img src="frontend/static/picture/img-4.jpg" alt="" class="img-fluid">
+                                            <img src="{{.user2.Picture}}" alt="" class="img-fluid">
                                         </div>
-
+                                        <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{.user2.Name}}</p>
                                     </div>
+                                </a>
                                     <div class="slider-content-button">
-                                        <button class="btn btn-dark pe-5">出价</button>
+                                        <a href="/item-details.html/QmSp4UEmrayPq6QwQSZvjfEK3WGXMRdE3T4x6b3Y4AEAKA">
+                                            <button class="btn btn-dark pe-5">出价</button>
+                                        </a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -155,22 +167,28 @@
 
                     <div class="item">
                         <div class="card position-relative overflow-hidden m-2 m-lg-0">
-                            <img src="frontend/static/picture/img-41.png" alt="logo-img" class="img-fluid">
+                            <img src="http://175.178.215.53:8080/ipfs/QmSojrC5nzYY5uLj9NbP5kDcs1GP9wMdmn9usbW65NQk8q" alt="logo-img" class="img-fluid">
                             <div class="card-body slider-content position-relative">
                                 <p class="mb-2">藏品</p>
-                                <h5 class="fw-bold">3.4 以太币</h5>
+                                <h5 class="fw-bold">{{.balance3}} frog</h5>
 
                                 <div class="d-flex">
-                                    <div class=" slider-content-image d-flex mt-3">
-                                        <div class="avatar-sm">
-                                            <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
+                                    <a href="/homepage.html?username={{.user3.Name}}">
+                                        <div class=" slider-content-image d-flex mt-3">
+                                            <div class="avatar-sm">
+                                                <img src="{{.user3.Picture}}" alt="" class="img-fluid">
+                                            </div>
+
+                                            <p class="nav-link dropdown-toggle" style="color:black" data-bs-toggle="dropdown" href="#">{{.user3.Name}}</p>
+
+                                        </div>
+                                    </a>
+                                        <div class="slider-content-button">
+                                            <a href="/item-details.html/QmSojrC5nzYY5uLj9NbP5kDcs1GP9wMdmn9usbW65NQk8q">
+                                                <button class="btn btn-dark pe-5">出价</button>
+                                            </a>
                                         </div>
 
-
-                                    </div>
-                                    <div class="slider-content-button">
-                                        <button class="btn btn-dark pe-5">出价</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -186,156 +204,7 @@
 </section>
 <!-- end home -->
 <!-- start home -->
-<section class="features section pt-0" id="market">
-    <!-- start container -->
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="text-center">
-                    <h6 class="text-gradiant fw-bold">NFT 市场</h6>
-                    <h1 class="fw-bold">一个收集和连接非功能性语言的新地方.</h1>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-5 pt-5 align-items-center">
-            <div class="col-lg-5">
-                <div class="features-image">
-                    <img src="https://themesdesign.in/artlink/layout/images/features.jpg" alt="" class="img-fluid">
-                </div>
-            </div>
-
-            <div class="col-lg-5  offset-lg-1">
-                <div class="swiper-container features-slider pb-5">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide mx-5 pt-5 pt-lg-0">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <div class="d-flex ">
-                                    <div class="d-flex align-items-center text-start">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-sm">
-                                                <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                                     alt="" class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <p class="mb-0 text-muted">弗洛什卡</p>
-                                            <h6 class="fw-bold">莫文·麦金尼</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex ms-auto">
-                                    <div class="d-flex align-items-center">
-
-                                        <div class="flex-grow-1 ms-3">
-                                            <p class="mb-0 text-muted f-14">即时价格</p>
-                                            <h6 class="fw-bold">3.5 以太币</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="title mt-5">
-                                <h2 class="fw-bold">地球上的星系</h2>
-                                <p class="text-muted">10 次 铸造</p>
-                            </div>
-
-                            <div class="bid-box text-center">
-                                <h6>开始出价</h6>
-                                <h2 class="fw-bold">1.02<span class="f-16"> 以太币</span></h2>
-                                <hr>
-                                <!-- <h6 class="text-muted fw-bold">$4.542.18</h6> -->
-                                <div class="d-flex justify-content-around mt-3">
-                                    <div class="time">
-                                        <h3 class="mb-0 fw-bold">20</h3>
-                                        <p>时</p>
-                                    </div>
-                                    <div class="time mx-4">
-                                        <h3 class="mb-0 fw-bold">36</h3>
-                                        <p>分</p>
-                                    </div>
-                                    <div class="time">
-                                        <h3 class="mb-0 fw-bold">08</h3>
-                                        <p>秒</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <button class="btn btn-primary w-100">出价</button>
-                                <button class="btn btn-outline-dark mt-2 w-100">创建账户</button>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide mx-5  pt-5 pt-lg-0">
-                            <div class="d-flex align-items-center justify-content-start">
-                                <div class="d-flex ">
-                                    <div class="d-flex align-items-center text-start">
-                                        <div class="flex-shrink-0">
-                                            <div class="avatar-sm">
-                                                <img src="frontend/static/picture/img-2.jpg" alt=""
-                                                     class="img-fluid rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <p class="mb-0 text-muted">弗洛什卡</p>
-                                            <h6 class="fw-bold">莫文·麦金尼</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex ms-auto">
-                                    <div class="d-flex align-items-center">
-
-                                        <div class="flex-grow-1 ms-3">
-                                            <p class="mb-0 text-muted f-14">即时价格</p>
-                                            <h6 class="fw-bold">3.5 以太币</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="title mt-5">
-                                <h2 class="fw-bold">地球上的星系</h2>
-                                <p class="text-muted">10 次 铸造</p>
-                            </div>
-
-                            <div class="bid-box text-center">
-                                <h6>开始出价</h6>
-                                <h2 class="fw-bold">1.02<span class="f-16"> 以太币</span></h2>
-                                <hr>
-                                <!-- <h6 class="text-muted fw-bold">$4.542.18</h6> -->
-                                <div class="d-flex justify-content-around mt-3">
-                                    <div class="time">
-                                        <h3 class="mb-0 fw-bold">20</h3>
-                                        <p>Hrs</p>
-                                    </div>
-                                    <div class="time mx-4">
-                                        <h3 class="mb-0 fw-bold">36</h3>
-                                        <p>Min</p>
-                                    </div>
-                                    <div class="time">
-                                        <h3 class="mb-0 fw-bold">08</h3>
-                                        <p>Sec</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-4">
-                                <button class="btn btn-primary w-100">出价</button>
-                                <button class="btn btn-outline-dark mt-2 w-100">创建账户</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- next / prev arrows -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
-
-
-                <!-- End slider -->
-            </div>
-        </div>
-    </div>
-    <!-- end container -->
-</section>
 <!-- end home -->
 
 
@@ -357,403 +226,55 @@
 
 
         <div class="row mt-5">
+            {{range $i,$v := .img5}}
             <div class="col-lg-3 col-md-6">
                 <div class="card border-0">
                     <div class="blog-image">
-                        <img src="frontend/static/picture/img-11.png" alt="" class="img-fluid">
+                        <a href=/item-details.html/{{silice $v.Cid}}>
+                            <img src={{$v.Cid}} alt="" class="img-fluid">
+                        </a>
                     </div>
                     <div class="card-body ">
                         <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">2.84 以太币</p>
+
+                                <h6 class="fw-bold mb-0">{{$v.Name}}</h6>
+
+                            <p class="text-success ms-auto fw-bold mb-0">{{$v.Balance}} frog</p>
                         </div>
-                        <p class="text-muted">@易莫哥</p>
+                        <a href="/homepage.html?username={{name $.user5 $i}}">
+                        <p class="text-muted">{{name $.user5 $i}}</p>
+                        </a>
                         <div class="d-flex align-items-baseline">
                             <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-7.jpg" alt="" class="img-fluid">
-                                </div>
+                                <div>收藏数</div>
 
-                                <div class="avatar-sm top-child">
-                                    <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child position-relative">
-                                    <img src="frontend/static/picture/img-5.jpg" alt="" class="img-fluid">
-                                </div>
                             </div>
 
                             <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">241 次</span>
+                                <span class="align-middle fw-bold text-muted">{{index $.count $i}} 次</span>
                             </div>
                         </div>
                         <div class="blog-footer mt-4">
                             <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
+                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> {{index $.min $i}} frog</span></h6>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-22.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">1.32 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
-                                </div>
 
-                                <div class="avatar-sm top-child">
-                                    <img src="frontend/static/picture/img-2.jpg" alt="" class="img-fluid">
-                                </div>
-
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">142 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 次</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-32.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body ">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">0.95 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-7.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child">
-                                    <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                         alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child position-relative">
-                                    <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
-                                </div>
-
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">58 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-42.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body ">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">2.84 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">
-                                </div>
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">3 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{end}}
         </div>
 
 
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-51.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">1.34 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-7.jpg" alt="" class="img-fluid">
-                                </div>
 
-                                <div class="avatar-sm top-child">
-                                    <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child position-relative">
-                                    <img src="frontend/static/picture/img-5.jpg" alt="" class="img-fluid">
-                                </div>
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">241 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-61.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body ">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">0.47 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child">
-                                    <img src="frontend/static/picture/img-2.jpg" alt="" class="img-fluid">
-                                </div>
-
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">142 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-71.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body ">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">0.95 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-7.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child">
-                                    <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                         alt="" class="img-fluid">
-                                </div>
-
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">58 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card border-0">
-                    <div class="blog-image">
-                        <img src="frontend/static/picture/img-81.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <h6 class="fw-bold mb-0">社区旅游</h6>
-                            <p class="text-success ms-auto fw-bold mb-0">1.50 以太币</p>
-                        </div>
-                        <p class="text-muted">@易莫哥</p>
-                        <div class="d-flex align-items-baseline">
-                            <div class="slider-content-image d-flex">
-                                <div class="avatar-sm">
-                                    <img src="frontend/static/picture/img-5.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child">
-                                    <img src="frontend/static/picture/img-3.jpg" alt="" class="img-fluid">
-                                </div>
-
-                                <div class="avatar-sm top-child position-relative">
-                                    <img src="frontend/static/picture/img-6.jpg" alt="" class="img-fluid">
-                                </div>
-
-                            </div>
-
-                            <div class="blog-profile-content ms-auto">
-                                <span class="align-middle fw-bold text-muted">12 次</span>
-                            </div>
-                        </div>
-                        <div class="blog-footer mt-4">
-                            <div class="bid-content d-flex">
-                                <h6 class="mb-0">最小竞价: <span class="fw-bold"> 0.48 以太币</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- end container -->
 </section>
 <!-- end blog -->
 
 
-<!-- start testi -->
-<section class="testimonial section">
-    <!-- start container -->
-    <div class="container position-relative">
-        <div class="row">
-            <div class="col-lg-6">
-                <h6 class="text-gradiant fw-bold">成员</h6>
-                <h2 class="fw-bold">藏品</h2>
-                <p class="text-muted">你可以跟随许多创造者</p>
-            </div>
-        </div>
 
-        <div class="testi-slider" id="testi-slider">
-            <div class="item ">
-                <div class="testi-box p-4 position-relative">
-                    <div class="tab-image">
-                        <img src="frontend/static/picture/t-11.png" alt="" class="img-fluid">
-                        <div class="avatar-xl">
-                            <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg" alt=""
-                                 class="img-fluid rounded-circle border border-3 border-white">
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <h5 class="fw-bold">格雷格•汤普森</h5>
-                        <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
-                        <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
-                            关注
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- slider item -->
-
-            <div class="item">
-                <div class="testi-box p-4 position-relative">
-                    <div class="tab-image">
-                        <img src="frontend/static/picture/t-2.png" alt="" class="img-fluid">
-                        <div class="avatar-xl">
-                            <img src="frontend/static/picture/img-2.jpg" alt=""
-                                 class="img-fluid rounded-circle border border-3 border-white">
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <h5 class="fw-bold">格雷格•汤普森</h5>
-                        <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
-                        <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
-                            关注
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- slider item -->
-            <div class="item ">
-                <div class="testi-box p-4 position-relative">
-                    <div class="tab-image">
-                        <img src="frontend/static/picture/t-3.png" alt="" class="img-fluid">
-                        <div class="avatar-xl">
-                            <img src="frontend/static/picture/img-3.jpg" alt=""
-                                 class="img-fluid rounded-circle border border-3 border-white">
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <h5 class="fw-bold">格雷格•汤普森</h5>
-                        <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
-                        <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
-                            关注
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- slider item -->
-            <div class="item ">
-                <div class="testi-box p-4 position-relative">
-                    <div class="tab-image">
-                        <img src="frontend/static/picture/t-2.png" alt="" class="img-fluid">
-                        <div class="avatar-xl">
-                            <img src="frontend/static/picture/img-4.jpg" alt=""
-                                 class="img-fluid rounded-circle border border-3 border-white">
-                        </div>
-                    </div>
-                    <div class="mt-5 text-center">
-                        <h5 class="fw-bold">格雷格•汤普森</h5>
-                        <p class="text-muted">在否定的世界里，这是一种永恒的真理.</p>
-                        <button class="btn btn-sm btn-primary"><i class="f-16 align-middle"></i>
-                            关注
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <!-- slider item -->
-        </div>
-        <!-- End slider -->
-    </div>
-    <!-- end container -->
-</section>
 <!-- end testi -->
 
 

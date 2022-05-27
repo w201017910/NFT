@@ -9,7 +9,7 @@ import (
 var Db *sql.DB
 
 func Init() {
-	conSte := "root:12345678@tcp(127.0.0.1:3306)/nft"
+	conSte := "root:123456@tcp(127.0.0.1:3306)/nft"
 	var err error
 	Db, err = sql.Open("mysql", conSte)
 	if err != nil {

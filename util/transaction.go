@@ -1,7 +1,6 @@
 package util
 
 import (
-	"fmt"
 	"nft/database"
 	"strconv"
 	"time"
@@ -27,7 +26,7 @@ func Week(t []database.Transaction) float64 {
 	price1, _ := strconv.Atoi(t[0].TokenPrice)
 
 	a := float64(endPrice) / float64(price1)
-	fmt.Println(len(t))
+
 	if a >= 1 {
 		a = a*100 - 100
 	} else {

@@ -27,3 +27,17 @@ func IsLiked(tokenId int, owner string) string {
 	}
 	return "1"
 }
+func LikeCount(tokenID int) int {
+	rows, err := Db.Query("SELECT COUNT(tokenID) FROM likes where tokenid=?", tokenID)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer CloseConnection(rows)
+	var s int
+	if rows.Next() {
+
+		rows.Scan(&s)
+
+	}
+	return s
+}

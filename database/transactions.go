@@ -72,3 +72,19 @@ func QueryPopularTransactions() []Transaction {
 	}
 	return transactions
 }
+func MinTransaction(tokenID int) int {
+	rows, err := Db.Query("select min(tokenPrice) from transactions where tokenID=?", tokenID)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer CloseConnection(rows)
+	var s int
+	if rows.Next() {
+
+		rows.Scan(&s)
+
+	} else {
+		return 0
+	}
+	return s
+}

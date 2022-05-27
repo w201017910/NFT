@@ -172,11 +172,15 @@
                                 <br>
                                 <div class="profile-content align-items-center d-flex justify-content-start">
                                     <div class="avatar-sm">
+                                        <a href="/homepage.html?username={{index $.name $i}}">
                                         <img src="{{index $.pic $i}}"
                                              alt="" class="img-fluid avatar-sm">
+                                        </a>
                                     </div>
                                     <div class="profile-name">
+                                        <a href="/homepage.html?username={{index $.name $i}}">
                                         <h6 class="fw-bold mb-0 ms-2 f-14">{{index $.name $i}}</h6>
+                                            </a>
                                     </div>
                                 </div>
                             </div>
@@ -209,31 +213,31 @@
                         <button class="nav-link active text-uppercase col-md-2" id="nav-all-tab"
                                 data-bs-toggle="tab" data-bs-target="#nav-all" type="button" role="tab"
                                 aria-controls="nav-all" aria-selected="true"><span class="icon"><i
-                                class="mdi mdi-plus f-24 align-middle"></i> 索引
+                                class="mdi mdi-plus f-24 align-middle"></i> 影视动漫
                                 </span></button>
 
                         <button class="nav-link text-uppercase col-md-2" id="nav-games-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-games" type="button" role="tab" aria-controls="nav-games"
                                 aria-selected="true"><span class="icon"> <i
-                                class="mdi mdi-gamepad-variant f-24 align-middle"></i> 游戏
+                                class="mdi mdi-gamepad-variant f-24 align-middle"></i> 人文艺术
                                 </span></button>
 
                         <button class="nav-link text-uppercase col-md-2" id="nav-art-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-art" type="button" role="tab" aria-controls="nav-art"
                                 aria-selected="true"><span class="icon"><i class="mdi mdi-brush f-24 align-middle"></i>
-                                    艺术
+                                    自然百态
                                 </span></button>
 
                         <button class="nav-link text-uppercase col-md-2" id="nav-memes-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-memes" type="button" role="tab" aria-controls="nav-memes"
                                 aria-selected="true"><span class="icon"><i class="mdi mdi-panda f-24 align-middle"></i>
-                                    模因
+                                    万物生灵
                                 </span></button>
 
                         <button class="nav-link text-uppercase col-md-2" id="nav-Collection-tab"
                                 data-bs-toggle="tab" data-bs-target="#nav-Collection" type="button" role="tab"
                                 aria-controls="nav-Collection" aria-selected="true"><span class="icon"><i
-                                class="mdi mdi-collage f-24 align-middle"></i> 藏品
+                                class="mdi mdi-collage f-24 align-middle"></i> 其他
                                 </span></button>
                     </div>
                 </nav>
@@ -241,695 +245,259 @@
             <div class="tab-content mt-5 pt-4" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
                     <div class="row">
+                        {{range $i,$v := .tokens}}
+
+
                         <div class="col-lg-3 mt-4">
                             <div class="tab-content p-4 border-0">
                                 <div class="header d-flex align-items-center justify-content-start">
                                     <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                        <a href="/homepage.html?username={{name $.users $i}}">
+                                        <img src={{img $.users $i}}
                                              alt="" class="img-fluid rounded-circle">
+                                            </a>
                                     </div>
-                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
+                                    <a href="/homepage.html?username={{name $.users $i}}">
+                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{name $.users $i}}</h6>
+                                    </a>
                                 </div>
                                 <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-12.png" alt="" class="img-fluid">
+                                    <img src="{{$v.Cid}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
+                                    <h6 class="fw-bold">{{$v.Name}}</h6>
                                     <div class="d-flex">
-                                        <p class="text-muted">6 现有</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
+
+                                        <p class="ms-auto text-muted">价格 : <span class="text-success">{{$v.Balance}}
+                                                    frog</span></p>
                                     </div>
                                     <hr>
                                     <div class="d-flex mt-3 align-items-center">
                                         <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
+
                                         </div>
                                         <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            <a href="/item-details.html/{{ silice $v.Cid }}">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-12.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现有</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-12.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现有</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-12.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现有</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看 历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-5">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <button class="btn btn-white text-dark shadow"><i
-                                            class="mdi mdi-restart f-18 align-middle"></i> 查看 所有 项目
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+
+
+
+                        {{end}}
                     </div>
                 </div>
-
                 <div class="tab-pane fade" id="nav-games" role="tabpanel" aria-labelledby="nav-games-tab">
                     <div class="row">
-                        <div class="col-lg-3 mt-4 ">
+                        {{range $i,$v := .token1}}
+
+
+                        <div class="col-lg-3 mt-4">
                             <div class="tab-content p-4 border-0">
                                 <div class="header d-flex align-items-center justify-content-start">
                                     <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-2.jpg" alt=""
-                                             class="img-fluid rounded-circle">
+                                        <a href="/homepage.html?username={{name $.user1 $i}}">
+                                        <img src={{img $.user1 $i}}
+                                             alt="" class="img-fluid rounded-circle">
+                                        </a>
                                     </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@凯文 查理斯</h6>
+                                    <a href="/homepage.html?username={{name $.user1 $i}}">
+                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{name $.user1 $i}}</h6>
+                                    </a>
                                 </div>
                                 <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-43.png" alt="" class="img-fluid">
+                                    <img src="{{$v.Cid}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="body-content mt-3">
-                                    <h6 class="fw-bold">流动</h6>
+                                    <h6 class="fw-bold">{{$v.Name}}</h6>
                                     <div class="d-flex">
-                                        <p class="text-muted">8 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">2.15
-                                                    以太币</span></p>
+
+                                        <p class="ms-auto text-muted">价格 : <span class="text-success">{{$v.Balance}}
+                                                    frog</span></p>
                                     </div>
                                     <hr>
                                     <div class="d-flex mt-3 align-items-center">
                                         <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
+
                                         </div>
                                         <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            <a href="/item-details.html/{{ silice $v.Cid }}">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 mt-4 ">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-2.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@凯文 查理斯</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-43.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">流动</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">8 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">2.15
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4 ">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-2.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@凯文 查理斯</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-43.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">流动</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">8 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">2.15
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4 ">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-2.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@凯文 查理斯</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-43.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">流动</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">8 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">2.15
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-5">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <button class="btn btn-white text-dark shadow"><i
-                                            class="mdi mdi-restart f-18 align-middle"></i>查看 所有 项目
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+
+
+
+                        {{end}}
+
+
+
+
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="nav-art" role="tabpanel" aria-labelledby="nav-art-tab">
                     <div class="row">
+
+                        {{range $i,$v := .token2}}
+
+
                         <div class="col-lg-3 mt-4">
                             <div class="tab-content p-4 border-0">
                                 <div class="header d-flex align-items-center justify-content-start">
                                     <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                        <a href="/homepage.html?username={{name $.user2 $i}}">
+                                        <img src={{img $.user2 $i}}
                                              alt="" class="img-fluid rounded-circle">
+                                        </a>
                                     </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
+                                    <a href="/homepage.html?username={{name $.user2 $i}}">
+                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{name $.user2 $i}}</h6>
+                                    </a>
                                 </div>
                                 <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-23.png" alt="" class="img-fluid">
+                                    <img src="{{$v.Cid}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
+                                    <h6 class="fw-bold">{{$v.Name}}</h6>
                                     <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
+
+                                        <p class="ms-auto text-muted">价格 : <span class="text-success">{{$v.Balance}}
+                                                    frog</span></p>
                                     </div>
                                     <hr>
                                     <div class="d-flex mt-3 align-items-center">
                                         <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
+
                                         </div>
                                         <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-23.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-23.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-23.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            <a href="/item-details.html/{{ silice $v.Cid }}">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-5">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <button class="btn btn-white text-dark shadow"><i
-                                            class="mdi mdi-restart f-18 align-middle"></i>查看 所有 项目
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+
+
+                        {{end}}
+
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="nav-memes" role="tabpanel" aria-labelledby="nav-memes-tab">
                     <div class="row">
+                        {{range $i,$v := .token3}}
+
+
                         <div class="col-lg-3 mt-4">
                             <div class="tab-content p-4 border-0">
                                 <div class="header d-flex align-items-center justify-content-start">
                                     <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-3.jpg" alt=""
-                                             class="img-fluid rounded-circle">
+                                        <a href="/homepage.html?username={{name $.user3 $i}}">
+                                        <img src={{img $.user3 $i}}
+                                             alt="" class="img-fluid rounded-circle">
+                                        </a>
                                     </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@大卫 艾丽丝</h6>
+                                    <a href="/homepage.html?username={{name $.user3 $i}}">
+                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{name $.user3 $i}}</h6>
+                                    </a>
                                 </div>
                                 <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-72.png" alt="" class="img-fluid">
+                                    <img src="{{$v.Cid}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="body-content mt-3">
-                                    <h6 class="fw-bold">马克 爱丽丝</h6>
+                                    <h6 class="fw-bold">{{$v.Name}}</h6>
                                     <div class="d-flex">
-                                        <p class="text-muted">3 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.20
-                                                    以太币</span></p>
+
+                                        <p class="ms-auto text-muted">价格 : <span class="text-success">{{$v.Balance}}
+                                                    frog</span></p>
                                     </div>
                                     <hr>
                                     <div class="d-flex mt-3 align-items-center">
                                         <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
+
                                         </div>
                                         <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-3.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@大卫 艾丽丝</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-72.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">马克 爱丽丝</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">3 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.20
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-3.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@大卫 艾丽丝</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-72.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">马克 爱丽丝</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">3 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.20
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="frontend/static/picture/img-3.jpg" alt=""
-                                             class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@大卫 艾丽丝</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-72.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">马克 爱丽丝</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">3 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.20
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            <a href="/item-details.html/{{ silice $v.Cid }}">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mt-5">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <button class="btn btn-white text-dark shadow"><i
-                                            class="mdi mdi-restart f-18 align-middle"></i> 查看 所有 项目
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+
+
+                        {{end}}
+
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="nav-Collection" role="tabpanel" aria-labelledby="nav-Collection-tab">
                     <div class="row">
+                        {{range $i,$v := .token4}}
+
+
                         <div class="col-lg-3 mt-4">
                             <div class="tab-content p-4 border-0">
                                 <div class="header d-flex align-items-center justify-content-start">
                                     <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
+                                        <a href="/homepage.html?username={{name $.user4 $i}}">
+                                        <img src={{img $.user4 $i}}
                                              alt="" class="img-fluid rounded-circle">
+                                        </a>
                                     </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
+                                    <a href="/homepage.html?username={{name $.user4 $i}}">
+                                    <h6 class="mb-0 ms-2 fw-semibold text-muted f-14">{{name $.user4 $i}}</h6>
+                                    </a>
                                 </div>
                                 <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-52.png" alt="" class="img-fluid">
+                                    <img src="{{$v.Cid}}" alt="" class="img-fluid">
                                 </div>
                                 <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
+                                    <h6 class="fw-bold">{{$v.Name}}</h6>
                                     <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
+
+                                        <p class="ms-auto text-muted">价格 : <span class="text-success">{{$v.Balance}}
+                                                    frog</span></p>
                                     </div>
                                     <hr>
                                     <div class="d-flex mt-3 align-items-center">
                                         <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
+
                                         </div>
                                         <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            <a href="/item-details.html/{{ silice $v.Cid }}">
+                                                <button class="btn btn-sm btn-primary rounded-pill">出价</button>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-52.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-52.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 mt-4">
-                            <div class="tab-content p-4 border-0">
-                                <div class="header d-flex align-items-center justify-content-start">
-                                    <div class="avatar-xs">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle">
-                                    </div>
-                                    <h6 class="mb-0 ms-3 fw-bold text-muted">@丹尼威 帕尼尼</h6>
-                                </div>
-                                <div class="card-image mt-3">
-                                    <img src="frontend/static/picture/img-52.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="body-content mt-3">
-                                    <h6 class="fw-bold">机器艺术</h6>
-                                    <div class="d-flex">
-                                        <p class="text-muted">6 现存</p>
-                                        <p class="ms-auto text-muted">价格 : <span class="text-success">1.53
-                                                    以太币</span></p>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex mt-3 align-items-center">
-                                        <div class="history">
-                                            <i class="mdi mdi-restart f-20 align-middle"></i>查看历史
-                                        </div>
-                                        <div class="bid-button ms-auto">
-                                            <button class="btn btn-sm btn-primary rounded-pill">出价</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="mt-5">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <button class="btn btn-white text-dark shadow"><i
-                                            class="mdi mdi-restart f-18 align-middle"></i> 查看 所有 项目
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+
+
+                        {{end}}
+
+
                     </div>
                 </div>
 
@@ -944,144 +512,7 @@
 
 
 <!-- start blog -->
-<section class="blog-2 section" id="collection">
-    <!-- start container -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="fw-bold">藏品 & 艺术馆</h2>
-            </div>
-            <div class="col-lg-6">
-                <div class="text-start text-lg-end">
-                    <button class="btn btn-primary rounded-pill">查看所有</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="row mt-5">
-            <div class="col-lg-4">
-                <div class="collection-items mt-4">
-                    <div class="blog-box">
-                        <div class="collection-image">
-                            <div class="blog-image">
-                                <div class="top-image d-flex justify-content-between">
-                                    <img src="frontend/static/picture/top1.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top2.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top3.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="mt-3">
-                                    <img src="frontend/static/picture/main-1.png" alt="" class="img-fluid w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="collection-content mt-3">
-                            <div class="d-flex align-items-center">
-                                <div class="collection-title">
-                                    <a href="" class="fw-bold h5">数字 艺术馆</a>
-                                </div>
-                                <div class="collection-like-icon ms-auto">
-                                    <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 2.05千
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="blog-profile mt-3">
-                                <h6 class="f-14 text-muted">作品创作归
-                                    <a href="" class="text-muted">
-                                        <img src="https://themesdesign.in/artlink/layout/images/slider/user/img-1.jpg"
-                                             alt="" class="img-fluid rounded-circle avatar-xs mx-2">
-                                        <span>@德兹 瑞塞罗...</span>
-                                    </a>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="collection-items mt-4">
-                    <div class="blog-box">
-                        <div class="collection-image">
-                            <div class="blog-image">
-                                <div class="top-image d-flex justify-content-between">
-                                    <img src="frontend/static/picture/top4.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top5.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top6.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="mt-3">
-                                    <img src="frontend/static/picture/main-2.png" alt="" class="img-fluid w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="collection-content mt-3">
-                            <div class="d-flex align-items-center">
-                                <div class="collection-title">
-                                    <a href="" class="fw-bold h5">彩绘</a>
-                                </div>
-                                <div class="collection-like-icon ms-auto">
-                                    <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 1.27千
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="blog-profile mt-3">
-                                <h6 class="f-14 text-muted">作品创作归
-                                    <a href="" class="text-muted">
-                                        <img src="frontend/static/picture/img-2.jpg" alt=""
-                                             class="img-fluid rounded-circle avatar-xs mx-2">
-                                        <span>@威廉 吉米... </span>
-                                    </a>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="collection-items mt-4">
-                    <div class="blog-box">
-                        <div class="collection-image">
-                            <div class="blog-image">
-                                <div class="top-image d-flex justify-content-between">
-                                    <img src="frontend/static/picture/top7.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top8.png" alt="" class="img-fluid">
-                                    <img src="frontend/static/picture/top9.png" alt="" class="img-fluid">
-                                </div>
-                                <div class="mt-3">
-                                    <img src="frontend/static/picture/main-3.png" alt="" class="img-fluid w-100">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="collection-content mt-3">
-                            <div class="d-flex align-items-center">
-                                <div class="collection-title">
-                                    <a href="" class="fw-bold h5">泡沫 艺术 藏品</a>
-                                </div>
-                                <div class="collection-like-icon ms-auto">
-                                    <p class="fw-semibold mb-0"><a href=""><i class="mdi mdi-heart"></i></a> 1.27千
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="blog-profile mt-3">
-                                <h6 class="f-14 text-muted">作品创作归
-                                    <a href="" class="text-muted">
-                                        <img src="frontend/static/picture/img-3.jpg" alt=""
-                                             class="img-fluid rounded-circle avatar-xs mx-2">
-                                        <span>@威廉 吉米... </span>
-                                    </a>
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end container -->
-</section>
 <!-- end blog -->
 
 
@@ -1160,23 +591,23 @@
         });
     });
     $(function (){
-       $('.search').click(function (e){
-           e.preventDefault()
-           var names = encodeURI($('.name').val())
-           var name = decodeURI(names)
-           $.ajax({
-               url: "/search"+"/"+name,
-               type: "get",
-               success :function (data){
-                   if (data.err == "nil"){
-                       alert("暂无数据")
-                       location.reload()
-                   }else {
-                       window.location.href= "/search"+"/"+name
-                   }
-               }
-           })
-       })
+        $('.search').click(function (e){
+            e.preventDefault()
+            var names = encodeURI($('.name').val())
+            var name = decodeURI(names)
+            $.ajax({
+                url: "/search"+"/"+name,
+                type: "get",
+                success :function (data){
+                    if (data.err == "nil"){
+                        alert("暂无数据")
+                        location.reload()
+                    }else {
+                        window.location.href= "/search"+"/"+name
+                    }
+                }
+            })
+        })
     })
 </script>
 </body>

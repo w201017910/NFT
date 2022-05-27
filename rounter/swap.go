@@ -2,14 +2,12 @@ package rounter
 
 import (
 	"fmt"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/gin-gonic/gin"
-	"log"
 	"math/big"
 	contract "nft/contracts/methods"
 	"nft/database"
+	"nft/util"
 	"strconv"
 )
 
@@ -36,19 +34,23 @@ func EthToTokenSwap(c *gin.Context) {
 		return
 	}
 	u := database.QueryUser(cookie.Value)
-	privateKey, err := crypto.HexToECDSA(u.Keystore[2:])
-	if err != nil {
-		log.Fatal(err)
+	passwd := c.PostForm("passwd")
+	opts, BindOptsErr := util.BindOptsByKeystore(u.Keystore, passwd)
+	if BindOptsErr != nil {
+		fmt.Println("密码错误")
+		c.JSON(200, gin.H{"value": "密码错误"})
+		return
 	}
+
 	a, e := strconv.Atoi(c.PostForm("value"))
 	if e != nil {
 		fmt.Println("不要输入非数字")
 		c.JSON(200, gin.H{"value": "不要输入非数字"})
 		return
 	}
-	opts := bind.NewKeyedTransactor(privateKey)
+
 	opts.Value = big.NewInt(int64(a))
-	_, err = contract.Swap_EthToTokenSwap(opts, big.NewInt(1), big.NewInt(99999999999999))
+	_, err := contract.Swap_EthToTokenSwap(opts, big.NewInt(1), big.NewInt(99999999999999))
 	if err != nil {
 		fmt.Println("交易失败")
 		c.JSON(200, gin.H{"value": "交易失败"})
@@ -67,27 +69,29 @@ func TokenToEthSwap(c *gin.Context) {
 		return
 	}
 	u := database.QueryUser(cookie.Value)
-	privateKey, err := crypto.HexToECDSA(u.Keystore[2:])
-	if err != nil {
-		log.Fatal(err)
-	}
+
 	a, e := strconv.Atoi(c.PostForm("value"))
 	if e != nil {
 		fmt.Println("不要输入非数字")
 		c.JSON(200, gin.H{"value": "不要输入非数字"})
 		return
 	}
-	opts := bind.NewKeyedTransactor(privateKey)
-
-	fmt.Println(a)
-
+	passwd := c.PostForm("passwd")
+	opts, BindOptsErr := util.BindOptsByKeystore(u.Keystore, passwd)
+	if BindOptsErr != nil {
+		fmt.Println("密码错误")
+		c.JSON(200, gin.H{"value": "密码错误"})
+		return
+	}
 	opts.From = common.HexToAddress(u.Address)
+	fmt.Println(0)
 	b, e := contract.ERC20_Allowance(nil, u.Address, contract.UniswapAddress)
+	fmt.Println(1)
 	a1 := big.NewInt(int64(a))
 	fmt.Println(b.String(), a1.String())
 	if b.Cmp(a1) == -1 {
 		fmt.Println(1)
-		_, err = contract.ERC20_Approve(opts, contract.UniswapAddress, a1)
+		_, err := contract.ERC20_Approve(opts, contract.UniswapAddress, a1)
 		if err != nil {
 			fmt.Println(err)
 			c.JSON(200, gin.H{"value": "授权失败"})
@@ -95,7 +99,7 @@ func TokenToEthSwap(c *gin.Context) {
 		}
 	}
 
-	_, err = contract.Swap_TokenToEthSwap(opts, a1, big.NewInt(1), big.NewInt(999999999999999))
+	_, err := contract.Swap_TokenToEthSwap(opts, a1, big.NewInt(1), big.NewInt(999999999999999))
 
 	if err != nil {
 		fmt.Println("交易失败")

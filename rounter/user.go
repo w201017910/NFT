@@ -40,8 +40,9 @@ func Register(ctx *gin.Context) {
 		newName = "./frontend/static/updata/" + fileName
 		ctx.SaveUploadedFile(file, newName)
 	}
-	fmt.Println(privateKey == "" && keyFileErr == nil)
+
 	if privateKey != "" {
+		fmt.Println(1)
 		keyFile, err := util.ImportAccountByPrivateKey(privateKey, password)
 		if err != "" {
 			ctx.JSON(200, gin.H{
@@ -52,6 +53,7 @@ func Register(ctx *gin.Context) {
 		publicKey := crypto.PubkeyToAddress(privateKey_.PublicKey)
 		database.InsertUser(name, password, publicKey.String(), email, newName, keyFile, "")
 		ctx.SetCookie("name", name, 1000, "/", "localhost", false, true)
+		ctx.JSON(200, gin.H{})
 	} else if keyFileErr != nil {
 		fmt.Println("keyFileErr: ", keyFileErr)
 	} else {
